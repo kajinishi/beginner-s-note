@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <!-- ↓syntaxhighlighter_3.0.83
+    <script type="text/javascript" src="syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script type="text/javascript" src="syntaxhighlighter_3.0.83/scripts/shBrushCpp.js"></script>
+    <link type="text/css" rel="stylesheet" href="syntaxhighlighter_3.0.83/styles/shCoreDefault.css"/>
+    <link type="text/css" rel="stylesheet" href="syntaxhighlighter_3.0.83/styles/shThemeEmacs.css"/>
+    <script type="text/javascript">
+      SyntaxHighlighter.all();
+      SyntaxHighlighter.config.space = ' '; // &nbsp;じゃなく半角スペースにする
+    </script>
+     ↑syntaxhighlighter_3.0.83 -->
+    <!-- ↓cssファイル -->
+    <meta http-equiv="content-style-type" content="text/css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- ↑css -->
+    <!-- ↓js -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/menue.js"></script>
+    <!-- ↑js -->
+    <title>Beginner's note</title>
+  </head>
+
+  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+    <div class="fixed-bg">
+      <!-- style=" border:solid 1px rgba(255, 255, 255, 0);" ←これすると、画像全体にbcolorが適用されないジレンマ.あとの要素のbcolorをbodyと同じにしてる -->
+      <h1 style="color:rgb(255, 255, 255); padding:80px 80px 400px 100px; background-color:rgba(0, 0, 0, 0.2); font-family:fantasy;" onclick="photopick();">Beginner's note</h1>
+      <!-- <button type="button" onclick="photopick();" class="transbutton" style="position:absolute; bottom: 4px; right:4px;">変更</button> -->
+    </div>
+    <script>
+      function photopick() {
+        var pics = ["img/背景/海.jpg", "img/背景/船と海辺.jpg", "img/背景/夕暮れの山.jpg", "img/背景/緑と海.jpg","img/背景/夕日の海.jpg"]; // ,"img/背景/.jpg"
+        var pic = pics[Math.floor(Math.random() * pics.length)];
+        $(".fixed-bg").css("background-image", "url(" + pic + ")");
+      }
+      photopick();
+    </script>
+
+    <script>
+      photo(1, "こんなに意味ないホームつくったの自分くらいやない？");
+    </script>
+    <div class="balloonr"><span>FF外から失礼します<br>ブサイクすぎワロタwww<br>FF外から失礼しました</span></div>
+    <div style="clear:both;"></div>
+    <script>
+      dropdown();
+    </script>
+  </body>
+
+</html>

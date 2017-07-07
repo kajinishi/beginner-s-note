@@ -1,0 +1,79 @@
+/* ↓ドロップダウン */
+nav {
+    width:100%;
+    top:0;
+    margin-top:0;
+    margin-left: 3px;
+    clear:both;
+    position:fixed;
+}
+/* 参考 : http://www.nxworld.net/tips/css-simple-hoverable-dropdown.html */
+nav ul {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+nav ul::after {
+	display: block;
+	clear: both;
+	content: '';
+}
+nav ul li {
+  background-color: rgb(157, 216, 232);
+	width: 19.7%; /* ←親の幅 */
+  height: 50px;
+	text-align: center;
+	position: relative;
+	float: left;
+	border: 2px solid white;
+}
+nav ul li:not(:first-child) {
+	border-left: none;
+}
+nav ul li a {
+	display: inline-block;
+	padding: 1em 4em;
+	color: black;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+}
+nav ul li:hover {
+	background-color: rgb(92, 169, 189);
+}
+ul li:hover > ul {
+	display: block;
+}
+nav ul ul {
+	width: 100%;
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: -2px;
+}
+nav ul ul li {
+	width: 100%;
+	float: none;
+	margin: 0;
+}
+nav ul ul li:not(:first-child) {
+	border: 2px solid #fff;
+	border-top: none;
+}
+nav ul ul ul {
+	position: absolute;
+	top: -2px;
+	left: 100%;
+}
+nav li ul li ul:before {
+  position: absolute;
+  content: "";
+  top: 21px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-left-color: white;
+}

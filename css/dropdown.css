@@ -32,7 +32,7 @@ nav ul li:not(:first-child) {
 	border-left: none;
 }
 nav ul li a {
-	display: inline-block;
+	display: block;
 	padding: 1em 4em;
 	color: black;
 	line-height: 1;
@@ -67,6 +67,18 @@ nav ul ul ul {
 	top: -2px;
 	left: 100%;
 }
+nav li ul li ul {
+  left: 100%;
+}
+nav ul li ul li ul li{
+  background-color: rgb(152, 228, 226);
+}
+nav li:last-child ul li ul {
+  left: -100%;
+  width: 100%;
+}
+
+/*
 nav li ul li ul:before {
   position: absolute;
   content: "";
@@ -77,3 +89,4 @@ nav li ul li ul:before {
   border: 5px solid transparent;
   border-left-color: white;
 }
+*/

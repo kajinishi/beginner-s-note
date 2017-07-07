@@ -63,17 +63,22 @@ function browserjudge(){//使用中のブラウザ判定
 }
 //タブ
 $(function(){
-  $("#tabcontents div[id != 'tab0']").hide();//一度全て消す
+  $("#tabcontents div").hide();//一度全て消す
+  var youros=["Windows","Mac","Linux"];
+  var shown="false";
+  for(var i=0;i<3;i++){
+    if(youros[i]==OSjudge()){
+      $("#tab"+String(i)).fadeIn();shown="true";
+    }
+  }
+  if(shown=="false")$("#tab0").fadeIn();
+
   $(".tab li").click(function(){
     $("#tabcontents div").hide();//一度全て消す
-    //$(".current").removeClass("current");
-    //$("#tab"+$(this).index()).addClass("current");
-    //$($(this).attr("href")).fadeIn();
     var target=$("#tab"+$(this).index()).offset().top;
     target-=10;
     $("html, body").animate({scrollTop:target},500);
     $("#tab"+$(this).index()).fadeIn();
-
     return true;
   });
 });

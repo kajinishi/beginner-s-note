@@ -176,7 +176,7 @@ body {
 }
 .tab li a:hover{opacity: 0.5;}
 #tabcontents{clear: both;}
-#tabcontents div {margin-left:40px;}
+#tabcontents div {margin-left:40px;margin-right:10px;}
 .windows{
   border: solid 3px #00BCF3;
   background-color: white;

@@ -1,4 +1,60 @@
-function dropdown(place){//画面トップのナビゲーション
+//各カテゴリーのメニュー
+function parent_menu(name,link,returnkind,n){
+  var num=name.length;
+  if(returnkind=="link")return link[n];
+  if(returnkind=="name")return name[n];
+  if((returnkind=="li")||(returnkind=="li-ban")){
+    for(var i=0;i<num;i++){
+      if(!((returnkind=="li-ban")&&(n==i))){
+        document.write('<li><a href='+link[i]+'>'+name[i]+'</a></li>');//<br>?
+      }
+      else document.write('<font>'+name[i]+'</font></br>')
+    }
+  }
+}
+function cmenue(place,returnkind,n){//cの一覧
+  var name = new Array(),link=new Array();
+  name[0]="第0章 実行環境を整えよう";
+  name[1]="第1章 入出力関数,変数";
+  name[2]="第2章 乱数と条件文";
+  name[3]="第3章 繰り返し文";
+  name[4]="第4章 みんな大好き!ポインタと配列";
+  name[5]="第5章 関数を作ってみよう";
+  name[6]="第6章 構造体と列挙体とか";
+  var num=name.length,fplace="";
+  if(place==null || place=="")fplace="c/"
+  else if(place!="c")fplace="../c/";
+  for(var i=0;i<num;i++)link[i]=fplace+"c"+i+".html";
+  parent_menu(name,link,returnkind,n);
+}
+function cppmenue(place,returnkind,n){//c++の一覧
+  var name = new Array(),link=new Array();
+  name[0]="第0章 実行環境を整えよう";
+  name[1]="第1章 入出力関数,変数";
+  name[2]="第2章 乱数と条件文";
+  name[3]="第3章 繰り返し文";
+  name[4]="第4章 みんな大好き!ポインタと配列";
+  name[5]="第5章 関数を作ってみよう";
+  name[6]="第6章 構造体と列挙体とか";
+  var num=name.length,fplace="";
+  if(place==null || place=="")fplace="cpp/"
+  else if(place!="cpp")fplace="../cpp/";
+  for(var i=0;i<num;i++)link[i]=fplace+"cpp"+i+".html";
+  parent_menu(name,link,returnkind,n);
+}
+function algomenu(place,returnkind,n){//アルゴリズムの一覧
+  var name = new Array("動的計画法","ワーシャルフロイド","ダイクストラ","二分探索","ヒープ","ソート");
+  var link=new Array("dp","wf","d","binarysearch","heap","sort"),num=name.length;
+  var fplace="";
+  if(place==null || place=="")fplace="algorithm/"
+  else if(place!="algorithm")fplace="../algorithm/";
+  for(var i=0;i<num;i++){
+    link[i]=fplace+link[i]+".html";
+  }
+  parent_menu(name,link,returnkind,n);
+}
+//ドロップダウンメニュー
+function dropdown(place){
   /* ↓パスのやつ*/
   var index="",c="c/",cp="c++/",DX="DX/",Unity="Unity/",algorithm="algorithm/",making="making/";
   if(place!=null && place!=""){

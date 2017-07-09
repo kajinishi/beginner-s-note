@@ -1,9 +1,19 @@
+function gotoscroll(){
+	$("a[href*=#]:not([href=#])").click(function(){
+		// 移動先のコンテンツ位置を取得
+		var target = $($(this).attr("href")).offset().top;
+		// xpx減らす
+		if($(":not([href=#top])"))target -= 60;
+		// コンテンツへスクロール
+		$("html, body").animate({scrollTop: target}, 500);
+		return false;
+	});
+}
 //描写
 function photo(kind, str, place, memo) { //しゃべる描写の関数
   var pkind = new Array("img/teacher.png", "img/student.png"); //偶数teacher,奇数studentにしたい
   var num=pkind.length;
   var role = new Array("教師","生徒");
-
   /* ↓パスの変更 */
   if(place!=null && place!=""){
     for (var i = 0; i < pkind.length; i++) pkind[i]="../"+pkind[i];
@@ -29,7 +39,6 @@ function photo(kind, str, place, memo) { //しゃべる描写の関数
     document.write("</table>");
   }
 }
-
 //幅変化
 function fullwidth(target){
   var fullsize=$("#mainWrap").width();
@@ -72,7 +81,6 @@ $(function(){
     }
   }
   if(shown=="false")$("#tab0").fadeIn();
-
   $(".tab li").click(function(){
     $("#tabcontents div").hide();//一度全て消す
     var target=$("#tab"+$(this).index()).offset().top;

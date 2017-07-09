@@ -23,12 +23,14 @@
     <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/menue.js"></script>
-    <script type="text/javascript" src="wheather/mamewaza_weather.min.js"></script> <!-- 天気のやつ -->
     <!-- ↑js -->
     <title>Beginner's note</title>
   </head>
 
   <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+    <script>
+      dropdown();//nav
+    </script>
     <div class="fixed-bg">
       <!-- style=" border:solid 1px rgba(255, 255, 255, 0);" ←これすると、画像全体にbcolorが適用されないジレンマ.あとの要素のbcolorをbodyと同じにしてる -->
       <h1 style="color:rgb(255, 255, 255); padding:80px 80px 400px 100px; background-color:rgba(0, 0, 0, 0.2); font-family:fantasy;" onclick="photopick();">Beginner's note</h1>
@@ -61,9 +63,6 @@
       </tr>
     </table>
 
-    <script>
-      dropdown();
-    </script>
   </body>
 
 </html>

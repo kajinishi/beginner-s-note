@@ -19,13 +19,16 @@
   </head>
 
   <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
-    <div style="margin-top:60px;display:inline-block; position:relative;">
-      <p>
+    <div style="display:inline-block;margin-left:10px;margin-top:60px; border-left: 5px solid rgb(222, 156, 156); border-bottom: 1px solid rgb(227, 159, 159);">文字列を貼り付けたら、それに対応するテーブルタブを作成するページです。</div>
+    <div style="clear:both;"></div>
+    <div style="margin-top:0px;display:inline-block; position:relative;">
+
+      <div style="margin-left:5px;">
         <input type="radio" name="tableborder" value="border-collapse: collapse;" checked="checked">枠を重ねる
         <input type="radio" name="tableborder" value="border-collapse: separate;">枠を分離
-      </p>
-      <textarea id="message" cols="60" rows="35" placeholder="区切りは半角スペースか半角コンマ(,)で。半角、全角は区別されます"></textarea>
-      <div style="display:inline-block;position:absolute;right:-170px;top:100px;border-top:solid 4px rgb(240, 73, 73);border-bottom:solid 4px rgb(240, 73, 73);">
+      </div>
+      <textarea style="margin-left:5px;overflow:scroll;" id="message" cols="60" rows="30" placeholder="区切りは半角スペースか半角コンマ(,)。半角、全角は区別されます"></textarea>
+      <div style="display:inline-block;position:absolute;right:-165px;top:200px;border-top:solid 4px rgb(240, 73, 73);border-bottom:solid 4px rgb(240, 73, 73);">
         ↓ボタンをクリック！<br>
         <button type="button" name="space" onclick="stringsplit(' ');">区切りは半角スペース</button><br>
         <button type="button" name="space" onclick="stringsplit(',');">区切りは半角コンマ( , )</button><br>
@@ -34,7 +37,7 @@
     </div>
     <div style="margin-top:60px;margin-left:170px;display:inline-block;">
       <label class="freehand1">結果表示</label><br>
-      <textarea id="tabletag" cols="60" rows="35" placeholder="ここに出力されます"></textarea>
+      <textarea id="tabletag" style="overflow:scroll;" cols="60" rows="30" placeholder="ここに出力されます"></textarea>
     </div>
     <div style="clear:both;"></div>
     <script>

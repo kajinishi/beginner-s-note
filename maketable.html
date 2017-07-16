@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <!-- ↓cssファイル -->
+    <meta http-equiv="content-style-type" content="text/css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="css/frame.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- ↑css -->
+    <!-- ↓js -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/menue.js"></script>
+    <!-- ↑js -->
+    <title>table作成 -Beginner's note</title>
+  </head>
+
+  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+    <div style="margin-top:60px;display:inline-block; position:relative;">
+      <p>
+        <input type="radio" name="tableborder" value="border-collapse: collapse;" checked="checked">枠を重ねる
+        <input type="radio" name="tableborder" value="border-collapse: separate;">枠を分離
+      </p>
+      <textarea id="message" cols="60" rows="35" placeholder="区切りは半角スペースか半角コンマ(,)で。半角、全角は区別されます"></textarea>
+      <div style="display:inline-block;position:absolute;right:-170px;top:100px;border-top:solid 4px rgb(240, 73, 73);border-bottom:solid 4px rgb(240, 73, 73);">
+        ↓ボタンをクリック！<br>
+        <button type="button" name="space" onclick="stringsplit(' ');">区切りは半角スペース</button><br>
+        <button type="button" name="space" onclick="stringsplit(',');">区切りは半角コンマ( , )</button><br>
+        ➡︎➡︎➡︎➡︎➡︎➡︎➡︎➡︎➡︎➡︎
+      </div>
+    </div>
+    <div style="margin-top:60px;margin-left:170px;display:inline-block;">
+      <label class="freehand1">結果表示</label><br>
+      <textarea id="tabletag" cols="60" rows="35" placeholder="ここに出力されます"></textarea>
+    </div>
+    <div style="clear:both;"></div>
+    <script>
+      var string;
+      function stringsplit(trigger){// 参考:http://nanoappli.com/blog/archives/655
+        var text=document.getElementById('message').value.replace(/\r\n|\r/g, "\n");
+        var line=text.split('\n');
+        var word,tablestyle= $("[name=tableborder]:checked").val();//collapseかseparateか
+        string="<table style="+tablestyle+"> \n";
+        for ( var i = 0; i < line.length; i++ ) {
+          string+="<tr>";
+          var word=line[i].split(trigger);//区切り
+          for(var j=0;j<word.length;j++){string+="<td>"+word[j]+"</td>";}
+          string+="</tr> \n";
+        }
+        string+="</table>";
+        document.getElementById('tabletag').value=string;
+      }
+
+      $(document).ready(function(){//tabletagの全選択を維持, 参考: http://semooh.jp/jquery/ref/cont/select_all/
+        $('#tabletag')
+        .focus(function(){$(this).select();})
+        .click(
+          function(){$(this).select();
+          return false;
+        });
+      });
+
+
+      dropdown();//nav
+    </script>
+  </body>
+
+</html>

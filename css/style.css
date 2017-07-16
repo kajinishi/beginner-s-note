@@ -172,9 +172,10 @@ body {
   padding: 5px;
   border-radius: 15px 15px 0 0;
   border-bottom: none;
-  color:black;
 }
-.tab li a:hover{opacity: 0.5;}
+.tab li a:hover{
+  opacity: 0.5;
+}
 #tabcontents{clear: both;}
 #tabcontents div {margin-left:40px;margin-right:10px;}
 .windows{

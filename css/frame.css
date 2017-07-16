@@ -1,0 +1,428 @@
+/* ↓見出し用 */
+.sew1 {
+	padding: 20px;
+	border: 2px dashed rgba(255, 255, 255, .5);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	/* color:#fff; */
+	background: LightSkyBlue;
+	box-shadow: 0 0 0 5px LightSkyBlue, 0 2px 3px 5px rgba(0, 0, 0, .5);
+	/*
+	-moz-box-shadow:0 0 0 5px #3cb371,0 2px 3px 5px rgba(0,0,0,0.5);
+	-webkit-box-shadow:0 0 0 5px #3cb371,0 2px 3px 5px rgba(0,0,0,0.5);
+	*/
+}
+
+/*.sew1+.sew1 {
+	margin-left: 10px;
+}*/
+
+.minihead {
+	display: inline;
+	margin-top: 15px;
+	margin-bottom: 3px;
+	padding: 5px 10px;
+	border-top: 3px dotted #d7605e;
+	border-right: 3px dotted #d7605e;
+	border-bottom: 3px dotted #d7605e;
+	border-left: 3px dotted #d7605e;
+}
+.underline {
+	margin-top: 15px;
+	margin-bottom: 10px;
+	padding: 10px 15px;
+	border-bottom: 5px double #d7605e;
+}
+
+.line1 {
+	/* 以前のやつ
+	padding: .25em 0 .5em .75em;
+	border-left: 6px solid red;
+	border-bottom: 1px solid #ccc;
+	*/
+	/* ↓サイドバーに合わせた付箋風デザイン */
+	position: relative;
+	margin-left: -15px;
+	padding: 8px 15px;
+	border-left: 13px solid rgb(189, 0, 255);
+	background: #f9fbe8;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .3);
+}
+.line2 {
+	padding: 0.5em 0.75em;
+	border-left: 6px solid #3498db;
+	background-color: #ccc;
+}
+.l3 {
+	/*小見出し用*/
+	display: inline;
+	padding: 4px 5px;
+	border-style: double;
+	border-color: blue;
+	background: skyblue;
+}
+.freehand1 {
+	padding: 3px;
+	border: 3px solid #3498db;
+	border-radius: 3em 0.7em 2em 0.7em/.7em 2em 0.7em 3em;
+}
+.tape1 {
+	font: bold 30px/1.6 Arial, Helvetica, sans-serif;
+	position: relative;
+	margin: 0 -1px;
+	-webkit-transform: rotate(-3deg) skew(-3deg);
+	-moz-transform: rotate(-3deg) skew(-3deg);
+	-ms-transform: rotate(-3deg) skew(-3deg);
+	-o-transform: rotate(-3deg) skew(-3deg);
+	transform: rotate(-3deg) skew(-3deg);
+	text-align: center;
+	color: #333;
+	background: #f0e800;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2), 30px 0 0 0 #f0e800, -30px 0 0 0 #f0e800;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
+}
+.flag1 {
+	font: bold 22px/1.2 Arial, Helvetica, sans-serif;
+	position: relative;
+	margin: 0 20px;
+	padding: 10px 15px;
+	color: #fff;
+	background: #c33;
+}
+.flag1:before {
+	font-size: 25px;
+	line-height: 1.0;
+	position: absolute;
+	top: middle;
+	left: -10px;
+	width: 0;
+	height: 0;
+	content: '<';
+	color: #c96;
+}
+.flag1:after {
+	position: absolute;
+	top: -2px;
+	left: -10px;
+	width: 0;
+	height: 130%;
+	content: ' ';
+	-webkit-transform: rotate(-2deg);
+	-moz-transform: rotate(-2deg);
+	-o-transform: rotate(-2deg);
+	transform: rotate(-2deg);
+	border: #600 solid 2px;
+	border-radius: 2px;
+}
+.balloon {
+	position: relative;
+	padding: 0.5em 0.75em;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	background-color: #fff;
+}
+.balloon:after,
+.balloon:before {
+	position: absolute;
+	top: 30%;
+	right: 100%;
+	width: 0;
+	height: 0;
+	content: '';
+	border: 10px solid transparent;
+}
+.balloon:before {
+	border-right: 15px solid #ccc;
+}
+.balloon:after {
+	margin-right: -2px;
+	border-right: 15px solid #fff;
+}
+.dogyear {
+	position: relative;
+	overflow: hidden;
+	padding: 1em;
+	background: #d2b48c;
+}
+.dogyear:after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	content: ' ';
+	border-width: 16px 16px 0 0;
+	border-style: solid;
+	border-color: #00ff7f;
+	/* 背景色に合わせる */
+	border-top-color: #998366;
+	-webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+	-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+}
+.highlighter {
+	position: relative;
+	padding: 0 0.4em 0.1em;
+}
+.highlighter:after {
+	position: absolute;
+	z-index: -1;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 10px;
+	content: '';
+	background-color: #b6f0fc;
+}
+.heading06 {
+	font: normal 24px/1.3 serif;
+	position: relative;
+	margin: 0 22px 0 10px;
+	padding: 14px 15px 0 20px;
+	color: #009;
+	background: #ffc;
+	box-shadow: 12px 0 0 0 #ffc, 0 12px 0 0 #ffc, 1px 15px 4px -3px rgba(0, 0, 0, .2);
+}
+.heading06:before {
+	position: absolute;
+	top: 100%;
+	left: 100%;
+	width: 0;
+	height: 0;
+	content: ' ';
+	border-width: 12px 12px 0 0;
+	border-style: solid;
+	border-color: transparent;
+	border-top-color: #cc9;
+}
+.heading06:after {
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+	width: 70%;
+	height: 20px;
+	padding: 0 20px;
+	content: ' ';
+	-webkit-transform: rotate(-1deg);
+	-moz-transform: rotate(-1deg);
+	-o-transform: rotate(-1deg);
+	transform: rotate(-1deg);
+	background: rgba(255, 182, 182, .4);
+}
+/* サイドバー用 */
+.tape {
+	position: absolute;
+	top: -13px;
+	left: 36%;
+	width: 85px;
+	height: 28px;
+	-webkit-transform: rotate(-8deg);
+	border-right: 2px dotted rgba(0, 0, 0, .1);
+	border-left: 2px dotted rgba(0, 0, 0, .1);
+	/* セロハン貼った風 */
+	background: rgba(255, 255, 255, .4);
+	box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+	/*margin-left:-25px;*/
+}
+/* ↓ピン留め風 */
+.pin {
+	position: absolute;
+	top: -15px;
+	left: 45%;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: red;
+	box-shadow: 5px 0 5px rgba(0, 0, 0, .5) inset;
+}
+.pin:before {
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	height: 10px;
+	margin-left: -5px;
+	content: '';
+	transform: rotate(20deg);/* 斜めにする */
+	border-left: 2px solid black;
+}
+/* ↑ピン留め風 */
+.sidebox {
+	padding: 0 20px;
+	/* FireFox */
+	-webkit-transform: rotate(3deg);
+	-moz-transform: rotate(3deg);
+	/* Opera */
+	-ms-transform: rotate(3deg);
+	/* Safari and Chrome */
+	-o-transform: rotate(3deg);
+	/* IE */
+	transform: rotate(3deg);
+	background: rgb(175, 182, 45);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
+	/*
+	background:rgb(10, 148, 162);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) inset;
+	*/
+}
+.sidebox a {
+	text-decoration: none;
+}
+/*.sidebox a:link {
+	color: #f04332;
+}
+.sidebox a:visited {
+	color: #b72cc3;
+}
+.sidebox a:hover {
+	color: rgb(28, 255, 0);
+}
+.sidebox a:focus {
+	color: #a30c07;
+}
+.sidebox a:active {
+	color: #a30c07;
+}*/
+/* ↓付箋風 */
+.husen {
+	line-height: 40px;
+	position: relative;
+	width: auto;
+	padding: 0 5px;
+	/* 付箋の色 */
+	border-right: 10px solid red;
+	background: #f0f0f0;
+}
+.husen a {
+	text-decoration: none;
+}
+.husen li {
+	position: relative;
+	display: block;
+	padding: 5px 0 5px 30px;
+	background: rgba(#f0f0f0, .8);
+}
+.husen:after {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	right: 2px;
+	width: 170px;
+	height: 35px;
+	content: '';
+	/* FireFox */
+	-webkit-transform: rotate(3deg);
+	/* 回転 */
+	-moz-transform: rotate(3deg);
+	/* Opera */
+	-ms-transform: rotate(3deg);
+	/* Safari and Chrome */
+	-o-transform: rotate(3deg);
+	/* IE */
+	transform: rotate(3deg);
+	/* Firefox */
+	-webkit-box-shadow: 0 5px 5px #999;
+	/* ぼかし */
+	-moz-box-shadow: 0 5px 5px #999;
+	/* Safari and Chrome */
+	box-shadow: 0 5px 5px #999;
+}
+/*
+.tag a{text-decoration: none;}
+.tag li ul {list-style: none;}
+*/
+.tag li {
+	position: relative;
+	display: block;
+	margin-bottom: 5px;
+	padding: 6px 5px;
+	border-right: 10px solid red;
+	background-color: rgba(255, 255, 255, .5);
+}
+
+.tag li:first-child {
+	border-right: 10px solid rgb(9, 16, 187);
+}
+
+.tag li a {
+	display: block;
+	text-decoration: none;
+}
+
+.tag li:hover {
+	position: relative;
+	left: -10px;
+	background: #fff;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .3);
+}
+/*  */
+.fusen {
+	/*幅はお好きなサイズに*/
+	position: relative;
+	z-index: 0;
+	width: 300px;
+}
+
+.fusen ul li {
+	font-size: 0.9em;
+	position: relative;
+	margin: 1.6em 0;
+	padding: 1em;
+	/* グラデーションで折り目がついた感じに */
+	background: linear-gradient(to right, #ffc 0%, #f1f1c1 .5%, #f1f1c1 13%, #ffc 16%);
+}
+
+.fusen ul li::after {
+	position: absolute;
+	z-index: -1;
+	right: 0;
+	bottom: 5px;
+	display: block;
+	width: 99%;
+	height: 15px;
+	/* ドロップシャドウを少し斜めに配置して、立体感を出す */
+	content: '';
+	transform: rotate(2deg);
+	background: rgba(0, 0, 0, .5);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .3);
+}
+
+.blackboard {
+	position: relative;
+	/* 黒板風 */
+	padding: 15px 10px;
+	color: white;
+	border: 15px solid rgb(161, 121, 31);
+	background-color: rgb(26, 65, 9);
+	box-shadow: 0 5px 5px rgba(0, 0, 0, .5) inset;
+}
+
+.blackboard::after {
+	position: absolute;
+	bottom: -15px;
+	left: 45%;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: red;
+}
+
+.point {
+	position: relative;
+	margin: 16px 0;
+	padding: 2em;
+	border: 2px solid #da4033;
+	border-radius: 4px;
+}
+
+.point::before {
+	font-weight: bold;
+	position: absolute;
+	top: -1.5em;
+	left: 1em;
+	padding: 0 0.5em;
+	content: 'POINT';
+	/*background-color: #fff;*/
+	color: #da4033;
+	/* 1emだと文字が線と被る。背景色にしていればOK...? */
+}

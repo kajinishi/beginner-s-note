@@ -120,7 +120,8 @@ function dropdown(place){
   document.writeln("      <li><a href='http://fontawesome.io/icons/' target='_blank'>fontawesome<i class='fa fa-external-link'></i></a></li> ");
   document.writeln("      <li><a href='http://www.netyasun.com/syntaxhighlighter/source-escape.html#REPLACE' target='_blank'>HTML置換<i class='fa fa-external-link'></i></a></li> ");
   document.writeln("      <li><a href='http://www.yellowpipe.com/yis/tools/HTML_converter/' target='_blank'>HTML整形<i class='fa fa-external-link'></i></a></li> ");
-  //document.writeln("       			<li><a href='#'></a></li> ");
+  document.writeln("      <li><a href='file:///Users/kajinishimasamitsu/Dropbox/HTML/index.html' target='_blank'>元祖HP<i class='fa fa-link'></i></a></li> ");
+  //document.writeln("    <li><a href='#' target='_blank'></a></li> ");
   document.writeln("    </ul> ");
   document.writeln("  </li> ");
   document.writeln(" </ul> ");

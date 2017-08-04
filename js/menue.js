@@ -6,7 +6,7 @@ function parent_menu(name,link,returnkind,n){
   if((returnkind=="li")||(returnkind=="li-ban")){
     for(var i=0;i<num;i++){
       if(!((returnkind=="li-ban")&&(n==i))){
-        document.write('<li><a href='+link[i]+'>'+name[i]+'</a></li>');//<br>?
+        document.write('<li style="list-style: none;"><a href='+link[i]+'>'+name[i]+'</a></li>');//<br>?
       }
       else document.write('<font>'+name[i]+'</font></br>')
     }
@@ -116,7 +116,7 @@ function dropdown(place){
   document.writeln("    <a href='#' style='margin-left:-35px;'><i class='fa fa-cog fa-spin fa-fw' style='color:rgb(91, 87, 70); margin-right:5px'></i>使用ツール</a>");
   document.writeln("    <ul> ");
   document.writeln("      <li><a href='http://mamewaza.com/tools/table-generator.html' target='_blank'>テーブル作成<i class='fa fa-external-link'></i></a></li> ");
-  document.writeln("      <li><a href='"+index+"maketable.html' target='_blank'>文書からテーブル作成<i class='fa fa-link'></i></a></li> ");
+  document.writeln("      <li><a href='"+index+"maketable.html'>文書からテーブル作成<i class='fa fa-link'></i></a></li> ");
   document.writeln("      <li><a href='http://fontawesome.io/icons/' target='_blank'>fontawesome<i class='fa fa-external-link'></i></a></li> ");
   document.writeln("      <li><a href='http://www.netyasun.com/syntaxhighlighter/source-escape.html#REPLACE' target='_blank'>HTML置換<i class='fa fa-external-link'></i></a></li> ");
   document.writeln("      <li><a href='http://www.yellowpipe.com/yis/tools/HTML_converter/' target='_blank'>HTML整形<i class='fa fa-external-link'></i></a></li> ");

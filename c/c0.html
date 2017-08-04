@@ -25,40 +25,43 @@
     <script type="text/javascript" src="../js/menue.js"></script>
     <!-- ↑js -->
     <title>cの環境設定 -Beginner's note</title>
+    <LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
   </head>
 
-  <body>
-    <!-- link="tomato" vlink="orchid" alink="hotpink" -->
-    <div id="mainWrap">
-      <!-- ↓メインウィンドウ -->
-      <ul class="tab">
-        <li><a href="#tab0" class="windows" style="background-color:#00BCF3;color:white;"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</a></li>
-        <li><a href="#tab1" class="mac" style="background-color:silver;color:white;"><i class="fa fa-apple" style="margin-right:2px;"></i>Mac</a></li>
-        <li><a href="#tab2" class="linux" style="background-color:#883877;color:white;"><i class="fa fa-linux" style="margin-right:2px;"></i>Linux</a></li>
-      </ul>
-      <div id="tabcontents">
-        <div id="tab0" class="windows">
-          Windows
+  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+    <div id="mainWrap"><!-- ↓メインウィンドウ -->
+      <article style="margin-left:-20px;">
+        <ul class="tab">
+          <li><a href="#tab0" class="Windows" style="background-color:#00BCF3;color:white;"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</a></li>
+          <li><a href="#tab1" class="Mac" style="background-color:silver;color:white;"><i class="fa fa-apple" style="margin-right:2px;"></i>Mac</a></li>
+          <li><a href="#tab2" class="Linux" style="background-color:#883877;color:white;"><i class="fa fa-linux" style="margin-right:2px;"></i>Linux</a></li>
+        </ul>
+        <div id="tabcontents">
+          <div id="tab0" class="Windows">
+            Windows
+          </div>
+          <div id=tab1 class="Mac">
+            Mac
+          </div>
+          <div id="tab2" class="Linux">
+            Linux
+          </div>
         </div>
-        <div id=tab1 class="mac">
-          Mac
-        </div>
-        <div id="tab2" class="linux">
-          Linux
+      </article>
+    </div><!-- ↑メインウィンドウ -->
+    <div id="sideWrap"><!-- ↓サブウィンドウ -->
+      <div style="background-color: rgb(196, 250, 167); padding-left: 3px; padding-bottom: 3px;" class="li-under">
+        ● c言語<br>
+        <div style="margin-left: 8px;">
+          <script>
+          cmenue("c","li-ban",0);
+        </script>
         </div>
       </div>
 
-    </div>
-    <!-- ↑メインウィンドウ -->
-    <div id="sideWrap">
-      <!-- ↓サブウィンドウ -->
-      サブウィンドだよ(｡･ ω<)ゞ<br>
-        なんか追加してみる？
-    </div>
-    <!-- ↑サブウィンドウ -->
+    </div><!-- ↑サブウィンドウ -->
     <script>
       dropdown("c");
     </script>
   </body>
-
 </html>

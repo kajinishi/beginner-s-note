@@ -5,7 +5,7 @@ body {
     margin: 0;
 }
 #mainWrap { width:75%; float:left; margin-top: 55px;}
-#sideWrap { width:25%; float:right; background-color: rgb(237, 237, 237); margin-top: 55px;}
+#sideWrap { width:24%; float:right; margin-top: 60px; margin-right: 3px;}
 
 .transbutton{
   display:block;
@@ -21,6 +21,30 @@ body {
   background: rgba(0, 0, 0, 0.5);
   border: solid 2px rgba(255, 255, 255, 0.5);
 }
+
+.li-under a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
+}
+.li-under a::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 0;
+  height: 1px;
+  background-color: orange;
+  transition: .3s;
+}
+.li-under a:hover{color:orange;}
+.li-under a:hover::after {width: 100%;}
 /* ↓吹きだし 通常*/
 /*
 使用例
@@ -178,15 +202,15 @@ body {
 }
 #tabcontents{clear: both;}
 #tabcontents div {margin-left:40px;margin-right:10px;}
-.windows{
+.Windows{
   border: solid 3px #00BCF3;
   background-color: white;
 }
-.mac{
+.Mac{
   border: solid 3px silver;
   background-color: silver;
 }
-.linux{
+.Linux{
   border: solid 3px #883877;
   background-color: #E65B30;
 }

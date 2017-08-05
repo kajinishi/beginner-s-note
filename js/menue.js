@@ -8,7 +8,7 @@ function parent_menu(name,link,returnkind,n){
       if(!((returnkind=="li-ban")&&(n==i))){
         document.write('<li style="list-style: none;"><a href='+link[i]+'>'+name[i]+'</a></li>');//<br>?
       }
-      else document.write('<font>'+name[i]+'</font></br>')
+      else document.write('<font class="tooltipsl">'+name[i]+'<span>here!</span></font></br>')
     }
   }
 }
@@ -126,4 +126,18 @@ function dropdown(place){
   document.writeln("  </li> ");
   document.writeln(" </ul> ");
   document.writeln("</nav> <!-- ↓ドロップダウンメニュー --> ");
+}
+
+//見出し関連
+function gotoheadline(idnum,headlinename){//ページ内リンクの見出しに飛ぶやつ
+  document.write("<li><a href='#top'>ページトップへ</a></li>");
+  for(var i=0;i<idnum;i++)document.write("<li><a href='#headline-"+i+"'>"+headlinename[i]+"</a></li>");
+}
+function gotoscroll(){
+	$("#contentmenue a").click(function(){// 移動先のコンテンツ位置を取得
+		var target = $($(this).attr("href")).offset().top;// xpx減らす
+		target -= 60;// コンテンツへスクロール
+		$("html, body").animate({scrollTop: target}, 500);
+		return false;
+	});
 }

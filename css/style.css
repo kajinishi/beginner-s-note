@@ -157,6 +157,33 @@ body {
   right: -6px;
   top: 50%;
 } /*↑生徒用 吹き出し*/
+/* ↓ツールチップ  http://www.cssportal.com/css-tooltip-generator/ */
+.tooltipsl {
+  position: relative;
+  display: inline;
+}
+.tooltipsl span {
+  position: absolute;
+  color: black;
+  background: rgb(157, 216, 232);
+  text-align: center;
+  border-radius: 6px;
+  margin-left:15px;
+  margin-top: -4px;
+  padding:4px 4px;
+}
+.tooltipsl span:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -8px;
+  width: 0; height: 0;
+  border-right: 8px solid rgb(157, 216, 232);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+/* ↑ツールチップ */
 
 /* ↓背景固定でスクロールすると文字だけ移動するようなやつ(圧倒的語彙力) */
 /* 参考 : http://coliss.com/articles/build-websites/operation/css/css-alternate-fixed-scroll-backgrounds-by-codyhouse.html

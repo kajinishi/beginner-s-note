@@ -1,14 +1,3 @@
-function gotoscroll(){
-	$("a[href*=#]:not([href=#])").click(function(){
-		// 移動先のコンテンツ位置を取得
-		var target = $($(this).attr("href")).offset().top;
-		// xpx減らす
-		if($(":not([href=#top])"))target -= 60;
-		// コンテンツへスクロール
-		$("html, body").animate({scrollTop: target}, 500);
-		return false;
-	});
-}
 //描写
 function photo(kind, str, place, memo) { //しゃべる描写の関数
   var pkind = new Array("img/teacher.png", "img/student.png"); //偶数teacher,奇数studentにしたい
@@ -33,7 +22,7 @@ function photo(kind, str, place, memo) { //しゃべる描写の関数
     document.write("<table>");
     document.write("<tr height=auto>");
     document.write('<td><font><img src=' + pkind[kind] + ' alt='+role[Number(kind)%2]+' width="40" height="40"></font></td>');
-    document.write('<td><div class= '+rcolor[Number(kind)%2]+' ><span style="color:black;">'+ str +'<br></span></div></td>');
+    document.write('<td><p class= '+rcolor[Number(kind)%2]+' ><span style="color:black;">'+ str +'<br></span></p></td>');
     document.write('<div style="clear:both;"></div>');
     document.write("</tr>");
     document.write("</table>");

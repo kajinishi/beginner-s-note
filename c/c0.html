@@ -17,6 +17,7 @@
     <meta http-equiv="content-style-type" content="text/css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" type="text/css" href="../css/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="../css/frame.css">
     <link rel="stylesheet" type="text/css" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- ↑css -->
     <!-- ↓js -->
@@ -30,6 +31,21 @@
 
   <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
     <div id="mainWrap"><!-- ↓メインウィンドウ -->
+      <span id="top"></span>
+      <h3 class="underline" id="headline-0">環境設定</h3>
+      <script>
+            photo(0,'それではc言語を学んでいきましょう！<br>...と言いたいんですが、設定をしないとc言語は使えないんですよね',"c");
+            photo(0,'こんなページよりはるかに分かりやすい記事があったのでここを見て設定してください',"c");
+          </script>
+          <div class="husen" style="display:inline-block; margin: 10px;">
+            <a href="http://webkaru.net/clang/setup/" target="_blank">c言語入門 > 環境の構築 > 開発環境の構築 </a>
+          </div>
+          <script>
+            photo(1,'最初から丸投げですか？',"c");
+            photo(0,"...一応、このページでもOS別に説明します...","c");
+            // photo(1,"Linuxが毒々しい色ですね","c");
+            // photo(0,"Ubuntu意識したらこうなった","c");
+          </script>
       <article style="margin-left:-20px;">
         <ul class="tab">
           <li><a href="#tab0" class="Windows" style="background-color:#00BCF3;color:white;"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</a></li>
@@ -40,11 +56,15 @@
           <div id="tab0" class="Windows">
             Windows
           </div>
-          <div id=tab1 class="Mac">
+          <div id="tab1" class="Mac">
             Mac
+            <script>
+            photo(1,"毒々しい色ですね","c");
+            photo(0,"Ubuntu意識したらこうなった","c");
+            document.write('<div ><span style="color:black;">'+ "くそやろう" +'<br></span></div>');
+            </script>
           </div>
           <div id="tab2" class="Linux">
-            Linux
           </div>
         </div>
       </article>
@@ -58,7 +78,16 @@
         </script>
         </div>
       </div>
-
+      <div>
+        <script>
+        var headlinename=new Array("環境設定","実行方法");//i番目(0始まり)の見出しにid='headline-i'を入れる
+        var idnum=headlinename.length;
+        document.write("<ul class='tag' id='contentmenue'>");
+        gotoheadline(idnum,headlinename);
+        document.write("</ul>");
+        gotoscroll();
+        </script>
+      </div>
     </div><!-- ↑サブウィンドウ -->
     <script>
       dropdown("c");

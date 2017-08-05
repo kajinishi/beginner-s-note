@@ -3,16 +3,15 @@
 
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf8">
-    <!-- ↓syntaxhighlighter_3.0.83
       <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
       <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushCpp.js"></script>
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushBash.js"></script>
       <link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shCoreDefault.css"/>
       <link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shThemeEmacs.css"/>
       <script type="text/javascript">
       SyntaxHighlighter.all();
       SyntaxHighlighter.config.space = ' '; // &nbsp;じゃなく半角スペースにする
     </script>
-    ↑syntaxhighlighter_3.0.83 -->
     <!-- ↓cssファイル -->
     <meta http-equiv="content-style-type" content="text/css">
     <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -26,7 +25,7 @@
     <script type="text/javascript" src="../js/menue.js"></script>
     <!-- ↑js -->
     <title>cの環境設定 -Beginner's note</title>
-    <LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
+    <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
   </head>
 
   <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
@@ -38,7 +37,7 @@
             photo(0,'こんなページよりはるかに分かりやすい記事があったのでここを見て設定してください',"c");
           </script>
           <div class="husen" style="display:inline-block; margin: 10px;">
-            <a href="http://webkaru.net/clang/setup/" target="_blank">c言語入門 > 環境の構築 > 開発環境の構築 </a>
+            <a href="http://webkaru.net/clang/setup/" target="_blank">c言語入門 > 環境の構築 > 開発環境の構築 <i class='fa fa-external-link'></i></a>
           </div>
           <script>
             photo(1,'最初から丸投げですか？',"c");
@@ -57,36 +56,74 @@
             Windows
           </div>
           <div id="tab1" class="Mac">
-            Mac
             <script>
-            photo(1,"毒々しい色ですね","c");
-            photo(0,"Ubuntu意識したらこうなった","c");
-            document.write('<div ><span style="color:black;">'+ "くそやろう" +'<br></span></div>');
+              photo(0,"まずはApp Storeから<a href='https://itunes.apple.com/jp/app/xcode/id497799835?mt=12'>Xcode</a>をダウンロード！<br>数時間かかるから時間のあるときに。スリープ入るとダウンロード進まないので気をつけて下さい","c");
+              photo(1,"アプリの「システム環境設定(歯車)」→「省エネルギー」→「可能な限りはハードディスクをスリープさせる」のチェックを外せば放置しても大丈夫です。","c");
+              photo(0,"ダウンロードが完了すれば自動的にgccが入るはず。一応、ターミナルで以下のコマンドを入力して確認してみましょう","c");
+              photo(1,"$ は含めないで下さい。<br>$が始めにあるとユーザーが入力するコマンド、何もないとターミナルに出力された文字列です。","c");
+            </script>
+<pre class="terminal">
+$ gcc -v
+</pre>
+            <script>
+              photo(0,"なんかバージョンぽい情報が表示されれば大丈夫です。","c");
+              photo(0,"入ってないっぽいときは、以下のコマンドも実行してください","c");
+            </script>
+<pre class="terminal">
+$ xcode-select --install
+</pre><br clear="all;">
+            <img src="img/xcode-select.png" alt="xcode-select.png">
+            <script>
+              photo(0,"xcodeから↑を聞かれると思うので、「インストール」を選択し、完了すればgccも使えます ","c");
             </script>
           </div>
           <div id="tab2" class="Linux">
+            <script>
+            photo(1,"毒々しい色ですね","c");
+            photo(0,"Ubuntu意識したらこうなった<br>gccの設定です。まだ入れてないって人は、ターミナルを起動して、以下のコマンドをうって下さい","c");
+            photo(1,"$ は含めないで下さい。<br>$が始めにあるとユーザーが入力するコマンド、何もないとターミナルに出力された文字列です。","c");
+            </script>
+            <blockquote cite="https://webkaru.net/clang/linux-compiler-gcc-install/">
+<pre class="terminal">
+//Debianでは、apt-getコマンドを使ってgccをインストールします。
+$ apt-get install gcc
+
+//ubuntuだとsudoコマンドで
+$ sudo apt-get install gcc
+
+//CentOSでは、yumコマンドを使ってgccをインストールします。
+$ yum install gcc
+</pre>
+            </blockquote>
+            <script>
+              photo(1,"他の人がかいた記事の内容かいて大丈夫なんですかね？","c");
+              photo(0,"引用元書いてるし、苦情用のフォーム作ってるから苦情がきた時に考える","c");
+            </script>
           </div>
         </div>
       </article>
+
     </div><!-- ↑メインウィンドウ -->
     <div id="sideWrap"><!-- ↓サブウィンドウ -->
-      <div style="background-color: rgb(196, 250, 167); padding-left: 3px; padding-bottom: 3px;" class="li-under">
-        ● c言語<br>
-        <div style="margin-left: 8px;">
-          <script>
-          cmenue("c","li-ban",0);
-        </script>
+      <div style="position:fixed;">
+        <div style="background-color: rgb(196, 250, 167); padding: 10px; padding-bottom: 3px; width:120%" class="li-under">
+          ● c言語<br>
+          <div style="margin-left: 8px;">
+            <script>
+            cmenue("c","li-ban",0);
+          </script>
+          </div>
         </div>
-      </div>
-      <div>
-        <script>
-        var headlinename=new Array("環境設定","実行方法");//i番目(0始まり)の見出しにid='headline-i'を入れる
-        var idnum=headlinename.length;
-        document.write("<ul class='tag' id='contentmenue'>");
-        gotoheadline(idnum,headlinename);
-        document.write("</ul>");
-        gotoscroll();
-        </script>
+        <div>
+          <script>
+          var headlinename=new Array("環境設定","実行方法");//i番目(0始まり)の見出しにid='headline-i'を入れる
+          var idnum=headlinename.length;
+          document.write("<ul class='tag' id='contentmenue'>");
+          gotoheadline(idnum,headlinename);
+          document.write("</ul>");
+          gotoscroll();
+          </script>
+        </div>
       </div>
     </div><!-- ↑サブウィンドウ -->
     <script>

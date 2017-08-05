@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+    <!-- ↓cssファイル -->
+    <meta http-equiv="content-style-type" content="text/css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/frame.css">
+    <!-- ↑css -->
+    <!-- ↓js -->
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/menue.js"></script>
+    <!-- ↑js -->
+    <title>科学部スケジュール</title>
+    <LINK REL="SHORTCUT ICON" HREF="img/favicon.ico">
+    <style type="text/css">
+h2{
+  padding: .5em .75em;
+  background-color:#ccc;
+  border-left:6px solid yellow;
+}
+.current{
+  border-left:10px solid orangered;
+}
+    </style>
+  </head>
+  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+    <p style="margin-top:55px;">
+      <a href="index.html">ホーム</a>>後輩たちへ
+    </p>
+    <p>
+        科学部の年間行事をまとめたので参考にしてください(￣▽￣)<br>とくに9月のパソコン甲子園予選の申し込みは早いので注意<br>
+      <s>つくったら思ったより行事すくない</s>
+    </p>
+    <h2 id="4m">4月</h2>
+    <p style="margin-left:10px;">苦痛な部活紹介
+      <s>人が全然来ない(´;ω;｀)</s>
+    </p>
+    <h2 id="5m">5月</h2>
+    <p style="margin-left:10px;">
+      <a href="http://web-ext.u-aizu.ac.jp/pc-concours/2017/programming/p_application.html" target="_blank">パソコン甲子園(プログラミング部門)予選申し込み開始<i class='fa fa-external-link'></i></a>　だいたい5~7月が応募期間。本選自体は9月です
+    </p>
+    <h2 id="6m">6月</h2>
+    <p style="margin-left:10px;">
+      <a href="http://www.gsic.titech.ac.jp/supercon/main/attwiki/" target="_blank">Super computing Contest予選<i class='fa fa-external-link'></i></a>　5月末から開始することもあるので日程はよく確認しておくように
+      <br>事前申し込み必要なし (ただし20周年記念の年は事前申し込みが必要だったので<strong>要確認</strong>)
+    </p>
+    <h2 id="7m">7月</h2>
+    <h2 id="8m">8月</h2>
+    <p style="margin-left:10px;">
+      <s><a href="http://epoch.cs.ehime-u.ac.jp/" target="_blank">愛媛大学工学部情報工学科プログラミングコンテスト(エポック)<i class='fa fa-external-link'></i></a>　
+      <a href="http://epoch.cs.ehime-u.ac.jp/application/index.html" target="_blank">事前申し込み必要</a></s>
+      <br>↑なんか無くなったぽい...
+    </p>
+    <h2 id="9m">9月</h2>
+    <p style="margin-left:10px;">
+      <a href="http://web-ext.u-aizu.ac.jp/pc-concours/index.html" target="_blank">パソコン甲子園予選<i class='fa fa-external-link'></i></a>　予選申し込みは5月~7月なので気を付けよう
+      <br>なんか広高祭と被りそうな時に...
+    </p>
+    <h2 id="10m">10月</h2>
+    <p style="margin-left:10px;">
+      パソコン甲子園予選申し込み開始(リンク見つけられなかった...)　本選は12月
+    </p>
+    <h2 id="11m">11月</h2>
+    <h2 id="12m">12月</h2>
+    <ul>
+      <li>
+        <a href="http://www.ioi-jp.org/" target="_blank">日本情報オリンピック(JOI)予選<i class='fa fa-external-link'></i></a>　10月くらいから予選申し込み開始。顧問の先生に申し込みを頼もう
+      </li>
+      <li>伝統の焼きそばパーティー(●´ω｀●)</li>
+    </ul>
+    <h2 id="1m">1月</h2>
+    <h2 id="2m">2月</h2>
+    <h2 id="3m">3月</h2>
+    <p style="margin-left:10px;">追い出し会</p>
+    <p>
+      <a href="index.html">ホームへ</a>
+    </p>
+    <script>
+    var myD = new Date();
+    var myMonth = myD.getMonth() + 1;
+    $(function(){
+        var idname="#"+myMonth+"m";
+        $(idname).addClass("current");
+    });
+    </script>
+    <script>
+      dropdown();//nav
+    </script>
+  </body>
+</html>

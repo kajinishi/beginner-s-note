@@ -46,9 +46,9 @@
 
     <script>
       photo(1, "こんなに意味ないホームつくったの自分くらいやない？");
-      photo(0,"上の画像はクリックすると変更するという無駄機能付き","","r");
+      photo(0,"上の画像はクリックすると変更するという無駄機能付き<br>ゆっくりクリックしてみてね","","r");
     </script>
-    <table align='right'>
+    <!-- <table align='right'>
       <tr height=auto style='float:right;'>
         <td><p class='balloonr' ><span style="color:black;">FF外から失礼します<br>ブサイクすぎワロタwww<br>FF外から失礼しました</span></p></td>
         <td><img src='img/ポプ子.png' alt='www' height="160px;"></td>
@@ -65,10 +65,26 @@
     <p>
       <label class="freehand1">テキストを貼り付けてね</label><br>
       <textarea id="complaint" cols="100" rows="10" placeholder="苦情はこちらへ♡"></textarea>
-    </p>
+    </p> -->
+    <a href="#" class="btn">苦情はこちらに♡</a>
     <script>
       dropdown();//nav
     </script>
+    <!-- ↓パスワード -->
+    <script>
+    function password(){
+      var pw;
+      pw=prompt("パスワードを入れてください\n誤ったパスワードを入れるとリンク切れが起こります\n間違えて押した時はキャンセルを押してください","");
+      if((pw!=="")&&(pw!=null)){
+        location.href=pw+".html";
+      }
+    }
+    </script>
+    <br clear="all;">
+    <p align=right >
+      <input type="button" value="パスワード入力" onclick="password()">
+    </p>
+    <!-- ↑パスワード -->
   </body>
 
 </html>

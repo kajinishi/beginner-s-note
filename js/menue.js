@@ -87,7 +87,7 @@ function dropdown(place){
   document.writeln("  </li> ");
 
   document.writeln("  <li>");
-  document.writeln("    <a href=\"#\"><i class='fa fa-code' style='color:green; margin-right:5px'></i>プログラム言語</a> ");
+  document.writeln("    <a href=\"#\"><i class='fa fa-code' style='color:green; margin-right:5px'></i>プログラミング言語</a> ");
   document.writeln("  	<ul> ");
   document.writeln("      <li style='position:relative; background-color:rgb(152, 228, 226);'>");
   document.writeln("  			<a href='#' >c<i class='fa fa-caret-square-o-right' style='position:absolute; right:15px; color:white;'></i></a> ");
@@ -135,6 +135,7 @@ function gotoheadline(idnum,headlinename){//ページ内リンクの見出しに
 }
 function gotoscroll(){
 	$("#contentmenue a").click(function(){// 移動先のコンテンツ位置を取得
+    if($(this).attr("href")=="#")return false;
 		var target = $($(this).attr("href")).offset().top;// xpx減らす
 		target -= 60;// コンテンツへスクロール
 		$("html, body").animate({scrollTop: target}, 500);

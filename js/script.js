@@ -72,9 +72,9 @@ $(function(){
   if(shown=="false")$("#tab0").fadeIn();
   $(".tab li").click(function(){
     $("#tabcontents div").hide();//一度全て消す
-    var target=$("#tab"+$(this).index()).offset().top;
-    target-=10;
-    $("html, body").animate({scrollTop:target},500);
+    var target=$(this).offset().top;
+    target-=60;
+    $("html, body").animate({scrollTop:target},5);
     $("#tab"+$(this).index()).fadeIn();
     return true;
   });

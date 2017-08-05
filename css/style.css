@@ -4,7 +4,7 @@ body {
     background-color: rgb(157, 216, 232);
     margin: 0;
 }
-#mainWrap { width:75%; float:left; margin-top: 55px;}
+#mainWrap { width:75%; float:left; margin-top: 55px; margin-left:3px;}
 #sideWrap { width:24%; float:right; margin-top: 60px; margin-right: 3px;}
 
 .transbutton{
@@ -27,11 +27,11 @@ body {
   display: inline-block;
   text-decoration: none;
 
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  -ms-transition: 0.4s;
+  transition: 0.4s;
 }
 .li-under a::after {
   position: absolute;
@@ -228,7 +228,7 @@ body {
   opacity: 0.5;
 }
 #tabcontents{clear: both;}
-#tabcontents div {margin-left:40px;margin-right:10px;}
+#tabcontents div {margin-left:40px;margin-right:10px; padding-left:5px;}
 .Windows{
   border: solid 3px #00BCF3;
   background-color: white;

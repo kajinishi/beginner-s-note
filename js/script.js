@@ -69,7 +69,7 @@ $(function(){
       $("#tab"+String(i)).fadeIn();shown="true";
     }
   }
-  if(shown=="false")$("#tab0").fadeIn();
+  if(shown=="false"){$("#tab0").fadeIn();}
   $(".tab li").click(function(){
     $("#tabcontents div").hide();//一度全て消す
     var target=$(this).offset().top;

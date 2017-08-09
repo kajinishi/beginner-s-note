@@ -33,18 +33,9 @@
       <span id="top"></span>
       <h3 class="underline" id="headline-0">環境設定</h3>
       <script>
-            photo(0,'それではc言語を学んでいきましょう！<br>...と言いたいんですが、設定をしないとc言語は使えないんですよね',"c");
-            photo(0,'こんなページよりはるかに分かりやすい記事があったのでここを見て設定してください',"c");
-          </script>
-          <div class="husen" style="display:inline-block; margin: 10px;">
-            <a href="http://webkaru.net/clang/setup/" target="_blank">c言語入門 > 環境の構築 > 開発環境の構築 <i class='fa fa-external-link'></i></a>
-          </div>
-          <script>
-            photo(1,'最初から丸投げですか？',"c");
-            photo(0,"...一応、このページでもOS別に説明します...","c");
-            // photo(1,"Linuxが毒々しい色ですね","c");
-            // photo(0,"Ubuntu意識したらこうなった","c");
-          </script>
+        photo(0,'それではc言語を学んでいきましょう！<br>...と言いたいんですが、設定をしないとc言語は使えないんですよね',"c");
+        photo(1,"OS別に説明していきます","c")
+      </script>
       <article style="margin-left:-20px;">
         <ul class="tab">
           <li><a href="#tab0" class="Windows" style="background-color:#00BCF3;color:white;"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</a></li>
@@ -53,7 +44,13 @@
         </ul>
         <div id="tabcontents">
           <div id="tab0" class="Windows">
-            Windows
+            <script>
+              photo(1,"windowsだとCUIのgcc,GUIのvisual studioの二つありますね。","c");
+              photo(0,"自分にあった方を選ぼう！<br>...と言いたいけど、選べるような人がこんなページ見てないよな<br>visual studioは確かに優れた環境だけど、小さいコードをたくさん書くのには適してないと自分は思う。","c");
+              photo(1,"一つコードかくと、プロジェクトとして作成されるから、フォルダーレベルでどんどん増えるんですよね...","c");
+              photo(0,"あと、visual stuioは独特のことが多いので、まずはgccでプログラミングの腕を上げてから、大きいプロジェクトを作りたくなったらvisual studiioに移行でいいと思う。","c");
+              photo(1,"というわけで、ここではgccのみの説明になります。<br>まあvisual studioだとダウンロードするだけだし説明することないからね","c")
+            </script>
           </div>
           <div id="tab1" class="Mac">
             <script>
@@ -101,8 +98,18 @@ $ yum install gcc
             </script>
           </div>
         </div>
+        <p style="margin-left:45px;">↓引用元</p>
+        <div class="husen" style="display:inline-block; margin-left: 50px;">
+          <a href="http://webkaru.net/clang/setup/" target="_blank">c言語入門 > 環境の構築 > 開発環境の構築 <i class='fa fa-external-link'></i></a>
+        </div>
       </article>
 
+      <h3 class="underline" id="headline-1">実行方法</h3>
+      <script>
+        photo(0,"コーディングをミスっちゃて一つのページにOS別のタブが複数つくれないので、縦続きで書いてきます","c");
+        photo(1,"書き直す気は?","c");
+        photo(0,"<strong>一切ない</strong>","c");
+      </script>
     </div><!-- ↑メインウィンドウ -->
     <div id="sideWrap"><!-- ↓サブウィンドウ -->
       <div style="position:fixed;">

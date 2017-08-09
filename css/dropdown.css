@@ -33,7 +33,7 @@ nav ul li:not(:first-child) {
 }
 nav ul li a {
 	display: block;
-	padding: 1em 4em;
+	padding: 1em ;
 	color: black;
 	line-height: 1;
 	text-align: center;

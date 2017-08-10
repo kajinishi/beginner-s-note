@@ -6,7 +6,20 @@ body {
 }
 #mainWrap { width:75%; float:left; margin-top: 55px; margin-left:3px;}
 #sideWrap { width:24%; float:right; margin-top: 60px; margin-right: 3px;}
-
+.commingsoon{position:relative;}
+.commingsoon::after{
+  content: "comming soon";
+  background-color: rgba(255, 252, 0, 0.66);
+  position:absolute;
+  border: 1px black solid;
+  top:15%;
+  left:30%;
+  transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+}
 .transbutton{
   display:block;
   color: black;
@@ -226,6 +239,10 @@ body {
 }
 .tab li a:hover{
   opacity: 0.5;
+}
+.tabcon{
+  clear:both;
+  margin-left: 40px;
 }
 #tabcontents{clear: both;}
 #tabcontents div {margin-left:40px;margin-right:10px; padding-left:5px;}

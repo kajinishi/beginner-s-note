@@ -25,7 +25,15 @@ function cmenue(place,returnkind,n){//cの一覧
   if(place==null || place=="")fplace="c/"
   else if(place!="c")fplace="../c/";
   for(var i=0;i<num;i++)link[i]=fplace+"c"+i+".html";
-  parent_menu(name,link,returnkind,n);
+  return parent_menu(name,link,returnkind,n);
+}
+function CFL(num){//footer lead(c)
+document.write('<hr width="100%" size="2" color="black">');
+  if(num>0)document.write('<a href='+cmenue("c",'link',num-1)+'>'+cmenue("c",'name',num-1)+'</a>'+' < ');
+  document.write('<a>'+cmenue("c","name",num)+'</a>'+'>');
+  if(num<6)document.write('<a href='+cmenue("c",'link',num+1)+' > '+cmenue("c",'name',num+1)+'</a>');
+  else document.write('<a href="../index.html">ホームへ</a>');
+document.write('<br>');
 }
 function cppmenue(place,returnkind,n){//c++の一覧
   var name = new Array(),link=new Array();
@@ -69,7 +77,7 @@ function dropdown(place){
   document.writeln("<nav> <!-- ↓ドロップダウンメニュー --> ");
   document.writeln(" <ul> ");
   document.writeln("  <li style='background-color:orange;'><a href='"+index+"index.html'><i class='fa fa-home' style='color:black;'></i>ホームへ</a></li> ");
-  document.writeln("  <li class='commingsoon'>");
+  document.writeln("  <li class='comingsoon'>");
   document.writeln("  <a href=\"#\"><i class='fa fa-laptop' style='color:red; margin-right:5px'></i>PC関連</a> ");
   document.writeln("    <ul> ");
   document.writeln("      <li><a href=\"#\">ファイル操作入門</a></li> ");
@@ -95,7 +103,7 @@ function dropdown(place){
   cmenue(place,"li");
   document.writeln("  			</ul> ");
   document.writeln("  		</li> ");
-  document.writeln("      <li style='position:relative;' class='commingsoon'>");
+  document.writeln("      <li style='position:relative;' class='comingsoon'>");
   document.writeln("  			<a href='#' >c++<i class='fa fa-caret-square-o-right' style='position:absolute; right:15px; color:white;'></i></a> ");
   document.writeln("  			<ul> ");
   cppmenue(place,"li");
@@ -130,7 +138,7 @@ function dropdown(place){
 
 //見出し関連
 function gotoheadline(idnum,headlinename){//ページ内リンクの見出しに飛ぶやつ
-  document.write("<li><a href='#top'>ページトップへ</a></li>");
+  // document.write("<li><a href='#top'>ページトップへ</a></li>");
   for(var i=0;i<idnum;i++)document.write("<li><a href='#headline-"+i+"'>"+headlinename[i]+"</a></li>");
 }
 function gotoscroll(){

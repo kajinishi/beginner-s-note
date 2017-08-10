@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushCpp.js"></script>
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushBash.js"></script>
+      <link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shCoreDefault.css"/>
+      <link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shThemeEmacs.css"/>
+      <script type="text/javascript">
+      SyntaxHighlighter.all();
+      SyntaxHighlighter.config.space = ' '; // &nbsp;じゃなく半角スペースにする
+    </script>
+    <!-- ↓cssファイル -->
+    <meta http-equiv="content-style-type" content="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="../css/frame.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- ↑css -->
+    <!-- ↓js -->
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/menue.js"></script>
+    <!-- ↑js -->
+    <title>cの環境設定 -Beginner's note</title>
+    <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
+  </head>
+
+  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+    <div id="mainWrap"><!-- ↓メインウィンドウ -->
+      <span id="top"></span>
+
+    </div><!-- ↑メインウィンドウ -->
+    <div id="sideWrap"><!-- ↓サブウィンドウ -->
+      <div style="position:fixed;">
+        <div style="background-color: rgb(196, 250, 167); padding: 10px; padding-bottom: 3px; width:120%" class="li-under">
+          ● c言語<br>
+          <div style="margin-left: 8px;">
+            <script>
+            cmenue("c","li-ban",5);
+          </script>
+          </div>
+        </div>
+        <div>
+          <script>
+          var headlinename=new Array();//i番目(0始まり)の見出しにid='headline-i'を入れる
+          var idnum=headlinename.length;
+          document.write("<ul class='tag' id='contentmenue'>");
+          gotoheadline(idnum,headlinename);
+          document.write("</ul>");
+          gotoscroll();
+          </script>
+        </div>
+      </div>
+    </div><!-- ↑サブウィンドウ -->
+    <script>
+      dropdown("c");
+    </script>
+  </body>
+</html>

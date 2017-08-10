@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushCpp.js"></script>
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushBash.js"></script>
+      <link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shCoreDefault.css"/>
+      <link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shThemeEmacs.css"/>
+      <script type="text/javascript">
+      SyntaxHighlighter.all();
+      SyntaxHighlighter.config.space = ' '; // &nbsp;じゃなく半角スペースにする
+    </script>
+    <!-- ↓cssファイル -->
+    <meta http-equiv="content-style-type" content="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="../css/frame.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- ↑css -->
+    <!-- ↓js -->
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/menue.js"></script>
+    <!-- ↑js -->
+    <title>cの環境設定 -Beginner's note</title>
+    <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
+  </head>
+
+  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+    <div id="mainWrap"><!-- ↓メインウィンドウ -->
+      <span id="top"></span>
+      <h3 class="underline" id="headline-0">出力</h3>
+      <script>
+      photo(0,"それでは、こんどこそc言語の勉強をしていきましょう！","c");
+      photo(0,"下のコードをコピペしてください(実際に自分の手で打った方が覚えやすいかも)<br><span style='color:green'>コード上でダブルクリック→</span><span style='color:red'>Windows/LinuxはCtrlを押しながらC</span>,<span style='color:blue'>Macはcommandを押しながらC</span>で丸コピできます","c");
+      // photo(1,"いきなりコピペですか<br>ペーストは<span style='color:red'>Windows/LinuxならCtrlを押しながらV</span>,<span style='color:blue'>Macならcommandを押しながらV</span>でできるんですよね。お使いの環境やエディタで異なることがあるので注意です","c");
+      photo(1,"Windowsだとダブルクリックするとコードが1行になることもあってビビると思うけど、貼り付けには問題ないです","c");
+      </script>
+<pre class="brush:cpp;toolbar:false;">
+#include&lt;stdio.h&gt;
+int main(){
+  printf(&quot;Hello World!\n&quot;);
+  return 0;
+}
+</pre>
+      <h4 class="minihead">実行結果(下のように表示されたら成功)</h4>
+<pre class="terminal">
+Hello World!
+</pre>
+      <script>
+        photo(0,'まずは一行目から解説ね。<br>単純にコードを書いていってもしょせん人間用なので機械にとっては「何言ってんだコイツ」状態なわけ',"c");
+        photo(0,'そこでコンパイルして機械でも分かるようにするんだが、コード内で使っている関数(特定の処理をまとめたもの)を理解するための説明書てきなもの<font style="color:red">(ヘッダーファイル)</font>を与えないと機械も困っちゃうんだよ。',"c");
+        photo(1,'確かに私もいきなりドイツ語とかで指示されてもサッパリですね',"c");
+        photo(0,'そこで<font style="color:red">#include<ヘッダーファイル名></font>で説明書みたいなものを指定してあげるんだよ。c言語の基本的な説明書は<font style="color:red">stdio.h</font>だと思ってくれ。基本C言語を使うときはstdio.hをインクルードだ！',"c");
+        photo(1,'ドイツ語の辞典を渡すようなものですね',"c");
+      </script>
+          <!-- <img src="img/c0/c0-1.png" width="600" height="200" alt="No image!" class="pcp"></img> -->
+      <script>
+        photo(0,'原則として<font style="color:red">int main()と呼ばれる関数から処理が開始</font>されるんだ。内容は{ }の間にかいてね。',"c");
+        photo(0,'printfは()の中の""で囲った文字列を出力してくれるよ。c言語では<font style="color:red">文の終わりに ; をつける</font>のを忘れずにね。関数の終わりには入らないことに注意！',"c");
+        photo(1,'&#92;nってなんですか？',"c");
+        photo(0,'<font style="color:red">&#92;nは改行</font>を表す。何回使ってもＯＫ。環境によっては&#92;nじゃなく&yen;nであることも',"c");
+        photo(1,'mac bookで&#92;を表示するには<font style="color:green;">optionキー + &yen;</font>ですね。ちょっと分かりづらいし面倒です。',"c");
+        photo(0,'&#92;(&yen;)から始まる特殊な文字を<a href="http://wisdom.sakura.ne.jp/programming/c/Cdata1.html" target="_blank">エスケープシーケンス<i class="fa fa-external-link"></i></a>というよ。<br>基本&#92;n(改行)を覚えとけば大丈夫。',"c");
+        photo(0,'そんで<font style="color:red">return</font>を記述するとそこで関数が終了するんだよ。returnの後ろには呼び出し元に渡す戻り値を書いてね。<br>(ここはまだ分からなくて大丈夫。main関数の最後にreturn 0;って書くと覚えとけばOK!)',"c");
+      </script>
+      <h3 class="underline" id="headline-1">書式指定</h3>
+      <script>
+        photo(0,'printfはそのまま表示するだけでなく、データを対応させる書式指定での表示もできる。これは口で説明するより自分でコードを書いた方が分かるかな',"c");
+        photo(1,'<font style="color:red;">Attention please!!</font><br>コードの中に日本語がある場合、Windowsのgccで実行しようとする人はコピペせずに自分でうつかツール等で文字コードをSHift_Jisに変換してください！',"c");
+        photo(0,'Windowsのコマンドプロンプトの文字コードはSHift_Jisだけど、このページの文字コードはutf-8だから文字化けが起こっちゃうんだよね(｡･ ω<)ゞ',"c");
+        photo(1,'Visual Studioか、Mac/linuxのターミナルでは大丈夫です',"c");
+        photo(0,"まあコピペだけじゃなく自分の手で実際にコード組むのも必要だわさ<br>なんなら日本語だけ打ち直せばいいし","c");
+      </script>
+<pre class="brush:cpp;toolbar:false;">
+#include&lt;stdio.h&gt;
+int main(){
+ printf(&quot;%sで%dを表示\n&quot;,&quot;書式指定&quot;,3);
+ return 0;
+}
+</pre>
+      <h4 class="minihead">実行結果</h4>
+<pre class="terminal">
+書式指定で3を表示
+</pre>
+          <!-- <img src="img/c0/syosiki.png" alt="No image!" class="pcp"></img> -->
+      <table border="1">
+          <tr>
+              <td bgcolor="white">%d</td>
+              <td bgcolor="silver">整数を10進数で表示</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">%f</td>
+              <td bgcolor="silver">実数(小数点あるやつ)を表示</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">%c</td>
+              <td bgcolor="silver">文字(' 'で囲まれた半角文字1文字)を表示</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">%s</td>
+              <td bgcolor="silver">文字列(" "で囲まれた文字)を表示</td>
+          </tr>
+      </table>
+      <script>
+          photo(1,'この場合だと%sが書式指定、%dが３に対応してるんですね',"c");
+          photo(0,'文字と文字列について補足を。<br>まずc言語では数字と文字を区別するために文字を" "か&#039; &#039;で囲む。',"c");
+          photo(0,'どう区別するのかというと、半角英数字1文字だけなら&#039; &#039;',"c");
+          photo(0,'半角英数字2文字以上や全角文字(半角文字は1バイトに対し全角文字は2バイトかかるので全角1文字でも文字列)などの文字列は" "で囲もう。',"c");
+      </script>
+
+      <h3 class="underline" id="headline-2">変数</h3>
+      <script>
+          photo(0,'データを扱うときに、そのデータを格納するものを<font style="color:red">変数</font>というよ。',"c");
+          photo(0,'保存するデータの型によって変数の種類も異なるんだ',"c");
+      </script>
+      <h4>整数型</h4>
+      <table border="1">
+          <tr bgcolor="orange">
+              <td>型名</td>
+              <td>範囲</td>
+              <td>サイズ（ビット数）</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">char</td>
+              <td bgcolor="silver">-128 ~ 127</td>
+              <td bgcolor="white">8</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">short</td>
+              <td bgcolor="silver">-32768 ~ 32767</td>
+              <td bgcolor="white">16</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">int</td>
+              <td bgcolor="silver">システムで異なる</td>
+              <td bgcolor="white">-</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">long</td>
+              <td bgcolor="silver">-2147483648 ~ 2147483647</td>
+              <td bgcolor="white">32</td>
+          </tr>
+      </table>
+      <h4>実数型</h4>
+      <table border="1">
+          <tr bgcolor="orange">
+              <td>型名</td>
+              <td>範囲</td>
+              <td>サイズ（ビット数）</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">float</td>
+              <td bgcolor="silver">-3.4×10の38乗 ~ 3.4×10の38乗</td>
+              <td bgcolor="white">32</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">double</td>
+              <td bgcolor="silver">-1.7×10の308 ~ 1.7×10の308乗</td>
+              <td bgcolor="white">64</td>
+          </tr>
+      </table>
+      <font>参考：cの絵本</font><br>
+      <!-- <img src="img/c0/c0-2.png" width="240" height="280" alt="No image" class="pcp"></img> -->
+      <script>
+        photo(0,"構文としては<font style='color:red'>変数型 変数名;</font>で変数を作れるよ。<br>変数名は半角英数にしよう。全角や半角カナはつかえないぞ(｡･ ω<)ゞ","c");
+        photo(1,'<a href="http://simd.jugem.jp/?eid=11" target="_blank">予約語<i class="fa fa-external-link"></i></a>は使えないので注意ですね。',"c");/*<br>...というか変数ってなんですか？');*/
+        //photo(0,'情報を保管しておく場所...かなぁ。本ではだいたい箱のイメージが多いな。まあプログラムしていけばわかるようになるよ（適当）');
+        photo(0,'変数には = で値を代入することができるよ。<strong style="color:red;">値を代入</strong>だよ。”等しい”ではないので注意！<br>ここについては後で記述します。とりあえずイコールと同じ感覚で使うとやけどするぜ',"c");
+        photo(1,'ここはネタでなく、かなり大切なので2回言いました。',"c");
+        photo(0,'そうそう、charは半角英数1文字を扱えるんだ。半角英数1文字ってことが重要。全角や、半角でも2文字以上は扱えないよ。',"c");
+      </script>
+
+      <pre class="brush:cpp;toolbar:false;">
+#include&lt;stdio.h&gt;
+int main(){
+ int a;//変数の宣言は 変数型　変数名
+ a=3;  //値を代入
+ double b=1.5,c=3.14;/* 宣言と同時に代入も可能 */
+ printf(&quot;a=%d,b=%f,c=%f\n&quot;,a,b,c);
+ return 0;
+}
+      </pre>
+      <h4 class="minihead">実行結果</h4>
+      <pre class="terminal">
+a=3,b=1.500000,c=3.140000
+      </pre>
+      <script>
+        photo(0,'<font style="color:red">//</font> のうしろから改行まではコンピュータは認識しません。<br><font style="color:red">/*</font> ←この間も認識しません→ <font style="color:red">*/</font> このことを<font style="color:red">コメント</font>といいます',"c");
+        photo(1,'ソースコードは人間も見るので何をしているのかを簡潔に書いておくといいですよね。',"c");
+        photo(0,'<font style="color:blue">「書いた本人でもプログラムの内容を3日で忘れる」</font>という名言があるくらいだからな。<br>まだ短いコードしか書かないけど、長いコードを書き始めるとコメントで内容をすぐ確認できるのは便利だぜ',"c");
+      </script>
+      <h3 class="underline" id="headline-3">演算</h3>
+      <script>photo(0,'演算ってなんか難しそうと思ったあなた、安心してください。ただの計算ってことです',"c");</script>
+      <table border="1">
+          <tr bgcolor="orange">
+              <td>演算子</td>
+              <td>意味</td>
+              <td>使い方</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">+</td>
+              <td bgcolor="silver">足す</td>
+              <td bgcolor="white">a=b+c;(aにはbとcを足した値が入る)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">-</td>
+              <td bgcolor="silver">引く</td>
+              <td bgcolor="white">a=b-c;(aにはbからcを引いた値が入る)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">*</td>
+              <td bgcolor="silver">かける</td>
+              <td bgcolor="white">a=b*c;(aにはbにcをかけた値が入る)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">/</td>
+              <td bgcolor="silver">割る</td>
+              <td bgcolor="white">a=b/c;(aにはbをcで割った値が入る)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">%</td>
+              <td bgcolor="silver">余り</td>
+              <td bgcolor="white">a=b%c;(aにはbをcで割った余りが入る)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">=</td>
+              <td bgcolor="silver">代入</td>
+              <td bgcolor="white">a=a+b;(aにはもともとaに代入されていた値にbを足した値が入る)</td>
+          </tr>
+      </table>
+      <script>
+        photo(1,'=がイコールじゃないっていったのはa=a+1みたいに書けちゃうからですね。全然等しくないのに',"c");
+        photo(0,'そう！<br>=は今までの計算の時みたいな感覚で使っちゃだめですよ！またこんな使い方もできますよ',"c");
+      </script>
+      <table border="1">
+          <tr bgcolor="orange">
+              <td>演算子</td>
+              <td>使い方</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">+=</td>
+              <td bgcolor="white">a+=b;(a=a+bと同じ)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">-=</td>
+              <td bgcolor="white">a-=b;(a=a-bと同じ)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">*=</td>
+              <td bgcolor="white">a*=b;(a=a*bと同じ)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">/=</td>
+              <td bgcolor="white">a/=b;(a=a/bと同じ)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">%=</td>
+              <td bgcolor="white">a%=b;(a=a%bと同じ)</td>
+          </tr>
+      </table>
+      <pre class="brush:cpp;toolbar:false;">
+          #include&lt;stdio.h&gt;
+          int main(){
+            int a=3,b=5,c=7;
+            a=b+3;
+            b=c-b;
+            c/=2;//c=c/2
+            printf(&quot;b+3=%d,c-b=%d\n&quot;,a,b );
+            printf(&quot;a*b=%d,c/2=%d&quot;,a*b,c);
+            return 0;
+          }
+      </pre>
+      <h4 class="minihead">実行結果</h4>
+      <pre class="terminal">
+b+3=8,b-c=2
+a*b=16,c/2=3
+      </pre>
+      <script>
+        photo(1,'cはint型だからc/2が3.5でも整数の3しか記憶できないんですね',"c");
+        photo(0,'ここらへんはややこしいんだよな',"c");
+      </script>
+      <pre class="brush:cpp;toolbar:false;">
+#include&lt;stdio.h&gt;
+int main(){
+  int a=3,b=5;
+  double d=b/a,e=b/3.0,f=5.0/3.0;
+  printf(&quot;整数/整数：5/3=%f\n&quot;,d);
+  printf(&quot;整数/実数：5/(3.0)=%f\n&quot;, e);
+  printf(&quot;実数/整数：(5.0)/3=%f\n&quot;, 5.0/3);
+  printf(&quot;実数/実数：(5.0)/(3.0)=%f\n&quot;,f);
+
+  return 0;
+}
+      </pre>
+      <h4 class="minihead">実行結果</h4>
+      <pre class="terminal">
+整数/整数：5/3=1.000000
+整数/実数：5/(3.0)=1.666667
+実数/整数：(5.0)/3=1.666667
+実数/実数：(5.0)/(3.0)=1.666667
+      </pre>
+      <script>
+        photo(1,'整数/整数をdoubleにいれても計算結果は整数なんですね。',"c");
+        photo(0,'逆に割る,割られる数のどちらか片方だけが実数でも計算結果は実数だな<br>また、インクリメント・デクリメント演算子というのもあります',"c");
+      </script>
+      <table border="1">
+          <tr bgcolor="orange">
+              <td>演算子</td>
+              <td>使い方</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">++</td>
+              <td bgcolor="white">a++または++a(a=a+1と同じ)</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">--</td>
+              <td bgcolor="white">a--または--a(a=a-1と同じ)</td>
+          </tr>
+      </table>
+      <script>
+        photo(1,'a++と++aに違いとかあるんですか？',"c");
+        photo(0,'++a(--a)を前置、a++(a--)を後置というんだが、演算を行うタイミングが異なるんだぜ。<br>前置は代入の前、後置は代入の後って思っとけば大丈夫だ',"c");
+      </script>
+      <pre class="brush:cpp;toolbar:false;">
+          #include&lt;stdio.h&gt;
+          int main(){
+            int x=0,y=0;
+            int a=1,b=1;
+            x=++a;//前置
+            y=b++;//後置
+            printf(&quot;前置だと足した後に代入なのでx=%dだけど\n後置だと代入した後bを足すのでy=%d\n&quot;,x,y);
+            printf(&quot;出力のとき前置だとまず引いて%d,後置だとまだひかずに%dになる\n&quot;,--a,b--);
+            printf(&quot;でも結局a=%d,b=%dで最後はおなじ\n&quot;,a,b);
+            return 0;
+          }
+      </pre>
+      <h4 class="minihead">実行結果</h4>
+      <pre class="terminal">
+前置だと足した後に代入なのでx=2だけど
+後置だと代入した後bを足すのでy=1
+出力のとき前置だとまず引いて1,後置だとまだひかずに2になる
+でも結局a=1,b=1で最後はおなじ
+      </pre>
+      <h3 class="underline" id="headline-4">入力</h3>
+      <script>
+        photo(0,'今まで出力ばかりしてきたけど、値を入力することだってできるんだぜ。<br>入力する値によって対応する記号が異なるから覚えてしまおう',"c");
+      </script>
+      <table border="1">
+          <tr>
+              <td bgcolor="white">%d</td>
+              <td bgcolor="silver">整数を10進数で表示</td>
+          </tr>
+          <tr>
+              <td bgcolor="red">%lf</td>
+              <td bgcolor="silver">実数(小数点あるやつ)を表示</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">%c</td>
+              <td bgcolor="silver">文字(' 'で囲まれた半角文字1文字)を表示</td>
+          </tr>
+          <tr>
+              <td bgcolor="white">%s</td>
+              <td bgcolor="silver">文字列(" "で囲まれた文字)を表示</td>
+          </tr>
+      </table>
+      <script>
+        photo(0,'実数は<font style="color:red">出力は%f</font>,<font style="color:blue">入力は%lf(える えふ)</font>だから注意！<br>入力のとき、変数名の前に&をつけるのを忘れずに！',"c");
+        photo(0,'そんで教えわすれてたけどputs関数でも出力ができます。printfとの違いは<br>書式指定ができない、最後に改行してくれる<br>ってことかな',"c");
+      </script>
+      <pre class="brush:cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        int main(){
+          int a;
+          double b;
+          char c,damy;
+          puts(&quot;整数を入力してください&quot;);//整数
+          scanf(&quot;%d&quot;,&amp;a);
+          printf(&quot;%dですね\n&quot;,a);
+          puts(&quot;実数を入力してください&quot;);//実数
+          scanf(&quot;%lf&quot;,&amp;b);
+          printf(&quot;%fですね\n&quot;,b);
+          scanf(&quot;%c&quot;,&amp;damy);// \nのクリア
+          puts(&quot;1文字入力してください&quot;);//文字
+          scanf(&quot;%c&quot;,&amp;c);
+          printf(&quot;%cですね\n&quot;,c);
+          return 0;
+        }
+      </pre>
+      <h4 class="minihead">実行結果</h4>
+      <pre class="terminal">
+整数を入力してください
+(5と打ってエンター)
+5ですね
+実数を入力してください
+(3.14と打ってエンター)
+3.14ですね
+1文字入力してください
+(c打ってエンター)
+cですね
+      </pre>
+      <script>
+        photo(1,'あれ、12行目の<font style="color:red">&#92;nのクリア</font>って何ですか？',"c");
+        photo(0,'入力のとき値のあとエンタキーを打っただろ？scanfで読み取ってくれるのは値までだから改行の情報が残っちゃうんだよね。intとかの数字だと読み取れないから無視するんだけど、charとかの文字だとなぜか読み取れるから12行目が無いと変数cに改行の情報が入ってcに入力できなくなっちゃうんだよ。',"c");
+        photo(1,'それで変数damyに改行の情報をいれる生贄になってもらってるんですね(⌒▽⌒)',"c");
+        photo(0,'まあそういうことだな。何言ってるかいまいちわかんなかった人は12行目を消してみるとわかると思います',"c");
+      </script>
+      <script>CFL(1)</script>
+    </div><!-- ↑メインウィンドウ -->
+    <div id="sideWrap"><!-- ↓サブウィンドウ -->
+      <div style="position:fixed;">
+        <div style="background-color: rgb(196, 250, 167); padding: 10px; padding-bottom: 3px; width:120%" class="li-under">
+          ● c言語<br>
+          <div style="margin-left: 8px;">
+            <script>
+            cmenue("c","li-ban",1);
+          </script>
+          </div>
+        </div>
+        <div>
+          <script>
+          var headlinename=new Array("出力","書式指定","変数","演算","入力");//i番目(0始まり)の見出しにid='headline-i'を入れる
+          var idnum=headlinename.length;
+          document.write("<ul class='tag' id='contentmenue'>");
+          gotoheadline(idnum,headlinename);
+          document.write("</ul>");
+          gotoscroll();
+          </script>
+        </div>
+      </div>
+    </div><!-- ↑サブウィンドウ -->
+    <script>
+      dropdown("c");
+    </script>
+  </body>
+</html>

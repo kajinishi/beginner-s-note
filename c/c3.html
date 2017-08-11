@@ -24,14 +24,163 @@
     <script type="text/javascript" src="../js/script.js"></script>
     <script type="text/javascript" src="../js/menue.js"></script>
     <!-- ↑js -->
-    <title>cの環境設定 -Beginner's note</title>
+    <title>繰り返し文 -Beginner's note</title>
     <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
   </head>
 
-  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+  <body>
     <div id="mainWrap"><!-- ↓メインウィンドウ -->
-      <span id="top"></span>
+      <h3 class="underline" id="headline-0">for文</h3>
+      <script>
+        photo(0,'ある処理を繰り返させる文にfor文、while文があるよ。まずはfor文から学んでいこう',"c");
+        photo(1,'今回はポケモンネタをぶっこむのでわからない人は流してください',"c");
+      </script>
+      <p>
+        ※スイープビンタやタネマシンガンはポケモンの技のひとつ。ランダムに2~5回連続で攻撃する<br>
+        ※スキルリンクはポケモンの特性のひとつ。連続攻撃技が必ず最大数あたる効果がある
+      </p>
+      <script>photo(0,'流すというか、ちゃんとfor文は理解してね^^;<br>for文の構文↓',"c");</script>
+      <pre class="syntax">
+for(<span style="color:red">開始時の処理</span>;<span style="color:orange">継続条件</span>;<span style="color:pink">1回ループしたときにする処理</span>){
+処理の文...
+}
+      </pre>
+      <script>photo(1,'for文のサンプルプログラムは↓ですね',"c");</script>
+      <pre class="brush: cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        int main(){
+          int i;
+          puts(&quot;スキルリンクチラチーノのスイープビンタ！&quot;);
+          for(i=1;i&lt;=5;i++){//for(開始時の処理;継続条件;1回ループしたときにする処理)
+            printf(&quot;%d回あたった！\n&quot;,i+1);
+          }
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+スキルリンクチラチーノのスイープビンタ！
+1回あたった！
+2回あたった！
+3回あたった！
+4回あたった！
+5回あたった！
+      </pre>
+      <script>
+        photo(0,'まずfor文が始まるとき一番左の文の開始時の処理を行うよ。上のプログラムなら「i=1」で変数iに1を代入だね。<br>for文は継続条件を満たすとき、{ }の間をループするよ。ここでは「i<=5」でiが5以下ならループするね。<br>そして } に来た時(一回処理をした時)、<font style="color:red;">for(;;ここ)</font> に書いた処理を行うよ。ここでは「i++」でiに1足してるね',"c");
+        photo(1,'スキリンとかつまんないですね。乱数を学んだんだしここはテクニガッサのタネマシンガンですよ。H252マリルリ程度なら3発以上でもっていけますよ',"c");
+      </script>
+      <p>
+        ※テクニガッサ・・・特性がテクニシャン(威力60以下の技の威力を1.5倍する。連続攻撃技はひとつひとつの威力が低いのでテクニシャンと相性がいい。ただしスキリンと違って運ゲ)のキノガッサ
+      </p>
+      <pre class="brush: cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        #include&lt;stdlib.h&gt;
+        #include&lt;time.h&gt;
+        int main(){
+          srand( (unsigned)time( NULL ) );
+          int i,r=2+rand()%4;//乱数の最低値を2にする
 
+          puts(&quot;テクニガッサのタネマシンガン！&quot;);
+          for(i=1;i&lt;=r;i++){//開始時の処理;終了条件;1回ループしたときにする処理;
+            printf(&quot;%d回あたった！\n&quot;,i);
+          }
+          if(r==2)puts(&quot;H252マリルリ「2発なら耐えれますがなにか笑」&quot;);
+          else puts(&quot;H252マリルリ「」\n確1!&quot;);
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+テクニガッサのタネマシンガン！
+1回あたった！
+2回あたった！
+H252マリルリ「2発なら耐えれますがなにか笑」
+      </pre>
+      <script>
+        photo(1,'ちっ...',"c");
+        photo(0,'ポケモンわかんない人は何してるか本当に分かんないですよね。簡単にいうと害悪同士の戦いです',"c");
+      </script>
+      <h3 class="underline" id="headline-1">while文</h3>
+      <script>
+        photo(0,'また、繰り返させるのはwhile文でも実行できるよ',"c");
+      </script>
+      <pre class="syntax">
+while(<span style="color:red">継続条件</span>){
+  処理の文...
+}
+      </pre>
+      <script>
+        photo(1,'さっきの乱数使ったfor文をwhileで書くとこうなりますね',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        #include&lt;stdlib.h&gt;
+        #include&lt;time.h&gt;
+        int main(){
+          srand( (unsigned)time( NULL ) );
+          int i,r=2+rand()%4;//乱数の最低値を2にする
+
+          puts(&quot;テクニガッサのタネマシンガン！&quot;);
+          while(i&lt;=r){
+            printf(&quot;%d回あたった！\n&quot;,i++);
+          }
+          if(r==2)puts(&quot;H252マリルリ「2発なら耐えれますがなにか笑」&quot;);
+          else puts(&quot;H252マリルリ「」\n確1!&quot;);
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+テクニガッサのタネマシンガン！
+1回あたった！
+2回あたった！
+H252マリルリ「2発なら耐えれますがなにか笑」
+      </pre>
+      <script>
+        photo(1,'また耐えるんかい！',"c");
+        photo(0,'for文とwhile、どっちが適しているのかは状況で変わるので両方使えるようになろう！',"c");
+      </script>
+      <h3 class="underline" id="headline-2">break,continue</h3>
+      <script>
+        photo(0,'whileやfor文を使う時の注意点としては無限ループがあるな。継続条件が常に真になってループが終了しなくなるんだ。それを防ぐためにbreak文があるぞ。',"c");
+        photo(1,'switchで出てきましたね。たしかbreakの後は実行しないんですよね',"c");
+        photo(0,'ああ。<span style="color:red;">breakのところで繰り返し構文が終了</span>するんだ。',"c");
+        photo(1,'continueはなんですか？',"c");
+        photo(0,'breakはそこで終了するけど、<span style="color:red">continueだと終了せずに繰り返し文の始まりに戻る</span>んだ。スキップと思えばいいな。',"c");
+        photo(0,'サンプルとしてわざと無限ループするプログラムにbreakやcontinueを使ってみよう',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;">
+#include&lt;stdio.h&gt;
+int main(){
+  int i=0,sum=0;
+  printf(&quot;sum=&quot;);
+  for(;;){//for文の文は省略可能。継続条件を略したので無限ループする
+    i++;
+    if(i&gt;20)break;//for文でも無限ループできるってことを知らせるため,わざわざbreakつかう笑
+    if(i%2==0)continue;//偶数はfor文のはじめに戻すことで奇数だけ足すようにする
+    if(i!=1)printf(&quot;+&quot;);
+    printf(&quot;%d&quot;,i);
+    sum+=i;
+  }
+  printf(&quot;=%d\n&quot;,sum);
+  i=1;
+  int multi=1;
+  while(1){//偽=0,真=0以外なので条件が常に真になり無限ループ
+    multi*=++i;
+    if(multi&gt;=100)break;//100以上で終了
+    printf(&quot;multi=%d\n&quot;,multi);
+  }
+  return 0;
+}
+      </pre>
+      <pre class="terminal">
+sum=1+3+5+7+9+11+13+15+17+19=100
+multi=2
+multi=6
+multi=24
+      </pre>
+      <script>
+        photo(1,'最初のfor文はfor(i=1;i<=20;i++)でもいいですね。<br>8行目のcontinueは変数iが偶数だと5行目にもどるようにして9~11行目の処理をさせないようにしてるんですね',"c");
+      </script>
+      <script>CFL(3)</script>
     </div><!-- ↑メインウィンドウ -->
     <div id="sideWrap"><!-- ↓サブウィンドウ -->
       <div style="position:fixed;">
@@ -45,7 +194,7 @@
         </div>
         <div>
           <script>
-          var headlinename=new Array();//i番目(0始まり)の見出しにid='headline-i'を入れる
+          var headlinename=new Array("for文","while文","break,continue");//i番目(0始まり)の見出しにid='headline-i'を入れる
           var idnum=headlinename.length;
           document.write("<ul class='tag' id='contentmenue'>");
           gotoheadline(idnum,headlinename);

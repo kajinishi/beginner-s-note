@@ -24,14 +24,302 @@
     <script type="text/javascript" src="../js/script.js"></script>
     <script type="text/javascript" src="../js/menue.js"></script>
     <!-- ↑js -->
-    <title>cの環境設定 -Beginner's note</title>
+    <title>関数 -Beginner's note</title>
     <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
   </head>
 
-  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+  <body>
     <div id="mainWrap"><!-- ↓メインウィンドウ -->
-      <span id="top"></span>
+      <h3 class="underline" id="headline-0">関数の基本</h3>
+      <script>
+        photo(0,'そんじゃ関数について学んでいこう。関数とは「特定の処理を行うものをまとめたもの」とでも言いましょうか<br>ちなみに、いままで使ってきたmain関数も関数の一種です。実行時に一番最初に実行されます',"c");
+        photo(1,'(°ω°)',"c");
+        photo(0,'...下にまとめるから...',"c");
+      </script>
+      <pre class="syntax">
+<span style="color:yellow;">◯関数の文法</span>
+<span style="color:red">戻り値の型</span> <span style="color:orange">関数名</span> (<span style="color:pink">引数型 引数名 の並び</span>){
+処理の文...
+}
 
+<span style="color:yellow;">◯戻り値</span>
+関数で処理した結果を返すときの値
+return 戻り値; として使う。returnをするとそこで関数が終了する
+戻り値を持たない関数のときは戻り値の型を<span style="color:red;">void</span>にする
+
+<span style="color:yellow;">◯引数</span>
+関数に引き渡す値
+      </pre>
+      <script>
+        photo(1,'戻り値がいまいち分からないですね...',"c");
+        photo(0,'コード見せたほうがてっとりばやそうだな...',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        int sum(int a,int b){//戻り値をint型に指定
+          return a+b;//a+bを戻り値として返す
+        }
+        void show(int a,int b,int n){//戻り値がvoid(何も返さない)
+          printf(&quot;%d + %d = %d\n&quot;,a,b,n);
+          return;//関数はreturnで終了する
+          puts(&quot;わたしは嘘つきです。さて、正直者でしょうか嘘つきでしょうか&quot;);
+        }
+        int main(){
+          int a=10,b=30;
+          int n=sum(a,b);
+          show(a,b,n);
+        }
+      </pre>
+      <pre class="terminal">
+10 + 30 = 40
+      </pre>
+      <script>
+        photo(1,'えっと、関数sumはa+bをint型で変数nに代入してるってことかな？',"c");
+        photo(0,'その通り。double sum(...){...}にするとa+bをdouble型で変数nに代入するよ',"c");
+        photo(1,'voidのshow関数は戻り値がないからreturnだけでいいってことですね。returnで関数が終了するからreturenの下の、自覚ある嘘つきの告白が無視されてるんですね。',"c");
+        photo(0,'あと注意して欲しいんだが、<span style="color:red">main関数の変数a,b,nと他の関数の変数a,b,nは全くの別物</span>なんだ。だからある関数で変数の値をいじっても他の関数には影響しない',"c");
+        photo(1,'変数の寿命ってやつですね。<br>たしか<span style="color:red">変数は宣言された場所より上の行にある一番近い { からそれに対応する } の間でしか使えない</span>ってことですよね',"c");
+        photo(0,'関数の中で宣言された変数は「ローカル変数」といって、その変数の中でしか使えません。for文やwhile,switch,ifなどの {} の中で宣言した変数はそこでしかつかえないんですね。',"c");
+        photo(0,'「グローバル変数」っていうのもあって、これは関数の外で宣言するのでどの関数でも使えます',"c");
+      </script>
+      <pre class="syntax">
+#include&lt;stdio.h&gt;
+int global;<span style="color:red">←グローバル変数なのでここから下のどこでも使える</span>
+void function(){
+ i=0;<span style="color:red">←main関数で変数iを宣言しているが引数で渡していないので別の関数では使えない</span>
+ int i;          <span style="color:orange">↓ここから</span>
+.
+.                <span style="color:orange"> 変数i(main関数のiとは別物)がつかえる範囲</span>
+.
+.                <span style="color:orange">↑ここまで</span>
+}
+int main(){
+ int i;
+ for(i=0;i&lt;5;i++){
+  int j=0;       <span style="color:pink">↓ここから</span>
+  .
+  .              <span style="color:pink"> 変数jがつかえる範囲</span>
+  .
+  .              <span style="color:pink">↑ここまで</span>
+ }
+ for(j=0;j<5;j++){<span style="color:red"> ←変数jは上のfor文の中でしか使えないのでこのfor文では使用不可</span>
+  ...
+ }
+}
+      </pre>
+      <h3 class="underline" id="headline-1">関数プロトタイプ</h3>
+      <script>
+        photo(0,'プログラムコードは大原則として上から順に下へ読み込むので、まだその時点で定義されてない関数を呼び出そうとしたらエラーになります',"c");
+      </script>
+      <pre class="syntax">
+#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#include&lt;time.h&gt;
+void zootopia() {
+ nick(rand()%3);<span style="color:red">//←ここより上でnick関数を宣言していないのでここでは使えない</span>
+ puts(&quot;ズートピアはいいぞ&quot;);
+}
+void nick(int n){<span style="color:red">//←zootopia関数より上で宣言しないといけない</span>
+ if(n==0)puts(&quot;Do you know you love me?&quot;);
+ else if(n==1)puts(&quot;Oh, you bunnies. You’re so emotional.&quot;);
+ else if(n==2)puts(&quot;Flash, flash! Hundred yard dash!&quot;);
+}
+int main(){
+ srand( (unsigned)time( NULL ) );
+ zootopia();
+}
+      </pre>
+      <script>
+        photo(1,'zootopia関数とnick関数の場所を入れ替えたらつかえますよね',"c");
+        photo(0,'そこで関数プロトタイプというのがあってだな、main関数の上に関数名と引数を指定したものを宣言することができるんだ。',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[4,5]">
+        #include&lt;stdio.h&gt;
+        #include&lt;stdlib.h&gt;
+        #include&lt;time.h&gt;
+        void zootopia(void); // ;がいることに注意
+        void nick(int n);    // 同上
+        int main(){
+          srand( (unsigned)time( NULL ) );
+          zootopia();
+        }
+        void zootopia() {
+          nick(rand()%3);
+          puts(&quot;ズートピアはいいぞ&quot;);
+        }
+        void nick(int n){
+          if(n==0)puts(&quot;Do you know you love me?&quot;);
+          else if(n==1)puts(&quot;Oh, you bunnies. You’re so emotional.&quot;);
+          else if(n==2)puts(&quot;Flash, flash! Hundred yard dash!&quot;);
+        }
+      </pre>
+      <pre class="terminal">
+Oh, you bunnies. You’re so emotional.
+ズートピアはいいぞ
+      </pre>
+      <script>
+        photo(1,"「よしよし、もう本当にがんばるんだから...」<br>日本語訳が原文を超えたの初めてみましたよ!いや、確かに原文のyou're so emotionalもyouを一般的なうさぎという主語にしているようにみせて、しっかりとジュディのことを指しているという英語の微妙な言い回しもかっこいいんですけど、なにより日本語訳の(以下略)","c");
+        photo(0,'えっと、4,5行目が関数プロトタイプになってます。プロトタイプは仕様という意味ですね。main関数より前に書くことで宣言の順番によるエラーを防ぐことができます。関数プロトタイプ(4,5行目みたいなやつ)では引数名を省略することができますが、引数の役割を把握できるように引数名は省略しないのが推奨されているようです',"c");
+        photo(1,'実行順がzootopia→nick関数の順なのにエラーがでませんね<br>関数プロトタイプを使えば名前順や機能順で並べられるってことですね。',"c");
+      </script>
+      <h3 class="underline" id="headline-2">引数の渡し方</h3>
+      <script>
+        photo(0,'関数に引数を渡すとき、そのまま渡すのでは呼び出し元の関数側の値は変化しないと学びました。',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        void func(int a){
+          a+=10;
+          printf(&quot;func関数の変数a = %d\n&quot;,a);
+        }
+        int main(){
+         int a=10;
+         func(a);
+         printf(&quot;main関数の変数a = %d\n&quot;,a);
+        }
+      </pre>
+      <pre class="terminal">
+func関数の変数a = 20
+main関数の変数a = 10
+      </pre>
+      <script>
+        photo(1,'func関数の変数aとmain関数の変数aは別物だからお互いに関係ないんですよね<br>変数ひとつなら↓で対応できますけど...',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        int func(int a){
+          a+=10;
+          printf(&quot;func関数の変数a = %d\n&quot;,a);
+          return a;
+        }
+        int main(){
+         int a=10;
+         a=func(a);
+         printf(&quot;main関数の変数a = %d\n&quot;,a);
+        }
+      </pre>
+      <pre class="terminal">
+func関数の変数a = 20
+main関数の変数a = 20
+      </pre>
+      <script>
+        photo(0,'でもこれだと変数を2つ以上変えたいときには使えないよな。最近学んだことを使えばできるんだが...',"c");
+        photo(1,'わかった！ポインタですね',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        void func(int *a,int *b){
+          *a=100;
+          int i;
+          for(i=0;i&lt;3;i++)b[i]=i*10;
+          return;
+        }
+        int main(){
+         int a=10;
+         int b[3]={0};//これで配列の値が全部0になる
+         func(&amp;a,b);
+         printf(&quot;a = %d\n&quot;,a);
+         int i;
+         for(i=0;i&lt;3;i++){
+           printf(&quot;b[%d] = %d\n&quot;,i,b[i]);
+         }
+        }
+      </pre>
+      <pre class="terminal">
+a = 100
+b[0] = 0
+b[1] = 10
+b[2] = 20
+      </pre>
+      <script>
+        photo(1,'main関数で表示してもfunc関数で代入した値になってますね<br>渡した先で値を変えられるようにするために<span style="color:red">関数を呼び出すときに&でアドレス渡して</span>、<span style="color:blue">渡した先の関数はポインタとして受け取る</span>って感じですね',"c");
+        photo(0,'一次元配列の引き渡しでは変数名[]でもできるよ',"c");
+      </script>
+      <pre class="syntax">
+<span style="color:yellow">◯配列を関数に渡す場合 </span>
+型 関数名(引数型 引数名<span style="color:red">[]</span>){
+...
+}
+
+または
+
+型 関数名(引数型 <span style="color:red">*</span>引数名){
+...
+}
+      </pre>
+
+      <h3 class="underline" id="headline-3">関数ポインタ</h3>
+      <script>
+        photo(0,'ポインタは変数のアドレスだけでなく関数のアドレスを記録できるんだ。関数ポインタを使えば関数の管理がすごく便利になるときがあるぞ！',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[7,8]">
+        #include&lt;stdio.h&gt;
+        void func(int a,int b){
+          printf(&quot;a = %d, b = %d\n&quot;,a,b);
+        }
+        int main(){
+          int x=50,y=100;
+          void (*p)(int a,int b);
+          p=func;
+          p(x,y);
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+a = 50, b = 100
+      </pre>
+      <pre class="syntax">
+<span style="color:yellow">◯関数ポインタの宣言</span>
+戻り値の型 <span style="color:red">(*</span>ポインタ名<span style="color:red">)</span> (引数型 引数名の並び)
+      </pre>
+      <script>
+        photo(0,'ポインタ名のところに()をつけないと関数プロトタイプと同じになるので忘れないようにしよう',"c");
+        photo(1,'これポインタつかって関数名変えただけじゃないですか',"c");
+        photo(0,'関数ひとつだとそんなに便利さが分からないかもしれないけど、配列で使うと便利さがわかるよ',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[9]">
+        #include&lt;stdio.h&gt;
+        void add(int a,int b);
+        void sub(int a,int b);
+        void mul(int a,int b);
+        void div(int a,int b);
+        int main(){
+          int x=10,y=2;
+          int i;
+          void (*func[])(int,int)={add,sub,mul,div};
+          for(i=0;i&lt;4;i++){
+            func[i](x,y);
+          }
+          return 0;
+        }
+        void add(int a,int b){
+          printf(&quot;a %c b = %d\n&quot;,&#039;+&#039;,a+b);
+        }
+        void sub(int a,int b){
+          printf(&quot;a %c b = %d\n&quot;,&#039;-&#039;,a-b);
+        }
+        void mul(int a,int b){
+          printf(&quot;a %c b = %d\n&quot;,&#039;*&#039;,a*b);
+        }
+        void div(int a,int b){
+          printf(&quot;a %c b = %d\n&quot;,&#039;/&#039;,a/b);
+        }
+      </pre>
+      <pre class="terminal">
+a + b = 12
+a - b = 8
+a * b = 20
+a / b = 5
+      </pre>
+      <script>
+        photo(1,'わあ、これは便利そうですね。配列だとfor文で回せるのはずるいなあ',"c");
+        photo(0,'たとえばこれ、RPGつくるときに技の関数を全部配列に記録しておいて技番号で呼び出せるようにすれば便利だなと思う。まあ思うだけで作ってないけど',"c");
+      </script>
+      <br>
+      <script>
+        photo(0,'c++ならデフォルト引数や関数テンプレートが使えるんだけど、c言語ではできないみたいだな<br>まあc++のお楽しみってことで',"c");
+      </script>
+      <script>CFL(5)</script>
     </div><!-- ↑メインウィンドウ -->
     <div id="sideWrap"><!-- ↓サブウィンドウ -->
       <div style="position:fixed;">
@@ -45,7 +333,7 @@
         </div>
         <div>
           <script>
-          var headlinename=new Array();//i番目(0始まり)の見出しにid='headline-i'を入れる
+          var headlinename=new Array("関数の基本","関数プロトタイプ","引数の渡し方","関数ポインタ");//i番目(0始まり)の見出しにid='headline-i'を入れる
           var idnum=headlinename.length;
           document.write("<ul class='tag' id='contentmenue'>");
           gotoheadline(idnum,headlinename);

@@ -24,14 +24,211 @@
     <script type="text/javascript" src="../js/script.js"></script>
     <script type="text/javascript" src="../js/menue.js"></script>
     <!-- ↑js -->
-    <title>cの環境設定 -Beginner's note</title>
+    <title>ポインタと配列 -Beginner's note</title>
     <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
   </head>
 
-  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+  <body>
     <div id="mainWrap"><!-- ↓メインウィンドウ -->
-      <span id="top"></span>
+      <script>
+        photo(0,'とうとうきたね...みんな大好き()なポインタが！',"c");
+        photo(1,'初心者はポインタでつまずくってよく言われますね。',"c");
+        photo(0,'う〜ん...ポインタ自体は理屈が分かればそんなに難しくないと思うのだが...<br>個人的にはポインタ自体より、ポインタを使ったコードが難しいって感じかな。ポインタ使えば複雑なこともできるから',"c");
+        photo(1,'まあ、気楽に学んでいきましょう',"c");
+      </script>
+      <h3 class="underline" id="headline-0">配列</h3>
+      <script>
+        photo(0,'まあその前に配列からいこう。<br>10人のテストの点数をint型変数に記録するにはどうすればいいと思う？',"c");
+        photo(1,'え〜...10人くらいなら<br>int a1,a2,a3, ... ,a10;<br>みたいな...',"c");
+        photo(0,'じゃあ100人なら？変数nで人数を入力してもらう時は？',"c");
+        photo(1,'.....',"c");
+        photo(1,'†┏┛墓┗┓†',"c");
+        photo(0,'こういう時のために(なのかは知らないけど),<span style="color:red;">配列</span>っていうのがあるんだ。<br>いままでだと変数は1つの箱として1つの情報しか記憶できなかったけど、箱をいくつか並べた配列だと複数記録できるよ',"c");
+      </script>
+      <pre class="syntax">
+変数型 変数名[要素数];
+      </pre>
+      <script>
+        photo(0,'10人はめんどくさくなるから5人くらいの点数を入力して最大小値、平均を出すプログラムを作ってみましょう',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[14]">
+      #include&lt;stdio.h&gt;
+      int main(){
+        int arry[5],i;
+        int min,max;
+        double ave=0;
+        puts(&quot;5人の点数を入力してね(｡･ ω&lt;)ゞ&quot;);
+        for(i=0;i&lt;5;i++){
+          printf(&quot;%d人目の点数:&quot;,i+1);
+          scanf(&quot;%d&quot;,&amp;arry[i]);
+          if(i==0||max&lt;arry[i])max=arry[i];//最大値の判定(最初の人を基準にする)
+          if(i==0||min&gt;arry[i])min=arry[i];//最小値の判定(最初の人を基準にする)
+          ave+=arry[i];//平均を出すために総和を計算する
+        }
+        ave=ave/(sizeof arry/sizeof arry[0]);//総和を人数で割って平均を出す
+        printf(&quot;最大値:%d\n&quot;,max);
+        printf(&quot;最小値:%d\n&quot;, min);
+        printf(&quot;平均値:%f\n&quot;, ave);
+        return 0;
+      }
+      </pre>
+      <pre class="terminal">
+5人の点数を入力してね(｡･ ω<)ゞ
+1人目の点数:(80と打ってエンター)
+2人目の点数:(90と打ってエンター)
+3人目の点数:(12と打ってエンター)
+4人目の点数:(45と打ってエンター)
+5人目の点数:(60と打ってエンター)
+最大値:90
+最小値:12
+平均値:57.400000
+      </pre>
+      <script>
+        photo(0,'配列の場所の指定は0始まりだから気をつけてね',"c");
+        photo(1,'<span style="font-size:50%">5人くらいならa1,a2,a3,a4,a5でいいじゃん...</span><br>あれ、14行目ってどうやって人数しらべてるんですか？',"c");
+        photo(0,'sizeof演算子っていうのがあって、サイズをバイト数で報告してくれるんだ。<br>仮にここでintは2バイトとしよう。すると<span style="color:red">sizeof int型の変数名</span>は2になるんだ',"c");
+        photo(1,'えーっと、ということは sizeof arry[0] は変数ひとつを示すんだから2になる。<br>arryが配列全体を表すんだから sizeof arry は2バイト*要素数5で10',"c");
+        photo(1,'つまり14行目の (sizeof arry/sizeof arry[0]) は10/2=5をして要素数を求めてるだけですね',"c");
+        photo(0,'うん。要するに<br><span style="color:red">配列全体のバイト数/要素1つのバイト数=<s>要素1つのバイト数</s>*要素数/<s>要素1つのバイト数</s></span><br>で要素数を出してるだけさ',"c");
+        photo(0,'赤字にしたけど、この理屈は覚えなくていいよ。配列数の求め方↓が分かればOK',"c");
+      </script>
+      <pre class="syntax">
+◯配列の要素数の求め方
 
+sizeof 配列名 / sizeof 配列名[0]
+      </pre>
+      <script>
+        photo(1,'ところで、さっき言ってたn人のデータは int arry[n] で記録できるんですね。',"c");
+        photo(0,'いや〜、そうでもないんだ。要素数を数字で指定する配列の<span style="color:red">静的確保</span>ならどの環境でもできるんだけど、arry[n]みたいな実行した時に要素数を決める<span style="color:red">動的確保</span>はどの環境でもできるわけではないんだ。<br>一回、お使いの環境で試してみてください。たぶんgcc系なら大丈夫だとおもいますが...',"c");
+        photo(1,'Visual Studioだとできないですね。じゃあ常に静的に確保しないといけないんですか？',"c");
+        photo(0,'いや、方法があるけどポインタの知識が必要なので後で説明します。今は「int arry[n]では配列は使えないこともある」ということを覚えていてください。配列についてはこのくらい。いよいよポインタです！',"c");
+      </script>
+      <h3 class="underline" id="headline-1">ポインタ</h3>
+      <script>
+        photo(0,'変数を宣言したとき、その変数はどこかにつくられる。その場所をアドレスっていうんんだ。ポインタはそのアドレスを記録するものなんだ。',"c");
+        photo(1,'...へ、ヘーなるほど(分かってない)',"c");
+        photo(0,'まあ最初はそんなもんだよね。日常生活で考えてみるとわかりやすいよ。たとえば変数の値を建物、ポインタを場所で考えてみよう。',"c");
+        photo(1,'100番地に本屋があるとしたとき...',"c");
+        photo(0,'100番地の場所を知っていれば本屋があることが分かる<br>もし本屋が潰れてコンビニができたとしても、100番地の場所を知っていればコンビニに変わったって分かるよな。',"c");
+        photo(1,'変数の値が変わっても、ポインタなら対応できるってことですか？',"c");
+        photo(0,'簡単にいうとそう。代入と大きく違うところです',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;">
+        #include&lt;stdio.h&gt;
+        int main(){
+          int a=100,b=200;
+          int *p;
+          p=&amp;a;
+          b=*p;
+          printf(&quot;a = %d , b = %d , *p = %d\n&quot;,a,b,*p);
+          *p=500;
+          printf(&quot;a = %d , b = %d , *p = %d\n&quot;,a,b,*p);
+        }
+      </pre>
+      <pre class="terminal">
+a = 100 , b = 100 , *p = 100
+a = 500 , b = 100 , *p = 500
+      </pre>
+      <script>photo(0,'↓がポインタの約束事てきな',"c");</script>
+      <pre class="syntax">
+◯<span style="color:red">ポインタの宣言</span>
+変数型 <span style="color:red">*</span>ポインタ名;
+
+◯<span style="color:orange">変数のアドレスの記録</span>
+ポインタ名 = <span style="color:red">&amp;</span>変数名;
+
+ただしポインタの宣言と同時にアドレスを記録させる時は
+　変数型 <span style="color:pink">*</span>ポインタ名 = &amp;変数名
+(ポインタとポインタが扱う変数の型は同じにしないといけない)
+      </pre>
+      <script>
+        photo(1,'あ！ポインタのアドレスの記録の&って入力のときに使いますよね！<br>ポインタに*がついてたりついてなかったりするけど、どう違うんですか？',"c");
+        photo(0,'ポインタの宣言の時と、ポインタの示すアドレスのデータを使うときは*がいる。逆に*がいらないのは変数のアドレスを記録するときくらいだな',"c");
+        photo(0,'*がついている→そのアドレスが示すデータ(建物自体)<br>*がついてない→アドレス(住所)<br>って覚えるといいかも...配列じゃないときはね(￣ー￣)',"c");
+        photo(1,'その(￣ー￣)はスルーとして、プログラム自体を早く説明してくださいよ。',"c");
+        photo(0,'まず5行目(p=&a)、ここではポインタpは変数aのアドレスを記録した。だから*pが変数aの値になる。番地名が分かったんだからその建物も分かるみたいなもんだ。',"c");
+        photo(1,'6行目(b=*p)で変数bに*p(aの値)を代入してるからaもbも*pも全部同じ値になるんですね<br>それから8行目で*pに500を代入して...あれ？変数aも変わってる？*pと同じ値ですね...',"c");
+        photo(0,'番地が分かれば建物も分かるって言っただろ？ポインタが示すアドレスの値を変えればそのアドレスの変数の値も当然変わるよな',"c");
+        photo(1,'p=&aすれば*pとaは<span style="color:red">常に同じ値であり続ける</span>んですね<br>変数bは単なる代入だったから8行目では変わらないんですね。<br>確かに面白いですけど、用途がすぐには思いつきませんね...',"c");
+        photo(0,'このシンクロの用途は...次章で学んでいきます！',"c");
+      </script>
+      <h3 class="underline" id="headline-2">ポインタの配列操作</h3>
+      <script>
+        photo(0,'さっきスルーされた、配列だと違うってとこの説明ね。配列だと&がいらないんだよねー<br>まあコードで確認していこうか',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[6,7]">
+#include&lt;stdio.h&gt;
+int main(){
+int a[5],i;
+int *p=a; //&amp;がいらない.このときa[0]のアドレスを記録している
+for(i=0;i&lt;5;i++){
+*(p+i)=i;
+printf(&quot;a[%d] = %d\n&quot;,i,*(a+i));
+}
+}
+      </pre>
+      <pre class="terminal">
+a[0] = 0
+a[1] = 1
+a[2] = 2
+a[3] = 3
+a[4] = 4
+      </pre>
+      <script>
+        photo(1,'配列だと&なしでいいっぽいですけど、6,7行目なんですかコレ...',"c");
+        photo(0,'まあそんな難しくないよ。単純に<br><span style="color:red;">配列名[i] == *(配列名+i) == *(ポインタ名+i)</span><br>ってだけさ。書き方が違うだけだね',"c");
+      </script>
+      <pre class="syntax">
+配列名[i] == *(配列名+i) == *(ポインタ名+i)
+      </pre>
+      <script>
+        photo(1,'最初は0番目のアドレスを記録するから、他の要素はこうして扱えるようにするんですね',"c");
+        photo(0,'ポインタの基本はこれだけ。難しくないでしょ？<br>まあリストとかポインタ使ってるコードは「は？( ꒪꒫꒪ )」みたいな感じだけどね...',"c");
+      </script>
+      <h3 class="underline" id="headline-3">配列の動的確保</h3>
+      <script>
+        photo(0,'じゃあ動的確保のやり方を学んでいこう',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[7,14]">
+        #include&lt;stdio.h&gt;
+        #include &lt;stdlib.h&gt;//必要
+        int main() {
+          int n,sum=0,i;
+          printf(&quot;要素数:&quot;);
+          scanf(&quot;%d&quot;, &amp;n);
+          int *arry=(int *)malloc(sizeof(int)*n);
+          for(i=0;i&lt;n;i++){
+            printf(&quot;%d番目:&quot;,arry[i]);
+            scanf(&quot;%d&quot;,&amp;arry[i]);
+            sum+=arry[i];
+          }
+          printf(&quot;合計:%d\n&quot;,sum);
+          free(arry);
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+要素数:(3と打つ)
+0番目:(1と打つ)
+0番目:(5と打つ)
+0番目:(9と打つ)
+合計:15
+      </pre>
+      <pre class="syntax">
+<span style="color:yellow">◯配列の動的確保</span>
+変数型 <span style="color:red">*</span>配列名 = (変数型 *)malloc(sizeof(変数型)*要素数);
+
+<span style="color:yellow">◯メモリの解放</span>
+free(配列名);
+      </pre>
+      <script>
+        photo(1,'うげー、書くこと多いですね',"c");
+        photo(0,'malloc関数でメモリを確保して配列として使えるようにするんだ。( )のなかに確保するサイズを渡すけど、変数1つのバイト単位*要素数で配列全部のメモリを確保するよ。mallocはvoid型ポインタを返すので、(変数型 *)で使いたい型に変換(キャスト)しておこう',"c");
+        photo(1,'mallo関数で確保したら普通の配列と同じように使えますね。free関数はなんですか？',"c");
+        photo(0,'malloで確保した領域はプログラムが終了するまで残るから、無駄にメモリが使われていることになるんだ。だからfree関数で不要なメモリを解放してるんだよ。まあプログラムの終了とともに解放されるけど、freeで解放しておいたほうが安心だよね',"c");
+        photo(0,'それと、mallocはメモリを扱うのでバグが入り込むことがあります。必要な時だけ動的確保をしましょう',"c");
+      </script>
+      <script>CFL(4)</script>
     </div><!-- ↑メインウィンドウ -->
     <div id="sideWrap"><!-- ↓サブウィンドウ -->
       <div style="position:fixed;">
@@ -45,7 +242,7 @@
         </div>
         <div>
           <script>
-          var headlinename=new Array();//i番目(0始まり)の見出しにid='headline-i'を入れる
+          var headlinename=new Array("配列","ポインタ","ポインタの配列操作","配列の動的確保");//i番目(0始まり)の見出しにid='headline-i'を入れる
           var idnum=headlinename.length;
           document.write("<ul class='tag' id='contentmenue'>");
           gotoheadline(idnum,headlinename);

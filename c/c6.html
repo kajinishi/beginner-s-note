@@ -28,10 +28,182 @@
     <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
   </head>
 
-  <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
+  <body>
     <div id="mainWrap"><!-- ↓メインウィンドウ -->
-      <span id="top"></span>
+      <h3 class="underline" id="headline-0">構造体の基本</h3>
+      <script>
+        photo(0,'構造体という、異なる変数型をまとめて管理するものがあります',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[10]">
+        #include&lt;stdio.h&gt;
+        struct point{   //構造体のpointの宣言
+          int jap;
+          int eng;
+          int math;
+          int sie;
+          int ss;
+        };              // ;がいることに注意
+        int main(){
+          struct point stu;//point型の変数studentを宣言
+          puts(&quot;国語、英語、数学、理科、社会の順に点数を入力してください&quot;);
+          scanf(&quot;%d %d %d %d %d&quot;,&amp;stu.jap,&amp;stu.eng,&amp;stu.math,&amp;stu.sie,&amp;stu.ss);
+          printf(&quot;国語:%d\n英語:%d\n数学:%d\n理科:%d\n社会:%d\n&quot;,stu.jap,stu.eng,stu.math,stu.sie,stu.ss);
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+国語、英語、数学、理科、社会の順に点数を入力してください
+(156と打ってエンター)
+(192と打ってエンター)
+(130と打ってエンター)
+(75と打ってエンター)
+(179と打ってエンター)
+国語:156
+英語:192
+数学:130
+理科:75
+社会:179
+      </pre>
+      <pre class="syntax">
+<span style="color:yellow">◯構造体の宣言</span>
+struct 構造体名{
+変数型 メンバー名
+.
+.
+};<span style="color:red">← ;がいります</span>
 
+<span style="color:yellow">◯構造体型の変数の宣言と代入</span>
+struct 構造体名 変数名;
+変数名<span style="color:red">.</span>メンバー名 = 値;
+
+      </pre>
+      <script>
+        photo(1,'...えーと、構造体の利点は..?ただ書くのがややこしくなっただけのような...',"c");
+        photo(0,'たとえば、このjapやengを普通の変数で宣言したとしよう。そのとき、生徒1と生徒2の５教科の点数が同じだったとしたらどう代入する？',"c");
+        photo(1,'それ絶対どっちかカンニングしてるじゃないですか！',"c");
+        photo(0,'そういうのはいいから！！どうせ',"c");
+      </script>
+      <pre>
+int jap[2],eng[2],...;
+...
+jap[0]=jap[1];
+eng[0]=eng[1];
+.
+.
+.
+      </pre>
+      <script>
+        photo(0,'って書くだろ？',"c");
+        photo(1,'まあめんどくさいけどそれしか方法なくないですか？',"c");
+        photo(0,'構造体ならいちいちそうしなくていいんだよねー',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[22]">
+        #include&lt;stdio.h&gt;
+        struct point{
+          int jap;
+          int eng;
+          int math;
+          int sie;
+          int ss;
+        };
+        void show(struct point *f,struct point *s){
+          char *str[5]={&quot;国語&quot;,&quot;英語&quot;,&quot;数学&quot;,&quot;理科&quot;,&quot;社会&quot;};
+          int score1[]={(*f).jap,(*f).eng,(*f).math,(*f).sie,(*f).ss};//ポインタで操作
+          int score2[]={s -&gt;jap,s -&gt;eng,s -&gt;math,s -&gt;sie,s -&gt;ss};//アロー演算子で操作
+          int i;
+          puts(&quot;　　生徒1 : 生徒2&quot;);
+          for(i=0;i&lt;5;i++){
+            printf(&quot;%s| %3d : %3d\n&quot;,str[i],score1[i],score2[i]);
+          }
+        }
+        int main(){
+          struct point stu1={156,192,130,75,179};//このように初期化できる
+          struct point stu2;
+          stu2=stu1;
+          show(&amp;stu1,&amp;stu2);
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+生徒1 : 生徒2
+国語| 156 : 156
+英語| 192 : 192
+数学| 130 : 130
+理科|  75 :  75
+社会| 179 : 179
+      </pre>
+      <script>
+        photo(0,'構造体なら22行目だけで全部コピーできるんだ',"c");
+        photo(1,'いや、コピーは分かりますけどshow関数でなにしてるんですか?',"c");
+        photo(0,'言うの忘れてたけど、配列はポインタとしてしか引数にできないんだ。ポインタで構造体にアクセスする方法にも2通りあるから両方示したんだよ',"c");
+      </script>
+      <pre class="syntax">
+<span style="color:yello">◯ポインタで構造体にアクセス</span>
+<span style="color:red">(*ポインタ名).</span>メンバ名
+
+<span style="color:yello">◯アロー演算子(->)で構造体にアクセス</span>
+<span style="color:red">ポインタ名 -></span>メンバ名
+      </pre>
+      <script>
+        photo(1,'16行目の%3dって何ですか？',"c");
+        photo(0,'<span style="color:red">%桁数d</span>で表示する桁数の指定ができるんだ。足りない桁は空白になるよ。ここだと理科の75だけ2桁で表示が汚くなっちゃうから3桁に指定することで全体を揃えているんだ',"c");
+      </script>
+      <h3 class="underline" id="headline-1">列挙体</h3>
+      <script>
+        photo(0,'特定の数値にユーザーが独自の名前をつけれるようになるよ<br>関数ポインタのコードに列挙体を加えてみよう',"c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[6,7,12,13]">
+        #include&lt;stdio.h&gt;
+        void add(int a,int b);
+        void sub(int a,int b);
+        void mul(int a,int b);
+        void div(int a,int b);
+        enum math{ad,su,mu,di};
+        /* ad=0,su=1,mu=2,di=3 になる */
+        int main(){
+          enum math I=ad;
+          int x=10,y=2;
+          int i;
+          void (*func[])(int,int)={add,sub,mul,div};
+          func[I](x,y);
+          func[mu](x,y);
+          return 0;
+        }
+        void add(int a,int b){
+          printf(&quot;a %c b = %d\n&quot;,&#039;+&#039;,a+b);
+        }
+        void sub(int a,int b){
+          printf(&quot;a %c b = %d\n&quot;,&#039;-&#039;,a-b);
+        }
+        void mul(int a,int b){
+          printf(&quot;a %c b = %d\n&quot;,&#039;*&#039;,a*b);
+        }
+        void div(int a,int b){
+          printf(&quot;a %c b = %d\n&quot;,&#039;/&#039;,a/b);
+        }
+      </pre>
+      <pre class="terminal">
+a + b = 12
+a * b = 20
+      </pre>
+      <pre class="syntax">
+<span style="color:yellow">◯列挙体の宣言</span>
+enum 列挙体名{定数1,定数2,...};
+
+<span style="color:yellow">◯列挙体型の変数の宣言</span>
+enum 列挙体名 変数名;
+
+      </pre>
+      <script>
+        photo(0,'もう7行目に書いてある通りだな(適当)',"c");
+        // photo(1,'これだとfunc[0]が足し算とか覚えなくてよくなるんですね。ad(dition)だからfunc[ad]ってすれば足し算の関数になるって分かりますね',"c");
+      </script>
+      <br>
+      <script>
+        photo(1,'cの基礎、だいぶ早足でまとめましたね',"c");
+        photo(0,'ちょっと難しいのとか、書くの忘れてたのとかをまとめたのもあるのでぜひ見てください',"c");
+      </script>
+      <script>CFL(6)</script>
     </div><!-- ↑メインウィンドウ -->
     <div id="sideWrap"><!-- ↓サブウィンドウ -->
       <div style="position:fixed;">
@@ -45,7 +217,7 @@
         </div>
         <div>
           <script>
-          var headlinename=new Array();//i番目(0始まり)の見出しにid='headline-i'を入れる
+          var headlinename=new Array("構造体の基本","列挙体");//i番目(0始まり)の見出しにid='headline-i'を入れる
           var idnum=headlinename.length;
           document.write("<ul class='tag' id='contentmenue'>");
           gotoheadline(idnum,headlinename);

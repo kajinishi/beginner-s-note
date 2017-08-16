@@ -46,7 +46,7 @@ nav ul ul ul li{
 nav ul li:hover {
 	background-color: rgb(92, 169, 189);
 }
-ul li:hover > ul {
+nav ul li:hover > ul {
 	display: block;
 }
 nav ul ul {

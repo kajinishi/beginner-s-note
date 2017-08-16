@@ -11,7 +11,7 @@ function photo(kind, str, place, memo) { //しゃべる描写の関数
     var rcolor = new Array("balloonrt","balloonrs");
     document.write("<table align='right'>");
     document.write("<tr height=auto style='float:right;'>");
-    document.write('<td><p class='+rcolor[Number(kind)%2]+' ><span style="color:black;">'+ str +'<br></span></p></td>');
+    document.write('<td><p class='+rcolor[Number(kind)%2]+' ><font style="color:black;">'+ str +'<br></font></p></td>');
     document.write('<td><font><img src=' + pkind[kind] + ' alt='+role[Number(kind)%2]+' width="40" height="40"></font></td>');
     document.write('<div style="clear:both;"></div>');
     document.write("</tr>");
@@ -22,7 +22,7 @@ function photo(kind, str, place, memo) { //しゃべる描写の関数
     document.write("<table>");
     document.write("<tr height=auto>");
     document.write('<td><font><img src=' + pkind[kind] + ' alt='+role[Number(kind)%2]+' width="40" height="40"></font></td>');
-    document.write('<td><p class= '+rcolor[Number(kind)%2]+' ><span style="color:black;">'+ str +'<br></span></p></td>');
+    document.write('<td><p class= '+rcolor[Number(kind)%2]+' ><font style="color:black;">'+ str +'<br></font></p></td>');
     document.write('<div style="clear:both;"></div>');
     document.write("</tr>");
     document.write("</table>");
@@ -31,7 +31,7 @@ function photo(kind, str, place, memo) { //しゃべる描写の関数
 //幅変化
 function fullwidth(target){
   var fullsize=$("#mainWrap").width();
-  console.log(fullsize+"px");
+  // console.log(fullsize+"px");
   $(target).css("width", fullsize-50 + "px");
 }
 
@@ -79,3 +79,8 @@ $(function(){
     return true;
   });
 });
+
+// function tabchange(allcontent,tubn,curclass){
+//   $(allcontent).hide();
+//   $(tubn).fadeIn();
+// }

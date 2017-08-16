@@ -1,0 +1,151 @@
+/* ↓リスト */
+#contents ul li {
+  /*float: left;*/
+  display: inline-block;
+  /*margin: 10px;*/
+  list-style-type: none;
+}
+/*.algocontents li{
+  float: left;
+  margin: 10px;
+  list-style-type: none;
+}*/
+/*#contents li{float: left; list-style-type: none;}*/
+#contents  li a {
+  /*float: left;*/
+  margin: 10px;
+  /*list-style-type: none;*/
+  color: #FFF;
+  text-decoration: none;
+  display: block;
+  padding: 2px 12px;
+  background: #C15757;
+  border-radius: 50%;
+  /*角丸*/
+}
+
+#contents ul li a:hover {
+  background: #ec7f7f;
+  color: #FFF;
+}
+
+#contents ul li a.current {
+  background: #FFF;
+  color: #C15757;
+  border: solid black 3px;
+}
+/* ↑リスト */
+/* ↓図解のやつ */
+#contents div {
+  width: 97%;
+  padding: 10px;
+  /*background:white;*/
+  display: block;
+}
+
+#contents span {
+  /*font-family: sans-serif;*/
+  width: 60px;
+  height: 60px;
+  font-size: 20px;
+  /*font-weight: bold;*/
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  /*角丸*/
+  margin-left: 20px;
+}
+
+/* ↓はこ */
+.demobox {
+  color: #ffffff;
+  background-color: #49b7d4;
+}
+
+.demoboxdid {
+  color: #000000;
+  background-color: silver;
+}
+/*中央値*/
+.demoboxchoiced {
+  bottom: -10px;
+  position: relative;
+  color: white;
+  background-color: #e66c1e;
+  border: solid 3px black;
+}
+.demoboxchoiced::after{
+  color: white;
+	font-weight: bold;
+  /*font-size: .75em;*/
+	position: absolute;
+	top: -1.6em;
+  left: -10px;
+	padding: 0 0.5em;
+	content: "mid";
+}
+.demoboxcd {
+  color: black;
+  background-color: silver;
+  border: solid 3px black;
+}
+/*最小値*/
+.dbmin{
+  bottom: -10px;
+  position: relative;
+  color:white;
+  background-color: #49b7d4;
+  border:solid 3px black;
+}
+.dbmin::before {
+  top: -1.4em;
+  left: -10px;
+  color: white;
+	font-weight: bold;
+	position: absolute;
+	top: -1.6em;
+	padding: 0 0.5em;
+	content: "min";
+  /*font-size: .75em;*/
+}
+/*最大値*/
+.dbmax{
+  bottom: -10px;
+  position: relative;
+  color:white;
+  background-color: #49b7d4;
+  border:solid 3px black;
+}
+.dbmax::before {
+  top: -1.4em;
+  left: -10px;
+  color: white;
+	font-weight: bold;
+	position: absolute;
+	top: -1.6em;
+	padding: 0 0.5em;
+	content: "max";
+  /*font-size: .75em;*/
+}
+/* ↑はこ */
+/* ↓矢印*/
+.arrow {
+  display:inline-block;
+  height:40px;
+  width:80px;
+  background-color:#5bc0de;
+  position:relative;
+  top:40px;
+}
+.arrow:before {
+  position:absolute;
+  content:"";
+  width:0;
+  height:0;
+  border:60px solid transparent;
+  border-left:60px solid #5bc0de;
+  left:80px;
+  top:-37px;
+}
+/* ↑矢印 */

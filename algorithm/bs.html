@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf8">
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushCpp.js"></script>
+      <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shBrushBash.js"></script>
+      <link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shCoreDefault.css"/>
+      <link type="text/css" rel="stylesheet" href="../syntaxhighlighter_3.0.83/styles/shThemeEmacs.css"/>
+      <script type="text/javascript">
+      SyntaxHighlighter.all();
+      SyntaxHighlighter.config.space = ' '; // &nbsp;じゃなく半角スペースにする
+    </script>
+    <!-- ↓cssファイル -->
+    <meta http-equiv="content-style-type" content="text/css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/dropdown.css">
+    <link rel="stylesheet" type="text/css" href="../css/frame.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/master.css">
+    <!-- ↑css -->
+    <!-- ↓js -->
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/script.js"></script>
+    <script type="text/javascript" src="../js/menue.js"></script>
+    <script type="text/javascript" src="js/alg-script.js"></script>
+    <!-- ↑js -->
+    <title>二分探索 -Beginner's note</title>
+    <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
+  </head>
+
+  <body>
+    <div id="mainWrap"><!-- ↓メインウィンドウ -->
+      <script>
+        photo(1, "なんか「線形探索」とか「二分探索」っていうのを聞いたんですけど、何のことですか?","c");
+        photo(0, "例えばarry[n]という配列の中にある値xがあるとする。それが何番目にあるか調べるとき、どうする?","c");
+        photo(1, "私なら思考停止で先頭から手当たり次第検索します。for(i=0;i&lt;n;i++){...}的な?","c");
+        photo(0, "まあ始めはそうするよな。これを「全検索」とか「線形探索」という。配列の先頭から末尾まで一直線に調べるイメージだな","c");
+        photo(1, "計算効率は悪そうですね。じゃあ「二分探索」は何ですか?","c")
+        photo(0, "説明の前にまず大前提として、二分探索は配列がソート(値を大きい順または小さい順に並べる)されていることが必要なんだ。普通は小さい順(昇順)だな<br>んで、言葉で説明できないので大人しく図解を見てください","c");
+        if(browserjudge()=="safari"){
+          photo(1,"<font style='color:red;'>†┏┛警告┗┓†</font>");
+          photo(0,"safariだとなぜか「図解-二分探索とは」の図解の部分のcssがうまく動かないのですじゃ.","c");
+          photo(1,"まあ一応、画像で対応してるんですが、画像の上が切れてるのでmidがm|aとかminがⅡⅢⅠみたいに見えるんですよね.まあ見れないことは無いのでとりあえず進んでください.一応言っておくと、safariで不具合が起きる場所はここ以外ない(はず)です.","c");
+          photo(0,"これでも大丈夫って人はsafariのまま見てもらってかまいません.ですが、癪に触って「激おこスティックファイナリアリティプンプンドリーム」な方は別のブラウザで見るようにお願いします.","c");
+          photo(1,"GoogleChrome, Opera, Firefoxなら大丈夫です. <s>IE? そんなもん知らん</s><br>そもそもこのサイト自体「ビッグバンテラおこサンシャインヴィーナスバベルキレキレマスター」な方はお疲れ様でした.見るのをやめてください","c");
+        }
+      </script>
+      <h3 class="underline" id="headline-0">図解 -二分探索とは</h3><br>
+      <script>
+      photo(1,"↓下のボタンをクリックで切り替わります.レイアウトが崩れた時はブラウザの更新ボタンを押してください","c");
+      </script>
+      <div id="contents" class="blackboard">
+        <script>
+          document.writeln("<ul> ");
+          for (var i = 0; i < 6; i++) {
+            var cn = "";
+            if (i == 0) {
+              cn = "class='current'"
+            }
+            document.write(" <li style='display:inline-block;'><a href='#tab" + (i + 1) + "' " + cn + " >" + (i + 1) + "</a></li> ");
+          }
+          document.writeln("</ul> ");
+        </script>
+
+        <div id="tab1" class="point">
+          <script>
+            if(browserjudge()!="safari"){
+              bsmain(1);
+              photo(0, "配列は昇順になっていることが絶対条件だ。<br>今回は二分探索で配列arry[9]から 6 を探すとしよう。","c");
+            }
+            else document.write("<img src='img/bs/bs1.png' alt='safari以外でのブラウザ推奨です.' >");
+          </script>
+        </div>
+        <div id="tab2" class="point">
+          <script>
+            if(browserjudge()!="safari"){
+              bsmain(2);
+              photo(0, "最初の検索範囲は配列全部。範囲の最小大値も確認するとgood<br>中央はarray[4.5]になるけど、切り下げてarray[4]でOK","c");
+            }
+            else document.write("<img src='img/bs/bs2.png' alt='safari以外でのブラウザ推奨です.'> ");
+          </script>
+        </div>
+        <div id="tab3" class="point">
+          <script>
+            if(browserjudge()!="safari"){
+              bsmain(3);
+              photo(0, "arry[4]は4で6より小さい。<br>配列は昇順だから、ここから左側を探す必要が無い","c");
+            }
+            else document.write("<img src='img/bs/bs3.png' alt='safari以外でのブラウザ推奨です.' /> ");
+          </script>
+        </div>
+        <div id="tab4" class="point">
+          <script>
+            if(browserjudge()!="safari"){
+              bsmain(4);
+              photo(0, "残りのarry[5]~arry[9]を検索する。<br>今回は中央がarray[7]だな","c");
+            }
+            else {document.write("<img src='img/bs/bs4.png' alt='safari以外でのブラウザ推奨です.' /> ");}
+          </script>
+        </div>
+        <div id="tab5" class="point">
+          <script>
+            if(browserjudge()!="safari"){
+              bsmain(5);
+              photo(0, "arry[7]は7だから6より小さい。<br>配列は昇順なので、今度はここから右側を探さなくておk","c");
+            }
+            else document.write("<img src='img/bs/bs5.png' alt='safari以外でのブラウザ推奨です.' /> ");
+          </script>
+        </div>
+        <div id="tab6" class="point">
+          <script>
+            if(browserjudge()!="safari"){
+              bsmain(6);
+              photo(0, "残ったのはarry[5]とarry[6]のみ。<br>もう6がどこにあるか分かったな","c");
+            }
+            else document.write("<img src='img/bs/bs6.png' alt='safari以外でのブラウザ推奨です.'> ");
+          </script>
+        </div>
+      </div>
+      <script>
+        if(browserjudge()=="safari"){photo(0,"画像ひどくてごめんなさい","c");}
+        photo(1, "検索範囲をどんどん狭める感じですね。全検索よりループの回数減りましたね","c");
+        photo(0, "今回は配列の要素数が少なかったからたいして変わらないけど、要素数が大きくなれば計算効率は二分探索の方がはるかに良くなるよ。 N個のデータを二分探索するとき時間計算量はO(log<font size='1'>2</font>N)らしい","c");
+        photo(1,"Oってなんでしたっけ...","c");
+        photo(0,"雑に言うと、O(ループの回数)=かかる時間 っていう関数<s>(だったと思う)</s>。全検索だと最悪O(N)なのに対して、二分探索だとO(log<font size='1'>2</font>N)に短縮されるんだ。","c");
+        photo(1,"要素数が10,000のとき、二分探索だとループは最悪7回、要素数が1,000,000のときでも二分探索なら最悪でも20回ですね","c");
+      </script>
+      <h3 class="underline" id="headline-1">ソースコードと解説</h3>
+      <pre class="brush: cpp;toolbar:false;highlight:[9,10,16,17]" >
+        #include&lt;stdio.h&gt;
+        int binarysearch(int *a,int n,int key){//keyを探す
+          int min=0,max=n-1;//解の範囲の初期化
+          int mid;//中央
+          if(a[min]&gt;key||a[max]&lt;key){//明らかにkeyが無い時(最小値がkeyより大きい、最大値がkeyより小さいとき)
+            puts(&quot;ありません&quot;);
+            return -1;
+          }
+          while(max&gt;min){
+            mid=(max+min)/2;//中央の更新
+            /* 見つかった時 */
+            if(a[mid]==key){return mid;}//中央値がkeyなら終了
+            if(a[min]==key){mid=min;return mid;}//最大値がkeyなら終了
+            if(a[max]==key){mid=max;return mid;}//最小値がkeyなら終了
+            /* 範囲の更新 */
+            if(a[mid]&gt;key){max=--mid;}//中央値がkeyより大きいなら最大値の幅を狭める
+            else{min=++mid;}          //中央値がkeyより小さいなら最小値の幅を狭める
+          }
+          /* whileを抜けるのはkeyが見つからなかった時 */
+          puts(&quot;ありません&quot;);
+          return -1;
+        }
+        int main(){
+          int array[]={1,3,5,11,12,13,17,22,25,28};
+          int n=sizeof array/sizeof array[0]; //要素数
+          int in=binarysearch(array,n,5);//5を探す
+          if(in!=-1)printf(&quot;%d番目\n&quot;,in);
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+2番目
+      </pre>
+      <script>
+        photo(0,"コードについては見れば分かるだろうし、特に説明することなさそう","c");
+        photo(1,"ググったら、stdlib.hに二分探索の関数が用意されてるみたいですね","c");
+        photo(0,"あるにはあるけど...なんか比較関数を自分で用意しないといけないというクソ仕様なんだよなぁ","c");
+      </script>
+      <pre class="brush:cpp;toolbar:false;">
+        void* bsearch( const void *key,  //検索する値
+                       const void *array,//検索する配列
+                       size_t n,         //配列の要素数
+                       size_t size,      //配列要素のサイズ
+                       int (*comp)(const void *c1, const void *c2 ) ); //比較関数
+      </pre>
+      <script>
+      // if(browserjudge()=="Firefox"||browserjudge()=="gecko"){document.write("<pre class='fire'>(Firefox/geckoの調整.意味はない)</pre>");}
+        photo(1,"なんか面倒くさそうですね。二分探索の関数用意してるなら比較関数も作っとけよ","c");
+        photo(0,"ポインタやキャストの知識が必要になってくるから、自信がないなら素直に自分で二分探索の関数を作った方がいいな。<br>一応サンプルコードを貼っておくので比較関数を確認しておいて下さい","c");
+      </script>
+      <pre class="brush: cpp;toolbar:false;highlight:[3,13,17]">
+        #include&lt;stdio.h&gt;
+        #include&lt;stdlib.h&gt;//bsearch関数に必要なライブラリ
+        int comp(const void *c1,const void *c2){ /* 比較関数 bsearch関数に必要 */
+          int tmp1=*(int*)c1,tmp2=*(int*)c2;
+          if(tmp1&lt;tmp2)return -1;
+          if(tmp1==tmp2)return 0;
+          else return 1;
+        }
+        int main(){
+          int array[]={1,3,5,6,8,9,10,20,53,125},n=sizeof array/sizeof array[0];
+          /* 二分探索でkey(=20)を調べる */
+          int key=20;
+          int *result=(int*)bsearch(&amp;key,array,n,sizeof(int),comp);//二分探索の標準関数
+          if(result==NULL){//見つからなかったらNULL
+            printf(&quot;%d は見つかりませんでした¥n&quot;,key);
+          }
+          else printf(&quot;%d が %ld番目の要素として見つかりました\n&quot;,key,result-array);
+          return 0;
+        }
+      </pre>
+      <pre class="terminal">
+20 が 7番目の要素として見つかりました
+      </pre>
+      <script>
+        photo(1,"17行目の result-array は何ですかこれ","c");
+        photo(0,"ポインタ同士の引き算は、二つのバイト数の差になるんだ。これを利用すれば間にどのくらい変数があるか分かるんだ","c");
+        photo(1,"絶望的な説明力で見てる人が理解に苦しむと思うので簡潔に言うと、array[x]のポインタからarray[0]のポインタを引くと、xが分かるってことです","c");
+        photo(0,"メンタル病んでるなか書いてるんで説明変になってすいません","c");
+      </script>
+    </div><!-- ↑メインウィンドウ -->
+    <div id="sideWrap"><!-- ↓サブウィンドウ -->
+      <div style="position:fixed;">
+        <div style="background-color: rgb(196, 250, 167); padding: 10px; padding-bottom: 3px; width:120%" class="li-under">
+          <a href="../index.html">ホームへ</a>
+          <br>●アルゴリズム<br>
+          <script>
+            algomenu("algorithm", "li-ban", 3);
+          </script> <!--"動的計画法","ワーシャルフロイド","ダイクストラ","二分探索","ヒープ","ソート" -->
+        </div>
+        <div>
+          <script>
+          var headlinename=new Array("図解 -二分探索とは", "ソースコードと解説");//i番目(0始まり)の見出しにid='headline-i'を入れる
+          var idnum=headlinename.length;
+          document.write("<ul class='tag' id='contentmenue'>");
+          gotoheadline(idnum,headlinename);
+          document.write("</ul>");
+          gotoscroll();
+          </script>
+        </div>
+      </div>
+    </div><!-- ↑サブウィンドウ -->
+    <script>
+      dropdown("algorithm");
+    </script>
+  </body>
+</html>

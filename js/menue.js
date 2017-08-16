@@ -52,7 +52,7 @@ function cppmenue(place,returnkind,n){//c++の一覧
 }
 function algomenu(place,returnkind,n){//アルゴリズムの一覧
   var name = new Array("動的計画法","ワーシャルフロイド","ダイクストラ","二分探索","ヒープ","ソート");
-  var link=new Array("dp","wf","d","binarysearch","heap","sort"),num=name.length;
+  var link=new Array("dp","wf","d","bs","heap","sort"),num=name.length;
   var fplace="";
   if(place==null || place=="")fplace="algorithm/"
   else if(place!="algorithm")fplace="../algorithm/";

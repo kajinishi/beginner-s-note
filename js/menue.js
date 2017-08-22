@@ -51,8 +51,8 @@ function cppmenue(place,returnkind,n){//c++の一覧
   parent_menu(name,link,returnkind,n);
 }
 function algomenu(place,returnkind,n){//アルゴリズムの一覧
-  var name = new Array("動的計画法","ワーシャルフロイド","ダイクストラ","二分探索","ヒープ","ソート");
-  var link=new Array("dp","wf","d","bs","heap","sort"),num=name.length;
+  var name = new Array("動的計画法","ワーシャルフロイド","ダイクストラ","ベルマンフォード","ソート","二分探索","ヒープ");
+  var link=new Array("dp","wf","d","bf","sort","bs","heap"),num=name.length;
   var fplace="";
   if(place==null || place=="")fplace="algorithm/"
   else if(place!="algorithm")fplace="../algorithm/";
@@ -105,11 +105,11 @@ function dropdown(place){
   document.writeln("  		</li> ");
   document.writeln("      <li style='position:relative;' class='comingsoon'>");
   document.writeln("  			<a href='#' >c++<i class='fa fa-caret-square-o-right' style='position:absolute; right:15px; color:white;'></i></a> ");
-  document.writeln("  			<ul> ");
-  cppmenue(place,"li");
-  document.writeln("       	</ul> ");
+  // document.writeln("  			<ul> ");
+  // cppmenue(place,"li");
+  // document.writeln("       	</ul> ");
   document.writeln("      </li> ");
-  document.writeln("      <li><a href='http://qiita.com/takeharu/items/d75f96f81ff83680013f'>javascriptの配列</a></li> ");
+  // document.writeln("      <li><a href='http://qiita.com/takeharu/items/d75f96f81ff83680013f'>javascriptの配列</a></li> ");
   document.writeln("    </ul> ");
   document.writeln("  </li> ");
 

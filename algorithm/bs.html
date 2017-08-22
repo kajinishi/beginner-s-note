@@ -39,13 +39,13 @@
         photo(0, "まあ始めはそうするよな。これを「全検索」とか「線形探索」という。配列の先頭から末尾まで一直線に調べるイメージだな","c");
         photo(1, "計算効率は悪そうですね。じゃあ「二分探索」は何ですか?","c")
         photo(0, "説明の前にまず大前提として、二分探索は配列がソート(値を大きい順または小さい順に並べる)されていることが必要なんだ。普通は小さい順(昇順)だな<br>んで、言葉で説明できないので大人しく図解を見てください","c");
-        if(browserjudge()=="safari"){
-          photo(1,"<font style='color:red;'>†┏┛警告┗┓†</font>");
-          photo(0,"safariだとなぜか「図解-二分探索とは」の図解の部分のcssがうまく動かないのですじゃ.","c");
-          photo(1,"まあ一応、画像で対応してるんですが、画像の上が切れてるのでmidがm|aとかminがⅡⅢⅠみたいに見えるんですよね.まあ見れないことは無いのでとりあえず進んでください.一応言っておくと、safariで不具合が起きる場所はここ以外ない(はず)です.","c");
-          photo(0,"これでも大丈夫って人はsafariのまま見てもらってかまいません.ですが、癪に触って「激おこスティックファイナリアリティプンプンドリーム」な方は別のブラウザで見るようにお願いします.","c");
-          photo(1,"GoogleChrome, Opera, Firefoxなら大丈夫です. <s>IE? そんなもん知らん</s><br>そもそもこのサイト自体「ビッグバンテラおこサンシャインヴィーナスバベルキレキレマスター」な方はお疲れ様でした.見るのをやめてください","c");
-        }
+        // if(browserjudge()=="safari"){
+        //   photo(1,"<font style='color:red;'>†┏┛警告┗┓†</font>");
+        //   photo(0,"safariだとなぜか「図解-二分探索とは」の図解の部分のcssがうまく動かないのですじゃ.","c");
+        //   photo(1,"まあ一応、画像で対応してるんですが、画像の上が切れてるのでmidがm|aとかminがⅡⅢⅠみたいに見えるんですよね.まあ見れないことは無いのでとりあえず進んでください.一応言っておくと、safariで不具合が起きる場所はここ以外ない(はず)です.","c");
+        //   photo(0,"これでも大丈夫って人はsafariのまま見てもらってかまいません.ですが、癪に触って「激おこスティックファイナリアリティプンプンドリーム」な方は別のブラウザで見るようにお願いします.","c");
+        //   photo(1,"GoogleChrome, Opera, Firefoxなら大丈夫です. <s>IE? そんなもん知らん</s><br>そもそもこのサイト自体「ビッグバンテラおこサンシャインヴィーナスバベルキレキレマスター」な方はお疲れ様でした.見るのをやめてください","c");
+        // }
       </script>
       <h3 class="underline" id="headline-0">図解 -二分探索とは</h3><br>
       <script>
@@ -66,61 +66,44 @@
 
         <div id="tab1" class="point">
           <script>
-            if(browserjudge()!="safari"){
-              bsmain(1);
-              photo(0, "配列は昇順になっていることが絶対条件だ。<br>今回は二分探索で配列arry[9]から 6 を探すとしよう。","c");
-            }
-            else document.write("<img src='img/bs/bs1.png' alt='safari以外でのブラウザ推奨です.' >");
+            bsmain(1);
+            photo(0, "配列は昇順になっていることが絶対条件。今回は二分探索で配列arry[10]から 6 を探します<br>二分探索は簡単にいうと、検索範囲の中央の値を調べる方法です","c");
           </script>
         </div>
         <div id="tab2" class="point">
           <script>
-            if(browserjudge()!="safari"){
               bsmain(2);
-              photo(0, "最初の検索範囲は配列全部。範囲の最小大値も確認するとgood<br>中央はarray[4.5]になるけど、切り下げてarray[4]でOK","c");
-            }
-            else document.write("<img src='img/bs/bs2.png' alt='safari以外でのブラウザ推奨です.'> ");
+              photo(0, "最初の検索範囲は配列全部。ついでに範囲の最小大値も確認するといいね<br>0〜9の中央は4.5だからarray[4.5]になるけど、切り下げてarray[4]を調べます","c");
           </script>
         </div>
         <div id="tab3" class="point">
           <script>
-            if(browserjudge()!="safari"){
               bsmain(3);
               photo(0, "arry[4]は4で6より小さい。<br>配列は昇順だから、ここから左側を探す必要が無い","c");
-            }
-            else document.write("<img src='img/bs/bs3.png' alt='safari以外でのブラウザ推奨です.' /> ");
           </script>
         </div>
         <div id="tab4" class="point">
           <script>
-            if(browserjudge()!="safari"){
               bsmain(4);
               photo(0, "残りのarry[5]~arry[9]を検索する。<br>今回は中央がarray[7]だな","c");
-            }
-            else {document.write("<img src='img/bs/bs4.png' alt='safari以外でのブラウザ推奨です.' /> ");}
           </script>
         </div>
         <div id="tab5" class="point">
           <script>
-            if(browserjudge()!="safari"){
               bsmain(5);
               photo(0, "arry[7]は7だから6より小さい。<br>配列は昇順なので、今度はここから右側を探さなくておk","c");
-            }
-            else document.write("<img src='img/bs/bs5.png' alt='safari以外でのブラウザ推奨です.' /> ");
           </script>
         </div>
         <div id="tab6" class="point">
           <script>
-            if(browserjudge()!="safari"){
               bsmain(6);
               photo(0, "残ったのはarry[5]とarry[6]のみ。<br>もう6がどこにあるか分かったな","c");
-            }
-            else document.write("<img src='img/bs/bs6.png' alt='safari以外でのブラウザ推奨です.'> ");
           </script>
         </div>
       </div>
       <script>
-        if(browserjudge()=="safari"){photo(0,"画像ひどくてごめんなさい","c");}
+        photo(0,"ここ↑、画像使わずに頑張ったんだよ〜 吐きそう_(꒪ཀ꒪」∠)_","c");
+        document.writeln("<br>");
         photo(1, "検索範囲をどんどん狭める感じですね。全検索よりループの回数減りましたね","c");
         photo(0, "今回は配列の要素数が少なかったからたいして変わらないけど、要素数が大きくなれば計算効率は二分探索の方がはるかに良くなるよ。 N個のデータを二分探索するとき時間計算量はO(log<font size='1'>2</font>N)らしい","c");
         photo(1,"Oってなんでしたっけ...","c");
@@ -172,7 +155,7 @@
                        const void *array,//検索する配列
                        size_t n,         //配列の要素数
                        size_t size,      //配列要素のサイズ
-                       int (*comp)(const void *c1, const void *c2 ) ); //比較関数
+                       int (*comp)(const void *c1, const void *c2 ) ); //比較関数.自分で用意する必要あり
       </pre>
       <script>
       // if(browserjudge()=="Firefox"||browserjudge()=="gecko"){document.write("<pre class='fire'>(Firefox/geckoの調整.意味はない)</pre>");}
@@ -216,8 +199,8 @@
           <a href="../index.html">ホームへ</a>
           <br>●アルゴリズム<br>
           <script>
-            algomenu("algorithm", "li-ban", 3);
-          </script> <!--"動的計画法","ワーシャルフロイド","ダイクストラ","二分探索","ヒープ","ソート" -->
+            algomenu("algorithm", "li-ban", 5);
+          </script> <!--"動的計画法","ワーシャルフロイド","ダイクストラ","ベルマンフォード","ソート","二分探索","ヒープ"-->
         </div>
         <div>
           <script>

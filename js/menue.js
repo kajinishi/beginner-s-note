@@ -58,6 +58,8 @@ function algomenu(place,returnkind,n){//アルゴリズムの一覧
   else if(place!="algorithm")fplace="../algorithm/";
   for(var i=0;i<num;i++){
     link[i]=fplace+link[i]+".html";
+    // ↓いらない
+    if(i==2 || i==3 || i==4 || i==6){link[i]="#";}
   }
   parent_menu(name,link,returnkind,n);
 }
@@ -79,19 +81,19 @@ function dropdown(place){
   document.writeln("  <li style='background-color:orange;'><a href='"+index+"index.html'><i class='fa fa-home' style='color:black;'></i>ホームへ</a></li> ");
   document.writeln("  <li class='comingsoon'>");
   document.writeln("  <a href=\"#\"><i class='fa fa-laptop' style='color:red; margin-right:5px'></i>PC関連</a> ");
-  document.writeln("    <ul> ");
-  document.writeln("      <li><a href=\"#\">ファイル操作入門</a></li> ");
-  document.writeln("      <li><a href='https://brew.sh/index_ja.html' target='_blank'>homebrew</a></li> ");
-  document.writeln("      <li><a href=\"#\">ツムツム</a></li> ");
-  document.writeln("      <li><a href=\"#\">git</a></li> ");
-  document.writeln("      <li style='position:relative;'> ");
-  document.writeln("        <a href=\"#\">アプリ<i class='fa fa-caret-square-o-right' style='position:absolute; right:15px; color:white;'></i></a> ");
-  document.writeln("        <ul>");
-  document.writeln("          <li><a href='http://www.moongift.jp/2015/07/clipy-%E3%82%B9%E3%83%8B%E3%83%9A%E3%83%83%E3%83%88%E3%82%82%E4%BD%BF%E3%81%88%E3%82%8Bmac-osx%E7%94%A8%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%83%9C%E3%83%BC%E3%83%89%E7%AE%A1%E7%90%86/' target='_blank'>clipy</a></a></li>");
-  //document.writeln("       					<li><a href=''></a></li> ");
-  document.writeln("        </ul> ");
-  document.writeln("      </li> ");
-  document.writeln("    </ul> ");
+  // document.writeln("    <ul> ");
+  // document.writeln("      <li><a href=\"#\">ファイル操作入門</a></li> ");
+  // document.writeln("      <li><a href='https://brew.sh/index_ja.html' target='_blank'>homebrew</a></li> ");
+  // document.writeln("      <li><a href=\"#\">ツムツム</a></li> ");
+  // document.writeln("      <li><a href=\"#\">git</a></li> ");
+  // document.writeln("      <li style='position:relative;'> ");
+  // document.writeln("        <a href=\"#\">アプリ<i class='fa fa-caret-square-o-right' style='position:absolute; right:15px; color:white;'></i></a> ");
+  // document.writeln("        <ul>");
+  // document.writeln("          <li><a href='http://www.moongift.jp/2015/07/clipy-%E3%82%B9%E3%83%8B%E3%83%9A%E3%83%83%E3%83%88%E3%82%82%E4%BD%BF%E3%81%88%E3%82%8Bmac-osx%E7%94%A8%E3%82%AF%E3%83%AA%E3%83%83%E3%83%97%E3%83%9C%E3%83%BC%E3%83%89%E7%AE%A1%E7%90%86/' target='_blank'>clipy</a></a></li>");
+  // //document.writeln("       					<li><a href=''></a></li> ");
+  // document.writeln("        </ul> ");
+  // document.writeln("      </li> ");
+  // document.writeln("    </ul> ");
   document.writeln("  </li> ");
 
   document.writeln("  <li>");

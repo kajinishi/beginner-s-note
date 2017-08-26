@@ -51,7 +51,8 @@ function cppmenue(place,returnkind,n){//c++の一覧
   parent_menu(name,link,returnkind,n);
 }
 function algomenu(place,returnkind,n){//アルゴリズムの一覧
-  var name = new Array("動的計画法","ワーシャルフロイド","ダイクストラ","ベルマンフォード","ソート","二分探索","ヒープ");
+  //"動的計画法","ワーシャルフロイド","ダイクストラ","ベルマンフォード","ソート","二分探索","ヒープ"
+  var name = new Array("動的計画法","ワーシャルフロイド","comming soon?","comming soon?","comming soon","二分探索","comming soon?");
   var link=new Array("dp","wf","d","bf","sort","bs","heap"),num=name.length;
   var fplace="";
   if(place==null || place=="")fplace="algorithm/"
@@ -130,7 +131,7 @@ function dropdown(place){
   document.writeln("      <li><a href='http://fontawesome.io/icons/' target='_blank'>fontawesome<i class='fa fa-external-link'></i></a></li> ");
   document.writeln("      <li><a href='http://www.netyasun.com/syntaxhighlighter/source-escape.html#REPLACE' target='_blank'>HTML置換<i class='fa fa-external-link'></i></a></li> ");
   document.writeln("      <li><a href='http://www.yellowpipe.com/yis/tools/HTML_converter/' target='_blank'>HTML整形<i class='fa fa-external-link'></i></a></li> ");
-  document.writeln("      <li><a href='file:///Users/kajinishimasamitsu/Dropbox/HTML/index.html' target='_blank'>元祖HP<i class='fa fa-link'></i></a></li> ");
+  // document.writeln("      <li><a href='file:///Users/kajinishimasamitsu/Dropbox/HTML/index.html' target='_blank'>元祖HP<i class='fa fa-link'></i></a></li> ");
   //document.writeln("    <li><a href='#' target='_blank'></a></li> ");
   document.writeln("    </ul> ");
   document.writeln("  </li> ");

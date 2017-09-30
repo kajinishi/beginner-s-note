@@ -37,9 +37,10 @@
     </div>
     <script>
       function photopick() {
-        var pics = ["img/背景/海.jpg", "img/背景/船と海辺.jpg", "img/背景/夕暮れの山.jpg", "img/背景/緑と海.jpg","img/背景/夕日の海.jpg"]; // ,"img/背景/.jpg"
+        var pics = ["img/背景/aulani.jpg", "img/背景/Diamondhead.jpg", "img/背景/kailua.jpg","img/背景/KualoaSea.jpg","img/背景/Kualoa.jpg","img/背景/NZの海.jpg","img/背景/Onetreehill.jpg","img/背景/pillbox.jpg","img/背景/この木なんの木.jpg","img/背景/ダイヤと海.jpg","img/背景/波しぶき.jpg"]; // ,"img/背景/.jpg"
         var pic = pics[Math.floor(Math.random() * pics.length)];
         $(".fixed-bg").css("background-image", "url(" + pic + ")");
+        console.log(pic);
       }
       photopick();
     </script>

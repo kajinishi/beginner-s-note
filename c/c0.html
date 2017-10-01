@@ -105,10 +105,34 @@ $ yum install gcc
       </article>
 
       <h3 class="underline" id="headline-1">実行方法</h3>
+      <ul class="tabs">
+        <li class="Windowstab" onclick="tabchange(tabs1,'#tab1-1')"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</li>
+        <li class="Mactab" onclick="tabchange(tabs1,'#tab1-2')"><i class="fa fa-apple" style="margin-right:2px;"></i>Mac</li>
+        <li class="Linuxtab" onclick="tabchange(tabs1,'#tab1-3')"><i class="fa fa-linux" style="margin-right:2px;"></i>Linux</li>
+      </ul>
+      <div style="clear:both;"></div>
+      <div style="margin-left:40px;">
+        <div class="Windows" id="tab1-1">
+          <script>
+            photo(1,"えーマジunix以外!?","c")
+            photo(0,"unix以外が許されるのは小学生までだよね!","c");
+          </script>
+        </div>
+        <div class="Mac" id="tab1-2">
+          <script>
+            photo(0,"unix系なのでLinuxと同じです.","c");
+          </script>
+        </div>
+        <div class="Linux" id="tab1-3">
+          <script>
+            photo(0,"unix系なのでLinuxと同じです.","c");
+          </script>
+        </div>
+      </div>
       <script>
-        photo(0,"コーディングをミスっちゃて一つのページにOS別のタブが複数つくれないので、縦続きで書いてきます","c");
-        photo(1,"書き直す気は?","c");
-        photo(0,"<strong>一切ない</strong>","c");
+        //タブの調整
+        var tabs1=["#tab1-1","#tab1-2","#tab1-3"];
+        tabchange(tabs1,tabs1[0]);
       </script>
     </div><!-- ↑メインウィンドウ -->
     <div id="sideWrap"><!-- ↓サブウィンドウ -->

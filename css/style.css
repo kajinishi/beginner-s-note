@@ -244,17 +244,33 @@ body {
   clear:both;
   margin-left: 40px;
 }
+/*↓改*/
+.tabs li{
+  font-size: large;
+  float:left; display: block;
+	margin-left: 0px; margin-right:3px; padding: 5px;
+	list-style-type:none; text-decoration: none;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+}
+.tabs li:hover{
+  opacity: 0.5;
+}
+/*↑改*/
 #tabcontents{clear: both;}
 #tabcontents div {margin-left:40px;margin-right:10px; padding-left:5px;}
 .Windows{
   border: solid 3px #00BCF3;
   background-color: white;
 }
+.Windowstab{background-color: #00BCF3; color: white;}
 .Mac{
   border: solid 3px silver;
   background-color: silver;
 }
+.Mactab{background-color: silver; color:white;}
 .Linux{
   border: solid 3px #883877;
   background-color: #E65B30;
 }
+.Linuxtab{background-color: #883877; color:white;}

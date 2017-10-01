@@ -80,7 +80,11 @@ $(function(){
   });
 });
 
-// function tabchange(allcontent,tubn,curclass){
-//   $(allcontent).hide();
-//   $(tubn).fadeIn();
-// }
+function tabchange(allname,curname){//任意のタブ(圧倒的語彙力)
+  var hidenum=allname.length;
+  for(var i=0;i<hidenum;i++){$(allname[i]).hide(); console.log(allname[i]+" 削除");}//とりま全部消す
+  if(curname!=null){
+    $(curname).fadeIn();
+    console.log(curname);
+  }
+}

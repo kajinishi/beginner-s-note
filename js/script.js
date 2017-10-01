@@ -1,6 +1,6 @@
 //描写
 function photo(kind, str, place, memo) { //しゃべる描写の関数
-  var pkind = new Array("img/teacher.png", "img/student.png","img/はいクソ.png"); //偶数teacher,奇数studentにしたい
+  var pkind = new Array("image/teacher.png", "image/student.png","image/はいクソ.png"); //偶数teacher,奇数studentにしたい
   var num=pkind.length;
   var role = new Array("教師","生徒");
   /* ↓パスの変更 */

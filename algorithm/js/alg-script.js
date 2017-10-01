@@ -3,7 +3,7 @@ function dpmain(tubn){ //tubnは1はじまり(←ミス)
   var pic= new Array();
   pic[0]="damy";
   for(var i=1;i<=5;i++){
-    pic[i]="img/dp/dp"+String(i);
+    pic[i]="image/dp/dp"+String(i);
     if(i<=2)pic[i]+=".png";
     else pic[i]+=".gif";
   }

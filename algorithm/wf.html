@@ -27,7 +27,7 @@
     <script type="text/javascript" src="js/alg-script.js"></script>
     <!-- ↑js -->
     <title>wf -Beginner's note</title>
-    <LINK REL="SHORTCUT ICON" HREF="../img/favicon.ico">
+    <LINK REL="SHORTCUT ICON" HREF="../image/favicon.ico">
   </head>
 
   <body>
@@ -38,7 +38,7 @@
         photo(1,"は？");
         photo(0,"wikiからの文章だとわかりづらいですよね。例えで説明します.例えとして電車の路線とか分かりやすいかな");
       </script>
-      <img src="img/wf/wf-main.png" alt="No image" style="display:block;">
+      <img src="image/wf/wf-main.png" alt="No image" style="display:block;">
       <script>
         photo(1,"なにこの駅名？画像はしごじゃない？");
         photo(0,"全部実際に存在する駅名らしいです");
@@ -56,7 +56,7 @@
         photo(1,"それで、wfってどうやって最短経路を計算するんですか?");
         photo(0,"簡単にいったら動的計画法を利用した感じです.");
       </script>
-      <img src="img/wf/wf.gif" alt="No image" style="display:block;">
+      <img src="image/wf/wf.gif" alt="No image" style="display:block;">
       <script>
         photo(1,"「おまえだ」から「まじ」に行くとき、直で行くより「おまえだ」→「おやしらず」→「まじ」の方が安いですね。<br>「おま」→「おや」のデータを利用して「おま」→「まじ」の最安値を出すのは、前のデータを利用するDPですね.");
         photo(0,"wfでは、ある点iから別の点jまでのコストを配列d[i][j]で表します.それでiからjへ直に行くのと、途中で別の町kを経過した方がいいのかを比べ、コストを小さくしていきます.だいたい点の総数はV、辺(道)の総数はEで表します.");
@@ -160,11 +160,11 @@
         photo(0,"そう.例えば下の例だと「まじ」までの最小コストは「おま」→「おや」→「まじ」なんだけど、記録上「おま」→「まじ」しか残らない.");
         photo(1,"d[おま][まじ]が最小としか残りませんからね.そこでwfのif文の時にkを記録しておくんですね.");
       </script>
-      <img src="img/wf/経路復元1.png" alt="No image">
+      <img src="image/wf/経路復元1.png" alt="No image">
       <script>
         photo(0,"記録する配列nextの,next[i][j]=next[i][k]とすれば途中地点が記録でき、i→k→jがわかるようになります.");
       </script>
-      <img src="img/wf/経路復元2.png" alt="No image">
+      <img src="image/wf/経路復元2.png" alt="No image">
       <script>
         photo(1,"以下がコードの例ですね");
       </script>

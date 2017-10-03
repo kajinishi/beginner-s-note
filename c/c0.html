@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
-
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf8">
       <script type="text/javascript" src="../syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
@@ -45,16 +44,32 @@
         <div id="tabcontents">
           <div id="tab0" class="Windows">
             <script>
-              photo(1,"windowsだとCUIのgcc,GUIのvisual studioの二つありますね。","c");
-              photo(0,"自分にあった方を選ぼう！<br>...と言いたいけど、選べるような人がこんなページ見てないよな<br>visual studioは確かに優れた環境だけど、小さいコードをたくさん書くのには適してないと自分は思う。","c");
-              photo(1,"一つコードかくと、プロジェクトとして作成されるから、フォルダーレベルでどんどん増えるんですよね...","c");
-              photo(0,"あと、visual stuioは独特のことが多いので、まずはgccでプログラミングの腕を上げてから、大きいプロジェクトを作りたくなったらvisual studiioに移行でいいと思う。","c");
-              photo(1,"というわけで、ここではgccのみの説明になります。<br>まあvisual studioだとダウンロードするだけだし説明することないからね","c")
+              photo(0,"ここではgccのインストールの説明をします","c");
+              photo(0,"まずは<a href='http://www.mingw.org' target='_blank'>公式HP<i class='fa fa-external-link'></i></a>からインストーラを入手しよう<br>画面右上の Download Installer をクリック","c");
+              photo(0,"そしたらダウンロードフォルダにあるインストーラをクリックしましょう","c");
+              document.write("<img alt='No image' src='image/c0/gcc.png' width='50%'>");
+              photo(0,"こんなんでたら Install をクリック","c");
+              document.write("<img alt='No image' src='image/c0/gcc2.png'>");
+              photo(0,"とりあえず continue","c");
+              document.write("<img alt='No image' src='image/c0/gcc3.png'>");
+              photo(0,"ダウンロードが完了したら、安定の continue<br>デスクトップに勝手にショートカットが追加されて次のアプリが起動します","c");
+              document.write("<img alt='No image' src='image/c0/gcc4.png' width='80%'>");
+              photo(0,"mingw32-baseをクリックするとメニューが表示されるので、Mark for Installation をクリック","c");
+              document.write("<img alt='No image' src='image/c0/gcc5.png' width='80%'>");
+              photo(0,"mingw32-gcc-g++ も同じように<br>とりまこの二つでOKですが、欲しいものがあればクリックしてどうぞ","c");
+              document.write("<img alt='No image' src='image/c0/gcc6.png' width='80%'>");
+              photo(0,"上のメニューの Installtion から Apply Changes をクリック","c");
+              document.write("<img alt='No image' src='image/c0/gcc7.png'>");
+              photo(0,"Apply をクリック","c")
+              document.write("<img alt='No image' src='image/c0/gcc8.png'>");
+              photo(0,"ダウンロードが完了したら Close をクリック<br>ここもネット環境必要です.画像のは失敗してますが無視してください","c");
+              photo(1,"長かったですね. でもようやくこれでgccが...","c");
+              photo(0,"<font style='color:red; font-size:large;'>できましぇ〜ん</font><br>Windowsだとダウンロードとは別に環境設定が必要です","c");
             </script>
           </div>
           <div id="tab1" class="Mac">
             <script>
-              photo(0,"まずはApp Storeから<a href='https://itunes.apple.com/jp/app/xcode/id497799835?mt=12'>Xcode</a>をダウンロード！<br>数時間かかるから時間のあるときに。スリープ入るとダウンロード進まないので気をつけて下さい","c");
+              photo(0,"まずはApp Storeから<a href='https://itunes.apple.com/jp/app/xcode/id497799835?mt=12' target='_blank'>Xcode</a>をダウンロード！<br>数時間かかるから時間のあるときに。スリープ入るとダウンロード進まないので気をつけて下さい","c");
               photo(1,"アプリの「システム環境設定(歯車)」→「省エネルギー」→「可能な限りはハードディスクをスリープさせる」のチェックを外せば放置しても大丈夫です。","c");
               photo(0,"ダウンロードが完了すれば自動的にgccが入るはず。一応、ターミナルで以下のコマンドを入力して確認してみましょう","c");
               photo(1,"$ は含めないで下さい。<br>$が始めにあるとユーザーが入力するコマンド、何もないとターミナルに出力された文字列です。","c");
@@ -69,7 +84,7 @@ $ gcc -v
 <pre class="terminal">
 $ xcode-select --install
 </pre><br clear="all;">
-            <img src="image/xcode-select.png" alt="xcode-select.png">
+            <img src="image/c0/xcode-select.png" alt="xcode-select.png">
             <script>
               photo(0,"xcodeから↑を聞かれると思うので、「インストール」を選択し、完了すればgccも使えます ","c");
             </script>

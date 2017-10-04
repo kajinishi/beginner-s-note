@@ -36,12 +36,25 @@ function fullwidth(target){
 }
 
 //判定
-function OSjudge(){//OSの判定
+function OSjudge(style){//OSの判定
   var ua = navigator.userAgent;
-  if (navigator.platform.indexOf("Win") != -1)return "Windows";
-  else if(ua.match(/Mac|PPC/))return 'Mac';
-  else if (ua.match(/Linux/)) return 'Linux';
-  else return 'unknown';
+  if (navigator.platform.indexOf("Win") != -1){
+    if(style==null)return "Windows";
+    else if(style=="number")return 0;
+  }
+  else if(ua.match(/Mac|PPC/)){
+    if(style==null)return 'Mac';
+    else if(style=="number")return 1;
+  }
+
+  else if (ua.match(/Linux/)){
+    if(style==null)return 'Linux';
+    else if(style=="number")return 2;
+  }
+  else {
+    if(style=="number")return -1;
+    return 'unknown';
+  }
 }
 function browserjudge(){//使用中のブラウザ判定
     var userAgent = window.navigator.userAgent.toLowerCase();
@@ -82,9 +95,8 @@ $(function(){
 
 function tabchange(allname,curname){//任意のタブ(圧倒的語彙力)
   var hidenum=allname.length;
-  for(var i=0;i<hidenum;i++){$(allname[i]).hide(); console.log(allname[i]+" 削除");}//とりま全部消す
+  for(var i=0;i<hidenum;i++){$(allname[i]).hide();}//とりま全部消す
   if(curname!=null){
     $(curname).fadeIn();
-    console.log(curname);
   }
 }

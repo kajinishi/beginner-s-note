@@ -36,15 +36,86 @@
         photo(1,"OS別に説明していきます","c")
       </script>
       <article style="margin-left:-20px;">
-        <ul class="tab">
-          <li><a href="#tab0" class="Windows" style="background-color:#00BCF3;color:white;"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</a></li>
-          <li><a href="#tab1" class="Mac" style="background-color:silver;color:white;"><i class="fa fa-apple" style="margin-right:2px;"></i>Mac</a></li>
-          <li><a href="#tab2" class="Linux" style="background-color:#883877;color:white;"><i class="fa fa-linux" style="margin-right:2px;"></i>Linux</a></li>
+        <ul class="tabs">
+          <li class="Windowstab" onclick="tabchange(tabs,'#tab-0')"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</li>
+          <li class="Mactab" onclick="tabchange(tabs,'#tab-1')"><i class="fa fa-apple" style="margin-right:2px;"></i>Mac</li>
+          <li class="Linuxtab" onclick="tabchange(tabs,'#tab-2')"><i class="fa fa-linux" style="margin-right:2px;"></i>Linux</li>
         </ul>
-        <div id="tabcontents">
-          <div id="tab0" class="Windows">
+        <div style="clear:both"></div>
+        <div style="margin-left:40px;">
+          <div id="tab-0" class="Windows">
             <script>
               photo(0,"ここではgccのインストールの説明をします","c");
+            </script>
+            <!--
+            <ul class="li-btn">
+              <script>
+                for(var i=0;i<=8;i++){
+                  var onfunc="tabchange(tabnames,'#tabs-"+i+"')";
+                  document.write("<li onclick="+onfunc+">"+(i+1)+"</li>");
+                  console.log("onclick="+onfunc);
+                }
+              </script>
+            </ul>
+            <div style="clear:both;"></div>
+            <div style="margin-left:40px;">
+
+              <div id="tabs-0">
+                <script>
+                photo(0,"まずは<a href='http://www.mingw.org' target='_blank'>公式HP<i class='fa fa-external-link'></i></a>からインストーラを入手しよう<br>画面右上の Download Installer をクリック","c");
+                photo(0,"そしたらダウンロードフォルダにあるインストーラをクリックしましょう","c");
+                </script>
+              </div>
+              <div id="tabs-1">
+                <script>
+                document.write("<img alt='No image' src='image/c0/gcc.png' width='50%'>");
+                photo(0,"こんなんでたら Install をクリック","c");
+                </script>
+              </div>
+              <div id="tabs-2">
+                <script>
+                document.write("<img alt='No image' src='image/c0/gcc2.png'>");
+                photo(0,"とりあえず continue","c");
+                </script>
+              </div>
+              <div id="tabs-3">
+                <script>
+                document.write("<img alt='No image' src='image/c0/gcc3.png'>");
+                photo(0,"ダウンロードが完了したら、安定の continue<br>デスクトップに勝手にショートカットが追加されて次のアプリが起動します","c");
+                </script>
+              </div>
+              <div id="tabs-4">
+                <script>
+                document.write("<img alt='No image' src='image/c0/gcc4.png' width='80%'>");
+                photo(0,"mingw32-baseをクリックするとメニューが表示されるので、Mark for Installation をクリック","c");
+                </script>
+              </div>
+              <div id="tabs-5">
+                <script>
+                document.write("<img alt='No image' src='image/c0/gcc5.png' width='80%'>");
+                photo(0,"mingw32-gcc-g++ も同じように<br>とりまこの二つでOKですが、欲しいものがあればクリックしてどうぞ","c");
+                </script>
+              </div>
+              <div id="tabs-6">
+                <script>
+                document.write("<img alt='No image' src='image/c0/gcc6.png' width='80%'>");
+                photo(0,"上のメニューの Installtion から Apply Changes をクリック","c");
+                </script>
+              </div>
+              <div id="tabs-7">
+                <script>
+                document.write("<img alt='No image' src='image/c0/gcc7.png'>");
+                photo(0,"Apply をクリック","c")
+                </script>
+              </div>
+              <div id="tabs-8">
+                <script>
+                document.write("<img alt='No image' src='image/c0/gcc8.png'>");
+                photo(0,"ダウンロードが完了したら Close をクリック<br>ここもネット環境必要です.画像のは失敗してますが無視してください","c");
+                </script>
+              </div>
+            -->
+            <script>
               photo(0,"まずは<a href='http://www.mingw.org' target='_blank'>公式HP<i class='fa fa-external-link'></i></a>からインストーラを入手しよう<br>画面右上の Download Installer をクリック","c");
               photo(0,"そしたらダウンロードフォルダにあるインストーラをクリックしましょう","c");
               document.write("<img alt='No image' src='image/c0/gcc.png' width='50%'>");
@@ -63,11 +134,20 @@
               photo(0,"Apply をクリック","c")
               document.write("<img alt='No image' src='image/c0/gcc8.png'>");
               photo(0,"ダウンロードが完了したら Close をクリック<br>ここもネット環境必要です.画像のは失敗してますが無視してください","c");
+
               photo(1,"長かったですね. でもようやくこれでgccが...","c");
               photo(0,"<font style='color:red; font-size:large;'>できましぇ〜ん</font><br>Windowsだとダウンロードとは別に環境設定が必要です","c");
             </script>
+            <!--
+            <script>
+              //タブの調整
+              var tabnames = ["#tabs-0"];
+              for(var i=0;i<=8;i++){tabnames[i]="#tabs-"+String(i);}
+              tabchange(tabnames,tabnames[0]);
+            </script>
+          -->
           </div>
-          <div id="tab1" class="Mac">
+          <div id="tab-1" class="Mac">
             <script>
               photo(0,"まずはApp Storeから<a href='https://itunes.apple.com/jp/app/xcode/id497799835?mt=12' target='_blank'>Xcode</a>をダウンロード！<br>数時間かかるから時間のあるときに。スリープ入るとダウンロード進まないので気をつけて下さい","c");
               photo(1,"アプリの「システム環境設定(歯車)」→「省エネルギー」→「可能な限りはハードディスクをスリープさせる」のチェックを外せば放置しても大丈夫です。","c");
@@ -89,7 +169,7 @@ $ xcode-select --install
               photo(0,"xcodeから↑を聞かれると思うので、「インストール」を選択し、完了すればgccも使えます ","c");
             </script>
           </div>
-          <div id="tab2" class="Linux">
+          <div id="tab-2" class="Linux">
             <script>
             photo(1,"毒々しい色ですね","c");
             photo(0,"Ubuntu意識したらこうなった<br>gccの設定です。まだ入れてないって人は、ターミナルを起動して、以下のコマンドをうって下さい","c");
@@ -113,6 +193,13 @@ $ yum install gcc
             </script>
           </div>
         </div>
+        <script>
+          //タブの調整
+          var tabs=["#tab-0","#tab-1","#tab-2"];
+          var osnum=OSjudge("number");
+          if(osnum==-1)osnum=0;
+          tabchange(tabs,tabs[osnum]);
+        </script>
         <p style="margin-left:45px;">↓引用元</p>
         <div class="husen" style="display:inline-block; margin-left: 50px;">
           <a href="http://webkaru.net/clang/setup/" target="_blank" style="display:block;">c言語入門 > 環境の構築 > 開発環境の構築 <i class='fa fa-external-link'></i></a>
@@ -121,24 +208,24 @@ $ yum install gcc
 
       <h3 class="underline" id="headline-1">実行方法</h3>
       <ul class="tabs">
-        <li class="Windowstab" onclick="tabchange(tabs1,'#tab1-1')"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</li>
-        <li class="Mactab" onclick="tabchange(tabs1,'#tab1-2')"><i class="fa fa-apple" style="margin-right:2px;"></i>Mac</li>
-        <li class="Linuxtab" onclick="tabchange(tabs1,'#tab1-3')"><i class="fa fa-linux" style="margin-right:2px;"></i>Linux</li>
+        <li class="Windowstab" onclick="tabchange(tabs1,'#tab1-0')"><i class="fa fa-windows" style="margin-right:2px;"></i>Windows</li>
+        <li class="Mactab" onclick="tabchange(tabs1,'#tab1-1')"><i class="fa fa-apple" style="margin-right:2px;"></i>Mac</li>
+        <li class="Linuxtab" onclick="tabchange(tabs1,'#tab1-2')"><i class="fa fa-linux" style="margin-right:2px;"></i>Linux</li>
       </ul>
       <div style="clear:both;"></div>
       <div style="margin-left:40px;">
-        <div class="Windows" id="tab1-1">
+        <div class="Windows" id="tab1-0">
           <script>
             photo(1,"えーマジunix以外!?","c")
             photo(0,"unix以外が許されるのは小学生までだよね!","c");
           </script>
         </div>
-        <div class="Mac" id="tab1-2">
+        <div class="Mac" id="tab1-1">
           <script>
             photo(0,"unix系なのでLinuxと同じです.","c");
           </script>
         </div>
-        <div class="Linux" id="tab1-3">
+        <div class="Linux" id="tab1-2">
           <script>
             photo(0,"unix系なのでLinuxと同じです.","c");
           </script>
@@ -146,7 +233,7 @@ $ yum install gcc
       </div>
       <script>
         //タブの調整
-        var tabs1=["#tab1-1","#tab1-2","#tab1-3"];
+        var tabs1=["#tab1-0","#tab1-1","#tab1-2"];
         tabchange(tabs1,tabs1[0]);
       </script>
     </div><!-- ↑メインウィンドウ -->

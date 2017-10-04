@@ -30,6 +30,22 @@ pre.syntax{
     box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);/*影を小さく*/
     border-bottom: none;
 }
+
+/*リストのボタン*/
+.li-btn li {
+  float:left; display: block;
+	margin-right:3px;
+	list-style-type:none; text-decoration: none;
+  border-radius: 3px;
+  cursor: pointer;
+	background-color: rgba(255, 255, 255,0.8); color: rgb(0, 0, 0);
+}
+.li-btn li :hover{
+  opacity: 0.5;
+}
+.li-btn-c li{
+	background-color: rgba(0, 0, 0,1); color: rgb(255, 255, 255);
+}
 /* ↓見出し用 https://saruwakakun.com/html-css/reference/box#section4 */
 .dashbox{
 	position: relative; padding: 0.2em 0.5em; margin: 10px;

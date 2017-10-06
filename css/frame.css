@@ -32,19 +32,21 @@ pre.syntax{
 }
 
 /*リストのボタン*/
-.li-btn li {
+.li-btn {
+	font-size: 15px;
   float:left; display: block;
-	margin-right:3px;
-	list-style-type:none; text-decoration: none;
-  border-radius: 3px;
+	margin:3px; padding:2px 13px;
+	list-style-type:none;
+	border-radius: 50%;
   cursor: pointer;
 	background-color: rgba(255, 255, 255,0.8); color: rgb(0, 0, 0);
 }
-.li-btn li :hover{
+.li-btn:hover{
   opacity: 0.5;
 }
-.li-btn-c li{
-	background-color: rgba(0, 0, 0,1); color: rgb(255, 255, 255);
+.li-btn-c {
+	border: solid 3px black;
+	cursor:text;
 }
 /* ↓見出し用 https://saruwakakun.com/html-css/reference/box#section4 */
 .dashbox{

@@ -52,7 +52,7 @@ function OSjudge(style){//OSの判定
     else if(style=="number")return 2;
   }
   else {
-    if(style=="number")return -1;
+    if(style=="number")return 0;//とりあえずwindowsとして考える
     return 'unknown';
   }
 }
@@ -72,31 +72,40 @@ function browserjudge(){//使用中のブラウザ判定
     return 'gecko';
     } else return false;
 }
-//タブ
-$(function(){
-  $("#tabcontents div").hide();//一度全て消す
-  var youros=["Windows","Mac","Linux"];
-  var shown="false";
-  for(var i=0;i<3;i++){
-    if(youros[i]==OSjudge()){
-      $("#tab"+String(i)).fadeIn();shown="true";
-    }
-  }
-  if(shown=="false"){$("#tab0").fadeIn();}
-  $(".tab li").click(function(){
-    $("#tabcontents div").hide();//一度全て消す
-    var target=$(this).offset().top;
-    target-=60;
-    $("html, body").animate({scrollTop:target},5);
-    $("#tab"+$(this).index()).fadeIn();
-    return true;
-  });
-});
 
-function tabchange(allname,curname){//任意のタブ(圧倒的語彙力)
+function tabchange(allname,curname,addclass,linow){//任意のタブ(圧倒的語彙力)
   var hidenum=allname.length;
-  for(var i=0;i<hidenum;i++){$(allname[i]).hide();}//とりま全部消す
-  if(curname!=null){
-    $(curname).fadeIn();
+  var curnum=0;
+  //if(addclass!=null){$("."+addclass).removeClass(addclass);}
+  for(var i=0;i<hidenum;i++){
+    $(allname[i]).hide();
+    // if(allname[i]==curname){$(ulid+" ul li:eq("+i+")").addClass(addclass);}
+  }
+  if(curname!=null){$(curname).fadeIn();}//表示
+  if(addclass!=null){//クラスの追加
+    $("."+addclass).removeClass(addclass);
+    $(linow).addClass(addclass);
+    console.log(linow);
   }
 }
+
+// //旧タブ
+// $(function(){
+//   $("#tabcontents div").hide();
+//   var youros=["Windows","Mac","Linux"];
+//   var shown="false";
+//   for(var i=0;i<3;i++){
+//     if(youros[i]==OSjudge()){
+//       $("#tab"+String(i)).fadeIn();shown="true";
+//     }
+//   }
+//   if(shown=="false"){$("#tab0").fadeIn();}
+//   $(".tab li").click(function(){
+//     $("#tabcontents div").hide();
+//     var target=$(this).offset().top;
+//     target-=60;
+//     $("html, body").animate({scrollTop:target},5);
+//     $("#tab"+$(this).index()).fadeIn();
+//     return true;
+//   });
+// });

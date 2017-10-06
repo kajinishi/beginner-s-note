@@ -261,7 +261,7 @@ body {
 #tabcontents div {margin-left:40px;margin-right:10px; padding-left:5px;}
 .Windows{
   border: solid 3px #00BCF3;
-  background-color: white;
+  background-color: #00BCF3;
 }
 .Windowstab{background-color: #00BCF3; color: white;}
 .Mac{

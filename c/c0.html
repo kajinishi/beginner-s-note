@@ -47,19 +47,17 @@
             <script>
               photo(0,"ここではgccのインストールの説明をします","c");
             </script>
-            <!--
-            <ul class="li-btn">
+            <ul id="tabs">
               <script>
                 for(var i=0;i<=8;i++){
-                  var onfunc="tabchange(tabnames,'#tabs-"+i+"')";
-                  document.write("<li onclick="+onfunc+">"+(i+1)+"</li>");
-                  console.log("onclick="+onfunc);
+                  var onfunc="tabchange(tabnames,'#tabs-"+i+"','li-btn-c',this); " , liclass="li-btn";
+                  if(i==0)liclass+=" li-btn-c";
+                  document.write("<li class=' "+liclass+"  ' onclick= "+onfunc+"  >"+(i+1)+"</li>");
                 }
               </script>
             </ul>
             <div style="clear:both;"></div>
-            <div style="margin-left:40px;">
-
+            <div style="margin-left:20px;margin-right:20px; background-color: white;">
               <div id="tabs-0">
                 <script>
                 photo(0,"まずは<a href='http://www.mingw.org' target='_blank'>公式HP<i class='fa fa-external-link'></i></a>からインストーラを入手しよう<br>画面右上の Download Installer をクリック","c");
@@ -80,25 +78,25 @@
               </div>
               <div id="tabs-3">
                 <script>
-                document.write("<img alt='No image' src='image/c0/gcc3.png'>");
+                document.write("<img alt='No image' src='image/c0/gcc3.png' width='40%'>");
                 photo(0,"ダウンロードが完了したら、安定の continue<br>デスクトップに勝手にショートカットが追加されて次のアプリが起動します","c");
                 </script>
               </div>
               <div id="tabs-4">
                 <script>
-                document.write("<img alt='No image' src='image/c0/gcc4.png' width='80%'>");
+                document.write("<img alt='No image' src='image/c0/gcc4.png' width='70%'>");
                 photo(0,"mingw32-baseをクリックするとメニューが表示されるので、Mark for Installation をクリック","c");
                 </script>
               </div>
               <div id="tabs-5">
                 <script>
-                document.write("<img alt='No image' src='image/c0/gcc5.png' width='80%'>");
+                document.write("<img alt='No image' src='image/c0/gcc5.png' width='70%'>");
                 photo(0,"mingw32-gcc-g++ も同じように<br>とりまこの二つでOKですが、欲しいものがあればクリックしてどうぞ","c");
                 </script>
               </div>
               <div id="tabs-6">
                 <script>
-                document.write("<img alt='No image' src='image/c0/gcc6.png' width='80%'>");
+                document.write("<img alt='No image' src='image/c0/gcc6.png' width='70%'>");
                 photo(0,"上のメニューの Installtion から Apply Changes をクリック","c");
                 </script>
               </div>
@@ -111,11 +109,18 @@
               <div id="tabs-8">
                 <script>
                 document.write("<img alt='No image' src='image/c0/gcc8.png'>");
-                photo(0,"ダウンロードが完了したら Close をクリック<br>ここもネット環境必要です.画像のは失敗してますが無視してください","c");
+                photo(0,"ダウンロードが完了したら Close をクリック<br>ここもネット環境必要です.画像のはネット環境なくて失敗してますが無視してください","c");
                 </script>
               </div>
-            -->
+            </div>
             <script>
+              //タブの調整
+              var tabnames = ["#tabs-0"];
+              for(var i=0;i<=8;i++){tabnames[i]="#tabs-"+String(i);}
+              tabchange(tabnames,tabnames[0]);
+            </script>
+            <script>
+            /*
               photo(0,"まずは<a href='http://www.mingw.org' target='_blank'>公式HP<i class='fa fa-external-link'></i></a>からインストーラを入手しよう<br>画面右上の Download Installer をクリック","c");
               photo(0,"そしたらダウンロードフォルダにあるインストーラをクリックしましょう","c");
               document.write("<img alt='No image' src='image/c0/gcc.png' width='50%'>");
@@ -134,18 +139,10 @@
               photo(0,"Apply をクリック","c")
               document.write("<img alt='No image' src='image/c0/gcc8.png'>");
               photo(0,"ダウンロードが完了したら Close をクリック<br>ここもネット環境必要です.画像のは失敗してますが無視してください","c");
-
+            */
               photo(1,"長かったですね. でもようやくこれでgccが...","c");
               photo(0,"<font style='color:red; font-size:large;'>できましぇ〜ん</font><br>Windowsだとダウンロードとは別に環境設定が必要です","c");
             </script>
-            <!--
-            <script>
-              //タブの調整
-              var tabnames = ["#tabs-0"];
-              for(var i=0;i<=8;i++){tabnames[i]="#tabs-"+String(i);}
-              tabchange(tabnames,tabnames[0]);
-            </script>
-          -->
           </div>
           <div id="tab-1" class="Mac">
             <script>

@@ -48,6 +48,7 @@ pre.syntax{
 	border: solid 3px black;
 	cursor:text;
 }
+.li-btn-c2{border: solid 3px black;cursor:text;}
 /* ↓見出し用 https://saruwakakun.com/html-css/reference/box#section4 */
 .dashbox{
 	position: relative; padding: 0.2em 0.5em; margin: 10px;

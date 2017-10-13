@@ -76,16 +76,14 @@ function browserjudge(){//使用中のブラウザ判定
 function tabchange(allname,curname,addclass,linow){//任意のタブ(圧倒的語彙力)
   var hidenum=allname.length;
   var curnum=0;
-  //if(addclass!=null){$("."+addclass).removeClass(addclass);}
   for(var i=0;i<hidenum;i++){
     $(allname[i]).hide();
-    // if(allname[i]==curname){$(ulid+" ul li:eq("+i+")").addClass(addclass);}
   }
   if(curname!=null){$(curname).fadeIn();}//表示
   if(addclass!=null){//クラスの追加
     $("."+addclass).removeClass(addclass);
     $(linow).addClass(addclass);
-    console.log(linow);
+    // console.log(linow);
   }
 }
 

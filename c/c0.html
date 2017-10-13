@@ -61,7 +61,7 @@
               <div id="tabs-0">
                 <script>
                 photo(0,"まずは<a href='http://www.mingw.org' target='_blank'>公式HP<i class='fa fa-external-link'></i></a>からインストーラを入手しよう<br>画面右上の Download Installer をクリック","c");
-                photo(0,"そしたらダウンロードフォルダにあるインストーラをクリックしましょう","c");
+                photo(0,"ダウンロードできたら、ダウンロードフォルダにあるインストーラをクリックしましょう","c");
                 </script>
               </div>
               <div id="tabs-1">
@@ -120,34 +120,80 @@
               tabchange(tabnames,tabnames[0]);
             </script>
             <script>
-            /*
-              photo(0,"まずは<a href='http://www.mingw.org' target='_blank'>公式HP<i class='fa fa-external-link'></i></a>からインストーラを入手しよう<br>画面右上の Download Installer をクリック","c");
-              photo(0,"そしたらダウンロードフォルダにあるインストーラをクリックしましょう","c");
-              document.write("<img alt='No image' src='image/c0/gcc.png' width='50%'>");
-              photo(0,"こんなんでたら Install をクリック","c");
-              document.write("<img alt='No image' src='image/c0/gcc2.png'>");
-              photo(0,"とりあえず continue","c");
-              document.write("<img alt='No image' src='image/c0/gcc3.png'>");
-              photo(0,"ダウンロードが完了したら、安定の continue<br>デスクトップに勝手にショートカットが追加されて次のアプリが起動します","c");
-              document.write("<img alt='No image' src='image/c0/gcc4.png' width='80%'>");
-              photo(0,"mingw32-baseをクリックするとメニューが表示されるので、Mark for Installation をクリック","c");
-              document.write("<img alt='No image' src='image/c0/gcc5.png' width='80%'>");
-              photo(0,"mingw32-gcc-g++ も同じように<br>とりまこの二つでOKですが、欲しいものがあればクリックしてどうぞ","c");
-              document.write("<img alt='No image' src='image/c0/gcc6.png' width='80%'>");
-              photo(0,"上のメニューの Installtion から Apply Changes をクリック","c");
-              document.write("<img alt='No image' src='image/c0/gcc7.png'>");
-              photo(0,"Apply をクリック","c")
-              document.write("<img alt='No image' src='image/c0/gcc8.png'>");
-              photo(0,"ダウンロードが完了したら Close をクリック<br>ここもネット環境必要です.画像のは失敗してますが無視してください","c");
-            */
               photo(1,"長かったですね. でもようやくこれでgccが...","c");
               photo(0,"<font style='color:red; font-size:large;'>できましぇ〜ん</font><br>Windowsだとダウンロードとは別に環境設定が必要です","c");
+            </script>
+            <ul id="tabs2">
+              <script>
+                for(var i=0;i<=7;i++){
+                  var onfunc="tabchange(tabnames2,'#tabs2-"+i+"','li-btn-c2',this); " , liclass="li-btn";
+                  if(i==0)liclass+=" li-btn-c2";
+                  document.write("<li class=' "+liclass+"  ' onclick= "+onfunc+"  >"+(i+1)+"</li>");
+                }
+              </script>
+            </ul>
+            <div style="clear:both;"></div>
+            <div style="margin-left:20px;margin-right:20px; background-color: white;">
+              <div id="tabs2-0">
+                <script>
+                document.write("<img alt='No image' src='image/c0/環境設定/1.PNG' width='40%'>");
+                photo(0,"画面左下のwindowsのロゴを右クリックして「コントロールパネル」をクリック","c");
+                </script>
+              </div>
+              <div id="tabs2-1">
+                <script>
+                document.write("<img alt='No image' src='image/c0/環境設定/2.PNG' width='70%'>");
+                photo(0,"「システムとセキュリティ」をクリック","c");
+                </script>
+              </div>
+              <div id="tabs2-2">
+                <script>
+                document.write("<img alt='No image' src='image/c0/環境設定/3.PNG' width='70%'>");
+                photo(0,"「システム」をクリック","c");
+                </script>
+              </div>
+              <div id="tabs2-3">
+                <script>
+                document.write("<img alt='No image' src='image/c0/環境設定/4.PNG' width='70%'>");
+                photo(0,"左側にある「システムの詳細設定」をクリック","c");
+                </script>
+              </div>
+              <div id="tabs2-4">
+                <script>
+                document.write("<img alt='No image' src='image/c0/環境設定/5.PNG' width='40%'>");
+                photo(0,"「環境変数」をクリック<br>ここから先の設定を間違えてもキャンセルを押せば保存されないので安心してください","c");
+                </script>
+              </div>
+              <div id="tabs2-5">
+                <script>
+                document.write("<img alt='No image' src='image/c0/環境設定/6.PNG' width='50%'>");
+                photo(0,"画面下側の「システム環境変数」の「Path」をクリックし、「編集」をクリック","c");
+                </script>
+              </div>
+              <div id="tabs2-6">
+                <script>
+                document.write("<img alt='No image' src='image/c0/環境設定/7.PNG' width='50%'>");
+                photo(0,"「新規」をクリックし、「C;¥MinGW¥bin」と入力。そんで「OK」をクリック","c");
+                </script>
+              </div>
+              <div id="tabs2-7">
+                <script>
+                document.write("<img alt='No image' src='image/c0/環境設定/8.PNG' width='50%'>");
+                photo(0,"もう一回「OK」をクリック","c");
+                </script>
+              </div>
+            </div>
+            <script>
+              //タブの調整
+              var tabnames2 = ["#tabs2-0"];
+              for(var i=0;i<=7;i++){tabnames2[i]="#tabs2-"+String(i);}
+              tabchange(tabnames2,tabnames2[0]);
             </script>
           </div>
           <div id="tab-1" class="Mac">
             <script>
               photo(0,"まずはApp Storeから<a href='https://itunes.apple.com/jp/app/xcode/id497799835?mt=12' target='_blank'>Xcode</a>をダウンロード！<br>数時間かかるから時間のあるときに。スリープ入るとダウンロード進まないので気をつけて下さい","c");
-              photo(1,"アプリの「システム環境設定(歯車)」→「省エネルギー」→「可能な限りはハードディスクをスリープさせる」のチェックを外せば放置しても大丈夫です。","c");
+              photo(1,"アプリの「システム環境設定(歯車っぽいやつ)」→「省エネルギー」→「可能な限りはハードディスクをスリープさせる」のチェックを外せば放置しても大丈夫です。","c");
               photo(0,"ダウンロードが完了すれば自動的にgccが入るはず。一応、ターミナルで以下のコマンドを入力して確認してみましょう","c");
               photo(1,"$ は含めないで下さい。<br>$が始めにあるとユーザーが入力するコマンド、何もないとターミナルに出力された文字列です。","c");
             </script>
@@ -193,9 +239,7 @@ $ yum install gcc
         <script>
           //タブの調整
           var tabs=["#tab-0","#tab-1","#tab-2"];
-          var osnum=OSjudge("number");
-          if(osnum==-1)osnum=0;
-          tabchange(tabs,tabs[osnum]);
+          tabchange(tabs,tabs[OSjudge("number")]);
         </script>
         <p style="margin-left:45px;">↓引用元</p>
         <div class="husen" style="display:inline-block; margin-left: 50px;">
@@ -231,7 +275,7 @@ $ yum install gcc
       <script>
         //タブの調整
         var tabs1=["#tab1-0","#tab1-1","#tab1-2"];
-        tabchange(tabs1,tabs1[0]);
+        tabchange(tabs1,tabs1[OSjudge("number")]);
       </script>
     </div><!-- ↑メインウィンドウ -->
     <div id="sideWrap"><!-- ↓サブウィンドウ -->

@@ -76,14 +76,11 @@ function browserjudge(){//使用中のブラウザ判定
 function tabchange(allname,curname,addclass,linow){//任意のタブ(圧倒的語彙力)
   var hidenum=allname.length;
   var curnum=0;
-  for(var i=0;i<hidenum;i++){
-    $(allname[i]).hide();
-  }
+  for(var i=0;i<hidenum;i++){$(allname[i]).hide();}
   if(curname!=null){$(curname).fadeIn();}//表示
   if(addclass!=null){//クラスの追加
     $("."+addclass).removeClass(addclass);
     $(linow).addClass(addclass);
-    // console.log(linow);
   }
 }
 

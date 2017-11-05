@@ -20,10 +20,9 @@
   </head>
 
   <body><!-- link="tomato" vlink="orchid" alink="hotpink" -->
-    <div style="display:inline-block;margin-left:10px;margin-top:60px; border-left: 5px solid rgb(222, 156, 156); border-bottom: 1px solid rgb(227, 159, 159);">文字列を貼り付けたら、それに対応するテーブルタブを作成するページです。</div>
+    <div style="display:inline-block;padding:5px;margin-left:10px;margin-top:60px; border-left: 5px solid rgb(222, 156, 156); border-bottom: 1px solid rgb(227, 159, 159);">文字列を貼り付けたら、それに対応するテーブルタブを作成するページです。</div>
     <div style="clear:both;"></div>
-    <div style="margin-top:60px;display:inline-block; position:relative;">
-      <!-- <font style=" margin-left:10px; border-left: 5px solid rgb(222, 156, 156); border-bottom: 1px solid rgb(227, 159, 159);"></font> -->
+    <div style="margin-top:0px;display:inline-block; position:relative;">
       <div style="margin-left:5px;">
         <label style="cursor: pointer;">
           <input type="radio" name="tableborder" value="border-collapse: collapse;" checked="checked" style="cursor: pointer;">枠を重ねる
@@ -37,16 +36,20 @@
           <option value="border-collapse: separate;">枠を分離</option>
         </select> -->
       </div>
-      <textarea style="margin-left:5px;overflow:scroll;" id="message" cols="60" rows="20" placeholder="区切りは半角スペースか半角コンマ(,)。半角、全角は区別されます"></textarea>
+      <textarea style="margin-left:5px;overflow:scroll;" id="message" cols="60" rows="20" placeholder=""></textarea>
       <div style="display:inline-block;position:absolute;right:-165px;top:120px;border-top:solid 4px rgb(240, 73, 73);border-bottom:solid 4px rgb(240, 73, 73);">
         ↓ボタンをクリック！<br>
-        <button type="button" name="space" onclick="stringsplit(' ');">区切りは半角スペース</button><br>
-        <button type="button" name="space" onclick="stringsplit(',');">区切りは半角コンマ( , )</button><br>
+        <form name="splitnum">
+          <button type="button" name="space" onclick="stringsplit(' ');">区切りは半角スペース</button><br>
+          <button type="button" name="space" onclick="stringsplit(',');">区切りは半角コンマ( , )</button><br>
+          <input type="text" name="split" value=""><br>
+          <button type="button" name="space" onclick="stringsplit(document.splitnum.split.value);">↑で入力したもの</button>
+        </form>
         ➡︎➡︎➡︎➡︎➡︎➡︎➡︎➡︎➡︎➡︎
       </div>
     </div>
     <div style="margin-top:60px;margin-left:170px;display:inline-block;">
-      <label class="freehand1">結果表示</label><br>
+      <label class="freehand1">HTMLコード</label><br>
       <textarea id="tabletag" style="overflow:scroll;" cols="60" rows="20" placeholder="ここに出力されます"></textarea>
     </div>
     <div style="clear:both;"></div>

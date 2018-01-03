@@ -72,7 +72,7 @@ function browserjudge(){//使用中のブラウザ判定
     return 'gecko';
     } else return false;
 }
-
+//タブ
 function tabchange(allname,curname,addclass,linow){//任意のタブ(圧倒的語彙力)
   var hidenum=allname.length;
   var curnum=0;
@@ -83,7 +83,6 @@ function tabchange(allname,curname,addclass,linow){//任意のタブ(圧倒的�
     $(linow).addClass(addclass);
   }
 }
-
 // //旧タブ
 // $(function(){
 //   $("#tabcontents div").hide();
@@ -104,3 +103,16 @@ function tabchange(allname,curname,addclass,linow){//任意のタブ(圧倒的�
 //     return true;
 //   });
 // });
+
+//選択 (クリックしたら全選択になる)
+$(function(){ //参考: http://konyu.hatenablog.com/entry/2015/04/05/235432
+  $('.selectedClass').click(function(){selectDomElm(this);}); //クラス選択
+  $('#selectedID').click(function(){selectDomElm(this);}); //ID
+});
+function selectDomElm(obj){
+  var range = document.createRange(); // Rangeオブジェクトの取得
+  range.selectNodeContents(obj); // 範囲の指定
+  var selection = window.getSelection(); // Selectionオブジェクトを返す(ユーザが選択した範囲)
+  selection.removeAllRanges(); // 選択をすべてクリア
+  selection.addRange(range); // 新規の範囲を選択に指定
+}
